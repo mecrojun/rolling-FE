@@ -57,89 +57,89 @@ export const theme = {
   },
 
   fonts: {
-    "28b": `
-      font-family: Pretendard;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 42px;
-    `,
-    "24b": `
-      font-family: Pretendard;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 36px;
-    `,
-    "24r": `
-      font-family: Pretendard;
-      font-size: 24px;
-      font-weight: 400;
-      line-height: 36px;
-    `,
-    "20b": `
-      font-family: Pretendard;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 30px;
-    `,
-    "20r": `
-      font-family: Pretendard;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 30px;
-    `,
-    "18b": `
-      font-family: Pretendard;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 28px;
-    `,
-    "18r": `
-      font-family: Pretendard;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 28px;
-    `,
-    "16b": `
-      font-family: Pretendard;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 26px;
-    `,
-    "16r": `
-      font-family: Pretendard;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 26px;
-    `,
-    "15b": `
-      font-family: Pretendard;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 22px;
-    `,
-    "15r": `
-      font-family: Pretendard;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 22px;
-    `,
-    "14b": `
-      font-family: Pretendard;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 20px;
-    `,
-    "14r": `
-      font-family: Pretendard;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
-    `,
-    "12r": `
-      font-family: Pretendard;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-    `,
+    "28b": {
+      fontFamily: "Pretendard",
+      fontSize: "28px",
+      fontWeight: 700,
+      lineHeight: "42px",
+    },
+    "24b": {
+      fontFamily: "Pretendard",
+      fontSize: "24px",
+      fontWeight: 700,
+      lineHeight: "36px",
+    },
+    "24r": {
+      fontFamily: "Pretendard",
+      fontSize: "24px",
+      fontWeight: 400,
+      lineHeight: "36px",
+    },
+    "20b": {
+      fontFamily: "Pretendard",
+      fontSize: "20px",
+      fontWeight: 700,
+      lineHeight: "30px",
+    },
+    "20r": {
+      fontFamily: "Pretendard",
+      fontSize: "20px",
+      fontWeight: 400,
+      lineHeight: "30px",
+    },
+    "18b": {
+      fontFamily: "Pretendard",
+      fontSize: "18px",
+      fontWeight: 700,
+      lineHeight: "28px",
+    },
+    "18r": {
+      fontFamily: "Pretendard",
+      fontSize: "18px",
+      fontWeight: 400,
+      lineHeight: "28px",
+    },
+    "16b": {
+      fontFamily: "Pretendard",
+      fontSize: "16px",
+      fontWeight: 700,
+      lineHeight: "26px",
+    },
+    "16r": {
+      fontFamily: "Pretendard",
+      fontSize: "16px",
+      fontWeight: 400,
+      lineHeight: "26px",
+    },
+    "15b": {
+      fontFamily: "Pretendard",
+      fontSize: "15px",
+      fontWeight: 700,
+      lineHeight: "22px",
+    },
+    "15r": {
+      fontFamily: "Pretendard",
+      fontSize: "15px",
+      fontWeight: 400,
+      lineHeight: "22px",
+    },
+    "14b": {
+      fontFamily: "Pretendard",
+      fontSize: "14px",
+      fontWeight: 700,
+      lineHeight: "20px",
+    },
+    "14r": {
+      fontFamily: "Pretendard",
+      fontSize: "14px",
+      fontWeight: 400,
+      lineHeight: "20px",
+    },
+    "12r": {
+      fontFamily: "Pretendard",
+      fontSize: "12px",
+      fontWeight: 400,
+      lineHeight: "18px",
+    },
   },
 };
