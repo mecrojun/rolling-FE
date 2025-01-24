@@ -7,15 +7,18 @@ function Header() {
     <header
       style={{
         width: "100%",
+        height: "65px",
+        maxWidth: "1200px",
         display: "flex",
         justifyContent: "space-between",
         position: "fixed",
         backgroundColor: "gray",
-        padding: "11px 0px",
+        padding: "11px 24px",
         top: "0",
-        left: "0",
+        left: "50%",
+        transform: "translateX(-50%)",
         zIndex: "10",
-        margin: "0",
+        margin: "0 auto",
         alignItems: "center",
       }}
     >
