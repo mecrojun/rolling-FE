@@ -55,4 +55,91 @@ export const theme = {
       900: "#181818",
     },
   },
+
+  fonts: {
+    "28b": `
+      font-family: Pretendard;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 42px;
+    `,
+    "24b": `
+      font-family: Pretendard;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    `,
+    "24r": `
+      font-family: Pretendard;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    `,
+    "20b": `
+      font-family: Pretendard;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+    `,
+    "20r": `
+      font-family: Pretendard;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+    `,
+    "18b": `
+      font-family: Pretendard;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 28px;
+    `,
+    "18r": `
+      font-family: Pretendard;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+    `,
+    "16b": `
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+    `,
+    "16r": `
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+    `,
+    "15b": `
+      font-family: Pretendard;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 22px;
+    `,
+    "15r": `
+      font-family: Pretendard;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 22px;
+    `,
+    "14b": `
+      font-family: Pretendard;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+    `,
+    "14r": `
+      font-family: Pretendard;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    `,
+    "12r": `
+      font-family: Pretendard;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+    `,
+  },
 };
