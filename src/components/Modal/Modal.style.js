@@ -16,7 +16,7 @@ export const Container = styled.div`
   align-items: center;
 
   border-radius: 16px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 12px 0px #00000014;
 
   padding: 40px;
@@ -31,7 +31,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray[300]};
 `;
 
 export const ProfileWrapper = styled.div`
@@ -50,11 +50,13 @@ export const TitleWrapper = styled.div`
   gap: 6px;
 `;
 
-// TODO: 폰트 테마 적용
-export const Title = styled.div``;
+export const Title = styled.div`
+  ${({ theme }) => theme.fonts["20r"]};
+`;
 
-// TODO: 폰트 테마 적용
-export const Name = styled.span``;
+export const Name = styled.span`
+  ${({ theme }) => theme.fonts["20b"]};
+`;
 
 export const Badge = styled.div``;
 
@@ -64,18 +66,20 @@ export const ProfileImage = styled.div`
   background-image: url(${(props) => props.image});
   background-size: cover;
   border-radius: 100px;
-  outline: 1px solid #eeeeee;
+  outline: 1px solid ${({ theme }) => theme.colors.gray[200]};
 `;
 
-// TODO: 테마 폰트 적용하기. 사용자가 폰트를 지정할 수 있으니, 고려해서 변경.
-export const DateContainer = styled.div``;
+export const DateContainer = styled.div`
+  ${({ theme }) => theme.fonts["14r"]};
+  color: ${({ theme }) => theme.colors.gray[400]};
+`;
 
-// TODO: 테마 폰트 적용하기
 export const Content = styled.div`
   width: 100%;
   height: 256px;
   overflow-y: scroll;
-
+  ${({ theme }) => theme.fonts["18r"]};
+  color: ${({ theme }) => theme.colors.gray[500]};
   margin-top: 16px;
 `;
 
@@ -83,8 +87,8 @@ export const Content = styled.div`
 export const Button = styled.button`
   width: 120px;
   height: 40px;
-  color: #ffffff;
-  background-color: #9935ff;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.purple[600]};
   border: 0px;
   border-radius: 6px;
   padding: 7px 16px;
