@@ -1,11 +1,12 @@
 import logo from "./logo.svg";
+import { LogoContainer, LogoText, LogoImage } from "./Logo.styled";
 
 function Logo() {
   return (
-    <div style={{ display: "flex", marginLeft: "24px", height: "42px" }}>
-      <img src={logo} alt="로고 이미지" />
-      <p>Rolling</p>
-    </div>
+    <LogoContainer>
+      <LogoImage src={logo} alt="로고 이미지" />
+      <LogoText>Rolling</LogoText>
+    </LogoContainer>
   );
 }
 
