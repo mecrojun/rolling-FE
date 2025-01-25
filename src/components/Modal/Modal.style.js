@@ -79,6 +79,7 @@ export const Content = styled.div`
   height: 256px;
   overflow-y: scroll;
   ${({ theme }) => theme.fonts["18r"]};
+  font-family: ${({ font }) => font};
   color: ${({ theme }) => theme.colors.gray[500]};
   margin-top: 16px;
 `;

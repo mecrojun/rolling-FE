@@ -48,13 +48,7 @@ function Modal({ message, handleClose }) {
         </ProfileWrapper>
         <DateContainer>{formatDate(createdAt)}</DateContainer>
       </Header>
-      <Content
-        style={{
-          fontFamily: font.includes(" ") ? `"${font}"` : font,
-        }}
-      >
-        {content}
-      </Content>
+      <Content font={font}>{content}</Content>
       <Button onClick={handleClose}>확인</Button>
     </Container>
   );
