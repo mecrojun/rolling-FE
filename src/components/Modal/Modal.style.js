@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// Container를 화면비가 다르더라도 항상 중앙에 위치하게 하려면??
-// Justify Content 수정
 export const Container = styled.div`
   position: absolute;
   top: 50%;
