@@ -1,3 +1,17 @@
+import {
+  Container,
+  Header,
+  Content,
+  Button,
+  ProfileWrapper,
+  ProfileImage,
+  Badge,
+  TitleWrapper,
+  Title,
+  Name,
+  DateContainer,
+} from "./Modal.style";
+
 function Modal({ message, handleClose }) {
   const {
     id,
@@ -10,26 +24,39 @@ function Modal({ message, handleClose }) {
     createdAt,
   } = message;
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}.${month}.${day}`;
+  };
+
   return (
-    <div className="Container">
-      <header className="header">
-        <img src={profileImageURL} className="profileImage" />
-        <div className="Container2">
-          <div className="sender">From. {sender}</div>
-          <div className="relationship">{relationship}</div>
-        </div>
-        <div className="date">{createdAt}</div>
-      </header>
-      <div
-        className="content"
+    <Container>
+      <Header>
+        <ProfileWrapper>
+          <ProfileImage $image={profileImageURL} />
+          <TitleWrapper>
+            <Title>
+              From. <Name>{sender}</Name>
+            </Title>
+            <Badge $relationship={relationship}>{relationship}</Badge>
+          </TitleWrapper>
+        </ProfileWrapper>
+        <DateContainer>{formatDate(createdAt)}</DateContainer>
+      </Header>
+      <Content
         style={{
           fontFamily: font.includes(" ") ? `"${font}"` : font,
         }}
       >
         {content}
-      </div>
-      <button onClick={handleClose}>확인</button>
-    </div>
+      </Content>
+      <Button onClick={handleClose}>확인</Button>
+    </Container>
   );
 }
 
