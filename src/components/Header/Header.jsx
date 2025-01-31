@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import { StyledHeader, StyledLink } from "./Header.styles";
 
 function Header() {
+  console.log(Header, StyledLink, Logo, HeaderButton);
   return (
     <StyledHeader>
       <StyledLink as={Link} to="/">

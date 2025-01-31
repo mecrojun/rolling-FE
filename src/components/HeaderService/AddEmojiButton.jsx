@@ -1,7 +1,5 @@
-import emoji from "./add-24.svg";
-
 function AddEmojiButton() {
-  return <button>{emoji}</button>;
+  return <button>dkdk</button>;
 }
 
 export default AddEmojiButton;
