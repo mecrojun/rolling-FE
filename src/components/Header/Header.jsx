@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import Logo from "./Logo";
-import { StyledHeader, StyledLink } from "./Header.styles";
+import { StyledHeader, StyledLink } from "./Header.style";
 
 function Header() {
   console.log(Header, StyledLink, Logo, HeaderButton);

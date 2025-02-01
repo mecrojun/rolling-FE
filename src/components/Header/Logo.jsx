@@ -1,10 +1,11 @@
-import logo from "./logo.svg";
-import { LogoContainer, LogoText, LogoImage } from "./Logo.styled";
+import LogoSVG from "./logo.svg";
+
+import { LogoContainer, LogoText, LogoImage } from "./Logo.style";
 
 function Logo() {
   return (
     <LogoContainer>
-      <LogoImage src={logo} alt="로고 이미지" />
+      <LogoImage src={LogoSVG} />
       <LogoText>Rolling</LogoText>
     </LogoContainer>
   );
