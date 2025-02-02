@@ -2,21 +2,35 @@ import To from "./To";
 import MessageCount from "./MessageCount";
 import ReactionBox from "./ReactionBox";
 import ShareButton from "./ShareButton";
-import { HeaderContainer } from "./HeaderService.style"; // 스타일
-import { ProfileImage } from "./ProfileImages.style";
 import ProfileImages from "./ProfileImages";
 import AddEmoji from "./AddEmoji";
+import {
+  HeaderContainer,
+  Line,
+  Section,
+  LeftSection,
+} from "./HeaderService.style";
+import { ArrowDownIcon } from "../Icons";
 
 function HeaderService() {
   return (
     <HeaderContainer>
-      <To name="Ashley Kim" messageCount={23} />
-      <ProfileImages />
-      <MessageCount messageCount={23} />
+      <LeftSection>
+        <To name="Ashley Kim" />
+        <Section>
+          <ProfileImages profileCount={6} />
+          <MessageCount messageCount={23} />
+        </Section>
+      </LeftSection>
 
-      <ReactionBox likeCount={24} heartCount={16} partyCount={10} />
-      <AddEmoji />
-      <ShareButton />
+      <Section>
+        <Line />
+        <ReactionBox likeCount={24} loveCount={16} partyCount={10} />
+        <ArrowDownIcon />
+        <AddEmoji />
+        <Line />
+        <ShareButton />
+      </Section>
     </HeaderContainer>
   );
 }

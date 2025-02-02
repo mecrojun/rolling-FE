@@ -1,11 +1,14 @@
 import { AddIcon } from "../Icons";
+import { Button, Section, Text } from "./AddEmoji.style";
 
 function AddEmoji() {
   return (
-    <button style={{ display: "flex" }}>
-      <AddIcon />
-      <p>추가</p>
-    </button>
+    <Button>
+      <Section>
+        <AddIcon />
+        <Text>추가</Text>
+      </Section>
+    </Button>
   );
 }
 

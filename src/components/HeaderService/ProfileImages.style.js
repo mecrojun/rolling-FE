@@ -6,16 +6,17 @@ export const ProfileImagesContainer = styled.div`
 `;
 
 export const ProfileImage = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  border: 1.4px solid white;
   object-fit: cover;
-  margin-right: -10px; // 이미지 간격을 좁히기 위해 마이너스 마진 사용
+  margin-right: -12px; // 이미지 간격을 좁히기 위해 마이너스 마진 사용
 `;
 
 export const PlusNumber = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   background-color: #ffffff;
   color: #333;
   display: flex;

@@ -4,10 +4,10 @@ import {
   PlusNumber,
 } from "./ProfileImages.style";
 
-function ProfileImages() {
+function ProfileImages({ profileCount }) {
   return (
     <ProfileImagesContainer>
-      {/* 프로필 이미지들 */}
+      {/*임시 프로필 이미지들 */}
       <ProfileImage
         src="https://randomuser.me/api/portraits/men/1.jpg"
         alt="profile1"
@@ -21,8 +21,7 @@ function ProfileImages() {
         alt="profile3"
       />
 
-      {/* +6 표시 */}
-      <PlusNumber>+6</PlusNumber>
+      <PlusNumber>+{profileCount}</PlusNumber>
     </ProfileImagesContainer>
   );
 }

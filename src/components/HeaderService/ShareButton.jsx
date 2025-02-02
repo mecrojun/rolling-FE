@@ -1,10 +1,11 @@
 import { ShareIcon } from "../Icons";
+import { Button } from "./ShareButton.style";
 
 function ShareButton() {
   return (
-    <button>
+    <Button>
       <ShareIcon />
-    </button>
+    </Button>
   );
 }
 

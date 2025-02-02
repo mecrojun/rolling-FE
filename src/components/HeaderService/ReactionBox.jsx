@@ -4,15 +4,15 @@ function Reaction({ likeCount, loveCount, partyCount }) {
   return (
     <ReactionBoxContainer>
       <ReactionBox>
-        <Icon src="https://via.placeholder.com/30?text=👍" alt="like" />
+        <Icon />
         <span>{likeCount}</span>
       </ReactionBox>
       <ReactionBox>
-        <Icon src="https://via.placeholder.com/30?text=😍" alt="love" />
+        <Icon />
         <span>{loveCount}</span>
       </ReactionBox>
       <ReactionBox>
-        <Icon src="https://via.placeholder.com/30?text=🎉" alt="party" />
+        <Icon />
         <span>{partyCount}</span>
       </ReactionBox>
     </ReactionBoxContainer>

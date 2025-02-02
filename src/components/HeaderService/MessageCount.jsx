@@ -1,5 +1,11 @@
+import { Count, Num } from "./MessageCount.style";
+
 function MessageCount({ messageCount }) {
-  return <div className="messageCount">{messageCount}명이 작성했어요!</div>;
+  return (
+    <Count>
+      <Num>{messageCount}</Num>명이 작성했어요!
+    </Count>
+  );
 }
 
 export default MessageCount;
