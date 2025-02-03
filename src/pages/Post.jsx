@@ -1,8 +1,11 @@
-function Home() {
+import Header from "../components/Header/Header";
+
+function Post() {
   return (
     <div style={{ paddingTop: "100px" }}>
-      <h1>홈페이지 테스트</h1>
-      <p>홈페이지</p>
+      <Header />
+      <h1>Post 테스트</h1>
+      <p>Post</p>
       <div style={{ height: "200px" }}>안녕</div>
       <div style={{ height: "200px" }}>안녕</div>
       <div style={{ height: "200px" }}>안녕</div>
@@ -14,4 +17,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Post;
