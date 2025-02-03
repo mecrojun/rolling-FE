@@ -5,10 +5,14 @@ export const HeaderContainer = styled.header`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  position: fixed;
+  top: 65px;
+  left: 50%;
   justify-content: space-between;
+  transform: translateX(-50%);
   align-items: center;
   padding: 16px;
-
+  z-index: 10;
   @media (max-width: 1248px) {
     padding: 16px 0; /* 화면이 1248px보다 작아지면 좌우 여백 24px로 고정 */
   }
