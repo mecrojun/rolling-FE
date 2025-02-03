@@ -11,7 +11,7 @@ export const ProfileImage = styled.img`
   border-radius: 50%;
   border: 1.4px solid white;
   object-fit: cover;
-  margin-right: -12px; // 이미지 간격을 좁히기 위해 마이너스 마진 사용
+  margin-right: -12px;
 `;
 
 export const PlusNumber = styled.div`

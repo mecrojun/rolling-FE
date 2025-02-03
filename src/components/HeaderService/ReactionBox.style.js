@@ -27,6 +27,5 @@ export const ArrowButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1100; /* 다른 요소 위에 있도록 설정 */
   pointer-events: auto;
 `;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { EmojiMoreWrapper, EmojiList, Overlay, Emogi } from "./EmojiMore.style";
 
 function EmojiMore({ onClose }) {

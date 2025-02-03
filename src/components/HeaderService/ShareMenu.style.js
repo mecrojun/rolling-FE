@@ -7,7 +7,7 @@ export const ShareMenuWrapper = styled.div`
   transform: translateX(100%);
   background: white;
   padding: 12px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 8px;
   z-index: 1000;
 

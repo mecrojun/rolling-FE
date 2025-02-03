@@ -13,8 +13,9 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding: 16px;
   z-index: 10;
+
   @media (max-width: 1248px) {
-    padding: 16px 0; /* 화면이 1248px보다 작아지면 좌우 여백 24px로 고정 */
+    padding: 16px 0;
   }
 `;
 
