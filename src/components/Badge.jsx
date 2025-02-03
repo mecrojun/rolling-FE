@@ -19,7 +19,7 @@ const badgeStyles = {
   },
 };
 
-function RelBadge({ value = "지인" }) {
+function RelBadge({ value = Object.keys(badgeStyles)[0] }) {
   const selectedStyle = badgeStyles[value];
 
   return (

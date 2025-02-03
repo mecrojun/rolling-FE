@@ -8,7 +8,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>hello</div>
-      <RelBadge value="지인" />
+      <RelBadge />
       <EmojiBadge count={24} />
     </ThemeProvider>
   );
