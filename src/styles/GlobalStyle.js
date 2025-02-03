@@ -50,9 +50,6 @@ const GlobalStyle = createGlobalStyle`
   #root, #__next {
     isolation: isolate;
   }
-  }
-
-
 `;
 
 export default GlobalStyle;
