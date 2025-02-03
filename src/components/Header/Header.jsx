@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import Logo from "./Logo";
-import { StyledHeader, StyledLink } from "./Header.style";
+import * as H from "./Header.style";
 
+//각 페이지에서 Header 불러오기
 function Header() {
-  console.log(Header, StyledLink, Logo, HeaderButton);
   return (
-    <StyledHeader>
-      <StyledLink as={Link} to="/">
+    <H.StyledHeader>
+      <H.StyledLink as={Link} to="/">
         <Logo />
-      </StyledLink>
+      </H.StyledLink>
 
-      <StyledLink as={Link} to="/Post">
+      <H.StyledLink as={Link} to="/Post">
         <HeaderButton />
-      </StyledLink>
-    </StyledHeader>
+      </H.StyledLink>
+    </H.StyledHeader>
   );
 }
 

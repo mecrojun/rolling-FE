@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { StyledHeader, StyledLink } from "./Header.style";
+import * as S from "./Header.style";
 import Logo from "./Logo";
 
 function HeaderLogoOnly() {
   return (
-    <StyledHeader>
-      <StyledLink as={Link} to="/">
+    <S.StyledHeader>
+      <S.StyledLink as={Link} to="/">
         <Logo />
-      </StyledLink>
-    </StyledHeader>
+      </S.StyledLink>
+    </S.StyledHeader>
   );
 }
 

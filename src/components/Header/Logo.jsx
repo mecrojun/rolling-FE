@@ -1,12 +1,12 @@
-import { LogoContainer, LogoText, LogoImage } from "./Logo.style";
+import * as L from "./Logo.style";
 
 function Logo() {
   return (
-    <LogoContainer>
+    <L.LogoContainer>
       {/* 이미지 불러오기가 안돼서 임시로 public에 저장 */}
-      <LogoImage src="/logo.svg" />
-      <LogoText>Rolling</LogoText>
-    </LogoContainer>
+      <L.LogoImage src="/logo.svg" />
+      <L.LogoText>Rolling</L.LogoText>
+    </L.LogoContainer>
   );
 }
 
