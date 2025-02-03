@@ -1,11 +1,21 @@
+import { useState } from "react";
+import ShareMenu from "./ShareMenu";
 import { ShareIcon } from "../Icons";
-import { Button } from "./ShareButton.style";
+import { ShareButtonWrapper } from "./ShareButton.style";
 
 function ShareButton() {
+  const [isShareOpen, setIsShareOpen] = useState(false);
+
+  const toggleShareMenu = () => {
+    setIsShareOpen((prev) => !prev);
+  };
   return (
-    <Button>
-      <ShareIcon />
-    </Button>
+    <>
+      <ShareButtonWrapper onClick={toggleShareMenu}>
+        <ShareIcon />
+      </ShareButtonWrapper>
+      {isShareOpen && <ShareMenu onClose={() => setIsShareOpen(false)} />}
+    </>
   );
 }
 

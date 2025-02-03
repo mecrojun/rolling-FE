@@ -16,10 +16,17 @@ export const ReactionBox = styled.div`
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
-  gap: 10px;
+  gap: 2px;
 `;
 
-export const Icon = styled.img`
-  width: 16px;
-  height: 21px;
+export const ArrowButton = styled.button`
+  width: 36px;
+  height: 36px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100; /* 다른 요소 위에 있도록 설정 */
+  pointer-events: auto;
 `;

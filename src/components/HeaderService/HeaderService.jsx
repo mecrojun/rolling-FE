@@ -10,7 +10,6 @@ import {
   Section,
   LeftSection,
 } from "./HeaderService.style";
-import { ArrowDownIcon } from "../Icons";
 
 function HeaderService() {
   return (
@@ -26,7 +25,7 @@ function HeaderService() {
       <Section>
         <Line />
         <ReactionBox likeCount={24} loveCount={16} partyCount={10} />
-        <ArrowDownIcon />
+
         <AddEmoji />
         <Line />
         <ShareButton />
