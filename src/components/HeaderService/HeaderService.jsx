@@ -25,7 +25,6 @@ function HeaderService() {
       <Section>
         <Line />
         <ReactionBox likeCount={24} loveCount={16} partyCount={10} />
-
         <AddEmoji />
         <Line />
         <ShareButton />
