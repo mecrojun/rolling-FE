@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTheme } from "styled-components";
 import styled from "styled-components";
 
 const ColorchipContainer = styled.div`
@@ -14,7 +13,7 @@ const ColorChipItem = styled.div`
   height: 168px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  background-color: ${({ color }) => color};
+  background-color: ${({ theme, color }) => theme.colors[color][200]};
   cursor: pointer;
 
   &:hover {
@@ -36,13 +35,7 @@ const Selection = styled.div`
 `;
 
 function Colorchip() {
-  const theme = useTheme();
-  const colors = [
-    theme.colors.beige[200],
-    theme.colors.purple[200],
-    theme.colors.blue[200],
-    theme.colors.green[200],
-  ];
+  const colors = ["beige", "purple", "blue", "green"];
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   const handleColorSelect = (color) => {
