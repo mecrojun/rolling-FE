@@ -7,8 +7,8 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   position: fixed;
-  background-color: gray;
-  padding: 11px 24px;
+  background-color: ${({ theme }) => theme.colors.white};
+  padding: 11px 0;
   top: 0;
   left: 50%;
   transform: translateX(-50%);

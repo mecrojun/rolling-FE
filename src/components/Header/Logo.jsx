@@ -1,11 +1,10 @@
-import LogoSVG from "./logo.svg";
-
 import { LogoContainer, LogoText, LogoImage } from "./Logo.style";
 
 function Logo() {
   return (
     <LogoContainer>
-      <LogoImage src={LogoSVG} />
+      {/* 이미지 불러오기가 안돼서 임시로 public에 저장 */}
+      <LogoImage src="/logo.svg" />
       <LogoText>Rolling</LogoText>
     </LogoContainer>
   );
