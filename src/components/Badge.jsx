@@ -40,7 +40,7 @@ const EmojiBadgeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  // gap: 4px;
+  gap: 4px;
   width: 66px;
   height: 36px;
   padding: 8px;
@@ -52,7 +52,7 @@ const EmojiBadgeContainer = styled.div`
 `;
 
 const Emoji = styled.div`
-  font-size: 20px; /* 이모지 크기 조정 */
+  font-size: 15px;
 `;
 
 const Likes = styled.span`
@@ -72,11 +72,11 @@ function RelBadge({ value = "지인" }) {
   );
 }
 
-function EmojiBadge({ emoji = "😍", initialLikes = 0 }) {
+function EmojiBadge({ emoji = "😍", count = 0 }) {
   return (
     <EmojiBadgeContainer>
       <Emoji>{emoji}</Emoji>
-      <Likes>{initialLikes}</Likes>
+      <Likes>{count}</Likes>
     </EmojiBadgeContainer>
   );
 }

@@ -9,7 +9,7 @@ function App() {
       <GlobalStyle />
       <div>hello</div>
       <RelBadge value="지인" />
-      <EmojiBadge initialLikes={24} />
+      <EmojiBadge count={24} />
     </ThemeProvider>
   );
 }
