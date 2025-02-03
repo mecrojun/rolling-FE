@@ -8,10 +8,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  /* 2. Remove default margin */
+  /* 2. Remove default margin,  set default font */
   * {
     margin: 0;
+    font-family: "Pretendard", sans-serif;
   }
+
 
   body {
     /* 3. Add accessible line-height */
@@ -48,6 +50,9 @@ const GlobalStyle = createGlobalStyle`
   #root, #__next {
     isolation: isolate;
   }
+  }
+
+
 `;
 
 export default GlobalStyle;
