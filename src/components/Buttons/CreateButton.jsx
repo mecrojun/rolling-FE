@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PlusIcon } from "../Icons";
 import { theme } from "../../styles/theme";
 
-const ButtonWrap = styled.button`
+const ButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,15 +30,15 @@ const ButtonWrap = styled.button`
     }
 `;
 
-const ButtonImg = (disable) => {    
+const returnPlusIcon = (disable) => {    
     return <PlusIcon color={theme.colors.white}/>;
 }
 
 function CreateButton({ disable }) {
     return (
-        <ButtonWrap disable={disable}>
-            {ButtonImg()}
-        </ButtonWrap>
+        <ButtonWrapper disable={disable}>
+            {returnPlusIcon()}
+        </ButtonWrapper>
     );
   }
   

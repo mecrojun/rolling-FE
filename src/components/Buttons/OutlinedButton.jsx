@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AddIcon } from "../Icons";
 import { theme } from "../../styles/theme";
 
-const outLineButtonFontStyle = (height, emoji, theme) => {
+const outLinedButtonFontStyle = (height, emoji, theme) => {
     let fontStyle;
     
     if(height == "40px") {
@@ -41,7 +41,7 @@ const buttonGap = (height, emoji) => {
         return `0;`;
 }
 
-const OutlinedButtonWrap = styled.button`
+const OutlinedButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,7 @@ const OutlinedButtonWrap = styled.button`
     border-radius: 12px;    
     background-color: #FFFFFF;
     color: #181818;
-    ${(props) => outLineButtonFontStyle(props.height, props.emoji, props.theme)}    
+    ${(props) => outLinedButtonFontStyle(props.height, props.emoji, props.theme)}    
     ${(props) => props.disable ?
         `background-color: #CCCCCC;
         color: #FFFFFF;` :
@@ -71,33 +71,7 @@ const OutlinedButtonWrap = styled.button`
     }
 `;
 
-const inactiveEmoji = `
-    width: 0;
-    height: 0;
-`;
-
-const activeEmoji = (height, disable) => {
-    if(height == "56px")
-        return inactiveEmoji;
-
-    else if(height == "28px")
-        return `width: 20px;
-                height: 20px;
-                background-image: url("${ disable? "/src/assets/icons/add_emoji_white.svg" : "/src/assets/icons/add_emoji.svg" }");
-                background-size: cover;`;
-    
-    else
-        return `width: 24px;
-                height: 24px;
-                background-image: url("${ disable? "/src/assets/icons/add_emoji_white.svg" : "/src/assets/icons/add_emoji.svg" }");
-                background-size: cover;`;
-}
-
-const Emoji = styled.div`
-    ${(props) => props.emoji ? activeEmoji(props.height, props.disable) : inactiveEmoji }
-`;
-
-const testEmoji = (emoji, height, disable) => {
+const returnEmoji = (emoji, height, disable) => {
     if(emoji){
         const size = ((height == "28px") ? "20px" : "24px");
         const color = (disable ? theme.colors.white : theme.colors.black);
@@ -116,10 +90,10 @@ const OutlinedButtonText = styled.div``;
 function OutlinedButton({ width, height, emoji, disable, children }) {
 
     return (
-        <OutlinedButtonWrap width={width} height={height} emoji={emoji} disable={disable}>
-            {testEmoji(emoji, height, disable)}
+        <OutlinedButtonWrapper width={width} height={height} emoji={emoji} disable={disable}>
+            {returnEmoji(emoji, height, disable)}
             <OutlinedButtonText>{children}</OutlinedButtonText>
-        </OutlinedButtonWrap>
+        </OutlinedButtonWrapper>
     );
   }
   

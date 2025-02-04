@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ArrowLeftIcon, ArrowRightIcon } from "../Icons";
 
-const ArrowButtonWrap = styled.button`
+const ArrowButtonWrapper = styled.button`
     width: 40px;
     height: 40px;
     background-color: #FFFFFF;
@@ -17,7 +17,7 @@ const ArrowButtonWrap = styled.button`
     }
 `;
 
-const ArrowImg = (direction) => {
+const returnArrowImg = (direction) => {
     if(direction === 'left')
         return <ArrowLeftIcon size="16px"/>;
     if(direction === 'right')
@@ -25,12 +25,11 @@ const ArrowImg = (direction) => {
 }
 
 function ArrowButton({ direction }) {
-    console.log(direction);
 
     return (
-      <ArrowButtonWrap>
-        {ArrowImg(direction)}
-      </ArrowButtonWrap>
+      <ArrowButtonWrapper>
+        {returnArrowImg(direction)}
+      </ArrowButtonWrapper>
     );
   }
   

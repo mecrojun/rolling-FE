@@ -27,7 +27,7 @@ const DeleteButtonWrap = styled.button`
     }
 `;
 
-const DeleteButtonImg = (disable) => {
+const returnDeletedIcon = (disable) => {
   const color = (disable ? theme.colors.white : theme.colors.black);
   return <DeletedIcon color={color} />
 }
@@ -35,7 +35,7 @@ const DeleteButtonImg = (disable) => {
 function DeleteButton({ disable }) {
     return (
       <DeleteButtonWrap disable={disable}>
-        {DeleteButtonImg(disable)}
+        {returnDeletedIcon(disable)}
       </DeleteButtonWrap>
     );
   }
