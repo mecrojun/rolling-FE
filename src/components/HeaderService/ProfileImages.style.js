@@ -17,6 +17,7 @@ export const ProfileImage = styled.img`
 export const PlusNumber = styled.div`
   width: 28px;
   height: 28px;
+  margin-right: -12px;
   background-color: #ffffff;
   color: #333;
   display: flex;
@@ -26,4 +27,17 @@ export const PlusNumber = styled.div`
   border: 2px solid #ccc;
   font-size: 12px;
   font-weight: bold;
+`;
+
+export const Count = styled.div`
+  display: flex;
+  margin-left: 24px;
+  white-space: nowrap;
+  font-size: ${({ theme }) => theme.fonts["18r"].fontSize};
+  font-weight: ${({ theme }) => theme.fonts["18r"].fontWeight};
+  color: ${({ theme }) => theme.colors.gray[900]};
+`;
+
+export const Num = styled.p`
+  font-weight: ${({ theme }) => theme.fonts["18b"].fontWeight};
 `;

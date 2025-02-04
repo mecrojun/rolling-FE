@@ -29,16 +29,15 @@ export const LeftSection = styled.div`
 `;
 
 export const Section = styled.div`
-  margin-right: 24px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0px;
   white-space: nowrap;
 `;
 
 export const Line = styled.div`
   width: 1px;
   height: 24px;
-  margin: 0 10px;
+  margin: 0 14px;
   background-color: ${({ theme }) => theme.colors.gray[300]};
 `;

@@ -7,7 +7,7 @@ import {
   ArrowButton,
 } from "./ReactionBox.style";
 
-function Reaction({ likeCount, loveCount, partyCount }) {
+function Reaction({ topReactions }) {
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);
 
   const toggleEmojiMenu = () => {
@@ -17,18 +17,13 @@ function Reaction({ likeCount, loveCount, partyCount }) {
   return (
     <>
       <ReactionBoxContainer>
-        <ReactionBox>
-          👍
-          <span>{likeCount}</span>
-        </ReactionBox>
-        <ReactionBox>
-          😍
-          <span>{loveCount}</span>
-        </ReactionBox>
-        <ReactionBox>
-          🎉
-          <span>{partyCount}</span>
-        </ReactionBox>
+        {topReactions.map((Reaction) => (
+          <ReactionBox key={Reaction.id}>
+            {Reaction.emoji}
+            <span>{Reaction.count}</span>
+          </ReactionBox>
+        ))}
+
         <ArrowButton onClick={toggleEmojiMenu}>
           <ArrowDownIcon />
         </ArrowButton>

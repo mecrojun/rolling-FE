@@ -5,5 +5,5 @@ export const ToName = styled.span`
   font-weight: ${({ theme }) => theme.fonts["28b"].fontWeight};
   color: ${({ theme }) => theme.colors.gray[800]};
   line-height: 42px;
-  whitespace: nowrap;
+  white-space: nowrap;
 `;

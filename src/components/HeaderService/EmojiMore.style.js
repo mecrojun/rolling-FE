@@ -4,7 +4,6 @@ export const EmojiMoreWrapper = styled.div`
   position: fixed;
   top: 60px;
   right: 230px;
-  background: white;
   padding: 12px;
   border: 1px solid #cccccc;
   border-radius: 8px;
@@ -31,12 +30,11 @@ export const EmojiList = styled.div`
     font-size: 14px;
     color: white;
     font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.54);
   }
 `;
 
-export const Emogi = styled.div`
-  background-color: rgba(0, 0, 0, 0.54);
-`;
+export const Emogi = styled.div``;
 
 export const Overlay = styled.div`
   position: fixed;

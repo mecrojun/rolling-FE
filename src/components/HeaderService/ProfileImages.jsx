@@ -2,27 +2,27 @@ import {
   ProfileImagesContainer,
   ProfileImage,
   PlusNumber,
+  Count,
+  Num,
 } from "./ProfileImages.style";
 
-function ProfileImages({ profileCount }) {
+function ProfileImages({ recentMessages, messageCount }) {
   return (
-    <ProfileImagesContainer>
-      {/*임시 프로필 이미지들 */}
-      <ProfileImage
-        src="https://randomuser.me/api/portraits/men/1.jpg"
-        alt="profile1"
-      />
-      <ProfileImage
-        src="https://randomuser.me/api/portraits/women/1.jpg"
-        alt="profile2"
-      />
-      <ProfileImage
-        src="https://randomuser.me/api/portraits/men/2.jpg"
-        alt="profile3"
-      />
-
-      <PlusNumber>+{profileCount}</PlusNumber>
-    </ProfileImagesContainer>
+    <>
+      <ProfileImagesContainer>
+        {recentMessages.map((message, index) => (
+          <ProfileImage
+            key={message.id}
+            src={message.profileImageURL}
+            alt={`profiles${index + 1}`}
+          />
+        ))}
+        {messageCount >= 4 && <PlusNumber>+{messageCount - 3}</PlusNumber>}
+      </ProfileImagesContainer>
+      <Count>
+        <Num>{messageCount}</Num>명이 작성했어요!
+      </Count>
+    </>
   );
 }
 

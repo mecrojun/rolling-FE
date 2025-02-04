@@ -1,6 +1,5 @@
 import To from "./To";
-import MessageCount from "./MessageCount";
-import ReactionBox from "./ReactionBox";
+import Reaction from "./ReactionBox";
 import ShareButton from "./ShareButton";
 import ProfileImages from "./ProfileImages";
 import AddEmoji from "./AddEmoji";
@@ -10,21 +9,27 @@ import {
   Section,
   LeftSection,
 } from "./HeaderService.style";
+import { useState } from "react";
+import { mockRecipient } from "./MockData";
 
 function HeaderService() {
+  const [recipient, setRecipient] = useState(mockRecipient);
+
   return (
     <HeaderContainer>
       <LeftSection>
-        <To name="Ashley Kim" />
+        <To name={recipient.name} />
         <Section>
-          <ProfileImages profileCount={6} />
-          <MessageCount messageCount={23} />
+          <ProfileImages
+            recentMessages={recipient.recentMessages}
+            messageCount={recipient.messageCount}
+          />
         </Section>
       </LeftSection>
 
       <Section>
         <Line />
-        <ReactionBox likeCount={24} loveCount={16} partyCount={10} />
+        <Reaction topReactions={recipient.topReactions} />
         <AddEmoji />
         <Line />
         <ShareButton />
