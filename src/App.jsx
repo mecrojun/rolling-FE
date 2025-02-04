@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 import CardList from "./CardList";
+import MessageCard from "./MessageCard";
 
 const dummyData = [
   {
@@ -36,7 +37,7 @@ const dummyData = [
 
 const App = () => {
   const [cards, setCards] = useState([dummyData]);
-  const [loading, setLoading] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -56,14 +57,14 @@ const App = () => {
         console.error("API 요청 실패:", error);
         setCards(dummyData); // API 오류 시 더미 데이터 사용
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     fetchCards();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (isloading) return <p>Loading...</p>;
 
   return (
     <ThemeProvider theme={theme}>
