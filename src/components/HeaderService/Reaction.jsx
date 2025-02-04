@@ -5,7 +5,7 @@ import {
   ReactionBoxContainer,
   ReactionBox,
   ArrowButton,
-} from "./ReactionBox.style";
+} from "./Reaction.style";
 
 function Reaction({ topReactions }) {
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);

@@ -1,5 +1,5 @@
 import To from "./To";
-import Reaction from "./ReactionBox";
+import Reaction from "./Reaction";
 import ShareButton from "./ShareButton";
 import ProfileImages from "./ProfileImages";
 import AddEmoji from "./AddEmoji";
