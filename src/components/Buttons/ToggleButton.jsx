@@ -50,7 +50,7 @@ const ImgButton = styled.button`
     }
 `;
 
-const ToggleButtonWrap = styled.div`
+const ToggleButtonWrapper = styled.div`
     display: flex;
 `;
 
@@ -63,10 +63,10 @@ function ToggleButton({ width, height }) {
     }
 
     return (
-      <ToggleButtonWrap>
+      <ToggleButtonWrapper>
         <ColorButton width={width} height={height} onClick={toggleHandle} toggle={isToggled} >컬러</ColorButton>
         <ImgButton width={width} height={height} onClick={toggleHandle} toggle={isToggled} >이미지</ImgButton>
-      </ToggleButtonWrap>
+      </ToggleButtonWrapper>
     );
   }
   

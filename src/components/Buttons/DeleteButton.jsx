@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DeletedIcon } from "../Icons";
 import { theme } from "../../styles/theme";
 
-const DeleteButtonWrap = styled.button`
+const DeleteButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,9 +34,9 @@ const returnDeletedIcon = (disable) => {
 
 function DeleteButton({ disable }) {
     return (
-      <DeleteButtonWrap disable={disable}>
+      <DeleteButtonWrapper disable={disable}>
         {returnDeletedIcon(disable)}
-      </DeleteButtonWrap>
+      </DeleteButtonWrapper>
     );
   }
   
