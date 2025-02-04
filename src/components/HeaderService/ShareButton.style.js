@@ -35,7 +35,6 @@ export const ShareOptions = styled.div`
   button {
     background: ${({ theme }) => theme.colors.white};
     border: none;
-
     cursor: pointer;
     font-size: 14px;
     border-radius: 4px;

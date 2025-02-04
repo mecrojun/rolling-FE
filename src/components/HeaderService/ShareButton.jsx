@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { ShareIcon } from "../Icons";
 import {
   ShareButtonWrapper,
@@ -17,6 +16,8 @@ function ShareButton() {
   const handleCopyUrl = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
+      //Toast로 대체 예정
+      alert("복사 성공");
     } catch (err) {
       console.error("URL 복사 실패", err);
     }

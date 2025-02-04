@@ -27,3 +27,22 @@ export const Text = styled.p`
   text-align: center;
   white-space: nowrap;
 `;
+
+export const EmojiPickerWrapper = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 100px;
+  z-index: 999;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+`;
