@@ -12,10 +12,15 @@ const MessageCardContainer = styled.div`
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.14);
 `;
 
+const MessageCardContent = styled.div``;
+
 const SenderContainer = styled.div`
   display: flex;
   align-items: center;
+  width: 336px;
+  padding: 28px 24px;
   gap: 12px;
+  border-bottom: 1px solid #eeeeee;
 `;
 
 const MessageProfileIcon = styled.div`
@@ -30,8 +35,29 @@ const MessageProfileIcon = styled.div`
 `;
 
 const SenderFont = styled.h3`
-  ${(props) => props.theme.fonts["20b"]}
+  ${(props) => props.theme.fonts["20r"]}
   color: #000000;
+`;
+
+const SenderBoldText = styled.span`
+  ${(props) => props.theme.fonts["20b"]}
+`;
+
+const RelationshipBadge = styled.div`
+  width: 41px;
+  height: 20px;
+  padding: 8px 0;
+  gap: 10px;
+  background-color: #f8f0ff;
+  border-radius: 4px;
+`;
+
+const MessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 336px;
+  height: 106px;
+  padding-left: 24px;
 `;
 
 const MessageFont = styled.p`
@@ -41,8 +67,11 @@ const MessageFont = styled.p`
 `;
 
 const MessageDateFont = styled.p`
+  padding-left: 24px;
+  padding-bottom: 24px;
   ${(props) => props.theme.fonts["12r"]}
   color: #999999;
+  letter-spacing: -0.5%;
 `;
 
 function MessageCard({
@@ -59,11 +88,16 @@ function MessageCard({
       <SenderContainer>
         <MessageProfileIcon $profileImageURL={profileImageURL} />
         <div>
-          <SenderFont>From. {sender}</SenderFont>
+          <SenderFont>
+            From. <SenderBoldText>{sender}</SenderBoldText>
+          </SenderFont>
           <RelationshipBadge>{relationship}</RelationshipBadge>
         </div>
       </SenderContainer>
-      <MessageFont>{content}</MessageFont>
+      <MessageContainer>
+        <MessageFont>{content}</MessageFont>
+      </MessageContainer>
+      <MessageDateFont>{createdAt}</MessageDateFont>
     </MessageCardContainer>
   );
 }

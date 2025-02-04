@@ -35,6 +35,24 @@ const dummyData = [
   },
 ];
 
+const dummyMessages = [
+  {
+    profileImageURL: "/images/user1.jpg",
+    sender: "김동훈",
+    relationship: "동료",
+    content:
+      "코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!",
+    createdAt: "2023.07.08",
+  },
+  {
+    profileImageURL: "/images/user2.jpg",
+    sender: "이수진",
+    relationship: "친구",
+    content: "오랜만에 연락하네! 잘 지내고 있지? 다음에 만나서 같이 밥 먹자!",
+    createdAt: "2024.01.15",
+  },
+];
+
 const App = () => {
   const [cards, setCards] = useState([dummyData]);
   const [isloading, setIsLoading] = useState(true);
@@ -70,6 +88,11 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <CardList cards={cards} />
+      <div>
+        {dummyMessages.map((message, index) => (
+          <MessageCard key={index} {...message} />
+        ))}
+      </div>
     </ThemeProvider>
   );
 };
