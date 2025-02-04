@@ -1,13 +1,7 @@
 import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import { AddIcon } from "../Icons";
-import {
-  Button,
-  Section,
-  Text,
-  EmojiPickerWrapper,
-  Overlay,
-} from "./AddEmoji.style";
+import * as A from "./AddEmoji.style";
 
 function AddEmoji() {
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);
@@ -18,19 +12,19 @@ function AddEmoji() {
 
   return (
     <>
-      <Button onClick={toggleEmojiMenu}>
-        <Section>
+      <A.Button onClick={toggleEmojiMenu}>
+        <A.Section>
           <AddIcon />
-          <Text>추가</Text>
-        </Section>
-      </Button>
+          <A.Text>추가</A.Text>
+        </A.Section>
+      </A.Button>
 
       {isEmojiOpen && (
         <>
-          <Overlay onClick={toggleEmojiMenu} />
-          <EmojiPickerWrapper>
+          <A.Overlay onClick={toggleEmojiMenu} />
+          <A.EmojiPickerWrapper>
             <EmojiPicker onEmojiClick={setIsEmojiOpen} />
-          </EmojiPickerWrapper>
+          </A.EmojiPickerWrapper>
         </>
       )}
     </>

@@ -45,5 +45,10 @@ export const mockRecipient = {
     { id: 27, emoji: "😀", count: 24 },
     { id: 31, emoji: "😍", count: 16 },
     { id: 32, emoji: "🎉", count: 10 },
+    { id: 32, emoji: "🎉", count: 10 },
+    { id: 32, emoji: "🎉", count: 10 },
+    { id: 32, emoji: "🎉", count: 10 },
+    { id: 32, emoji: "🎉", count: 10 },
+    { id: 32, emoji: "🎉", count: 10 },
   ],
 };

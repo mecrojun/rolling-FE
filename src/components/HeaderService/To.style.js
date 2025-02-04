@@ -6,4 +6,5 @@ export const ToName = styled.span`
   color: ${({ theme }) => theme.colors.gray[800]};
   line-height: 42px;
   white-space: nowrap;
+  margin-left: 16px;
 `;

@@ -1,42 +1,42 @@
 import styled from "styled-components";
 
-export const ShareButtonWrapper = styled.button`
+export const Button = styled.button`
   width: 56px;
   height: 36px;
+  margin-right: 24px;
   cursor: pointer;
   padding: 6px 16px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 6px;
-  position: relative;
 `;
 
 export const ShareMenuWrapper = styled.div`
-  position: fixed;
-  top: 60px;
-  right: 110px;
-  transform: translateX(100%);
+  position: absolute;
+  top: 120%;
+  right: 0px;
+  width: 140px;
+  height: 120px;
+  padding: 10px 1px;
   background: white;
-  padding: 12px;
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 8px;
   z-index: 1000;
-
-  @media (min-width: 1248px) {
-    right: calc(50% - 600px + 110px);
-  }
 `;
 
 export const ShareOptions = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
 
   button {
     background: ${({ theme }) => theme.colors.white};
     border: none;
     cursor: pointer;
     font-size: 14px;
+    width: 138px;
+    height: 50px;
     border-radius: 4px;
   }
 

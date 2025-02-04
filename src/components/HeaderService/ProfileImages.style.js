@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const ProfileImagesContainer = styled.div`
   display: flex;
+  gap: 11px;
+  justify-content: space-between;
+`;
+export const ProfileImageBox = styled.div`
+  display: flex;
   align-items: center;
 `;
 
@@ -17,7 +22,7 @@ export const ProfileImage = styled.img`
 export const PlusNumber = styled.div`
   width: 28px;
   height: 28px;
-  margin-right: -12px;
+
   background-color: #ffffff;
   color: #333;
   display: flex;
@@ -31,7 +36,6 @@ export const PlusNumber = styled.div`
 
 export const Count = styled.div`
   display: flex;
-  margin-left: 24px;
   white-space: nowrap;
   font-size: ${({ theme }) => theme.fonts["18r"].fontSize};
   font-weight: ${({ theme }) => theme.fonts["18r"].fontWeight};

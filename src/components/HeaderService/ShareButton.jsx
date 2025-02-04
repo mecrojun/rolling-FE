@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ShareIcon } from "../Icons";
 import {
-  ShareButtonWrapper,
+  Overlay,
+  Button,
   ShareMenuWrapper,
   ShareOptions,
-  Overlay,
 } from "./ShareButton.style";
 
 function ShareButton() {
@@ -18,15 +18,16 @@ function ShareButton() {
       await navigator.clipboard.writeText(window.location.href);
       //Toast로 대체 예정
       alert("복사 성공");
+      toggleShareMenu();
     } catch (err) {
       console.error("URL 복사 실패", err);
     }
   };
   return (
     <>
-      <ShareButtonWrapper onClick={toggleShareMenu}>
+      <Button onClick={toggleShareMenu}>
         <ShareIcon />
-      </ShareButtonWrapper>
+      </Button>
 
       {isOpen && (
         <>

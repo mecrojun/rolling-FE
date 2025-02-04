@@ -1,5 +1,6 @@
 import {
   ProfileImagesContainer,
+  ProfileImageBox,
   ProfileImage,
   PlusNumber,
   Count,
@@ -8,8 +9,8 @@ import {
 
 function ProfileImages({ recentMessages, messageCount }) {
   return (
-    <>
-      <ProfileImagesContainer>
+    <ProfileImagesContainer>
+      <ProfileImageBox>
         {recentMessages.map((message, index) => (
           <ProfileImage
             key={message.id}
@@ -17,12 +18,13 @@ function ProfileImages({ recentMessages, messageCount }) {
             alt={`profiles${index + 1}`}
           />
         ))}
+
         {messageCount >= 4 && <PlusNumber>+{messageCount - 3}</PlusNumber>}
-      </ProfileImagesContainer>
+      </ProfileImageBox>
       <Count>
         <Num>{messageCount}</Num>명이 작성했어요!
       </Count>
-    </>
+    </ProfileImagesContainer>
   );
 }
 
