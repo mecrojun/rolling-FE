@@ -11,9 +11,9 @@ import {
   ReactionContainer,
   ReactionIcons,
   CardListContainer,
-} from "./CardListStyle";
+} from "../styles/CardListStyle";
 
-const ProfileList = ({ recentMessages = [], messageCount = 0 }) => {
+function ProfileList({ recentMessages = [], messageCount = 0 }) {
   const maxVisibleProfiles = 3;
   const VisibleProfiles = recentMessages.slice(0, maxVisibleProfiles);
   const hiddenMessageCount = messageCount - recentMessages.length;
@@ -34,7 +34,7 @@ const ProfileList = ({ recentMessages = [], messageCount = 0 }) => {
       )}
     </ProfileContainer>
   );
-};
+}
 
 function Card({
   backgroundColor,
