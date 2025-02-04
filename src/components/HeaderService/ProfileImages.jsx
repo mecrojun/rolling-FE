@@ -1,30 +1,23 @@
-import {
-  ProfileImagesContainer,
-  ProfileImageBox,
-  ProfileImage,
-  PlusNumber,
-  Count,
-  Num,
-} from "./ProfileImages.style";
+import * as P from "./ProfileImages.style";
 
 function ProfileImages({ recentMessages, messageCount }) {
   return (
-    <ProfileImagesContainer>
-      <ProfileImageBox>
-        {recentMessages.map((message, index) => (
-          <ProfileImage
+    <P.ProfileImagesContainer>
+      <P.ProfileImageBox>
+        {recentMessages.slice(0, 3).map((message, index) => (
+          <P.ProfileImage
             key={message.id}
             src={message.profileImageURL}
             alt={`profiles${index + 1}`}
           />
         ))}
 
-        {messageCount >= 4 && <PlusNumber>+{messageCount - 3}</PlusNumber>}
-      </ProfileImageBox>
-      <Count>
-        <Num>{messageCount}</Num>명이 작성했어요!
-      </Count>
-    </ProfileImagesContainer>
+        {messageCount >= 4 && <P.PlusNumber>+{messageCount - 3}</P.PlusNumber>}
+      </P.ProfileImageBox>
+      <P.Count>
+        <P.Num>{messageCount}</P.Num>명이 작성했어요!
+      </P.Count>
+    </P.ProfileImagesContainer>
   );
 }
 

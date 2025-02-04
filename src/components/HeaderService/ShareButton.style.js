@@ -4,24 +4,28 @@ export const Button = styled.button`
   width: 56px;
   height: 36px;
   margin-right: 24px;
-  cursor: pointer;
   padding: 6px 16px;
-  background-color: ${({ theme }) => theme.colors.white};
+
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
 `;
 
 export const ShareMenuWrapper = styled.div`
   position: absolute;
   top: 120%;
-  right: 0px;
+  right: 0;
+  z-index: 1000;
+
   width: 140px;
   height: 120px;
   padding: 10px 1px;
-  background: white;
+
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 8px;
-  z-index: 1000;
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const ShareOptions = styled.div`
@@ -31,13 +35,16 @@ export const ShareOptions = styled.div`
   justify-content: center;
 
   button {
-    background: ${({ theme }) => theme.colors.white};
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
     width: 138px;
     height: 50px;
+
+    border: none;
     border-radius: 4px;
+    background: ${({ theme }) => theme.colors.white};
+
+    ${({ theme }) => ({ ...theme.fonts["16r"] })};
+
+    cursor: pointer;
   }
 
   button:hover {

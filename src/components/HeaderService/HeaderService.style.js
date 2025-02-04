@@ -1,28 +1,29 @@
 import styled from "styled-components";
 
 export const HeaderBox = styled.div`
-  width: 100%;
   position: fixed;
   top: 65px;
-  height: 68px;
   z-index: 10;
-  background-color: white;
-  padding: 0;
+
+  width: 100%;
+  height: 68px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
+
 export const HeaderContainer = styled.header`
+  position: fixed;
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  position: fixed;
-
-  left: 50%;
   height: 68px;
-  justify-content: space-between;
-  transform: translateX(-50%);
-  align-items: center;
+  margin: 0 auto;
   padding: 13px 0;
-  z-index: 100;
+  transform: translateX(-50%);
 `;
 
 export const RightSection = styled.div`

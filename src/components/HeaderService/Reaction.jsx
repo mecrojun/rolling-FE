@@ -1,14 +1,6 @@
 import { useState } from "react";
-
 import { ArrowDownIcon } from "../Icons";
-import {
-  ReactionBoxContainer,
-  ReactionBox,
-  ArrowButton,
-  EmojiList,
-  EmojiMoreWrapper,
-  Overlay,
-} from "./Reaction.style";
+import * as R from "./Reaction.style";
 
 function Reaction({ topReactions }) {
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);
@@ -19,27 +11,27 @@ function Reaction({ topReactions }) {
 
   const renderReactions = (reactions) => {
     return reactions.map((reaction) => (
-      <ReactionBox key={reaction.id}>
+      <R.ReactionBox key={reaction.id}>
         {reaction.emoji} {reaction.count}
-      </ReactionBox>
+      </R.ReactionBox>
     ));
   };
 
   return (
     <>
-      <ReactionBoxContainer>
+      <R.ReactionBoxContainer>
         {renderReactions(topReactions.slice(0, 3))}
-        <ArrowButton onClick={toggleEmojiMenu}>
+        <R.ArrowButton onClick={toggleEmojiMenu}>
           <ArrowDownIcon />
-        </ArrowButton>
-      </ReactionBoxContainer>
+        </R.ArrowButton>
+      </R.ReactionBoxContainer>
 
       {isEmojiOpen && (
         <>
-          <Overlay onClick={toggleEmojiMenu} />
-          <EmojiMoreWrapper>
-            <EmojiList>{renderReactions(topReactions)}</EmojiList>
-          </EmojiMoreWrapper>
+          <R.Overlay onClick={toggleEmojiMenu} />
+          <R.EmojiMoreWrapper>
+            <R.EmojiList>{renderReactions(topReactions)}</R.EmojiList>
+          </R.EmojiMoreWrapper>
         </>
       )}
     </>

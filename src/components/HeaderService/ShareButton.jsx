@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { ShareIcon } from "../Icons";
-import {
-  Overlay,
-  Button,
-  ShareMenuWrapper,
-  ShareOptions,
-} from "./ShareButton.style";
+import * as S from "./ShareButton.style";
 
 function ShareButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +8,7 @@ function ShareButton() {
   const toggleShareMenu = () => {
     setIsOpen((prev) => !prev);
   };
+
   const handleCopyUrl = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -23,21 +19,22 @@ function ShareButton() {
       console.error("URL 복사 실패", err);
     }
   };
+
   return (
     <>
-      <Button onClick={toggleShareMenu}>
+      <S.Button onClick={toggleShareMenu}>
         <ShareIcon />
-      </Button>
+      </S.Button>
 
       {isOpen && (
         <>
-          <Overlay onClick={toggleShareMenu} />
-          <ShareMenuWrapper>
-            <ShareOptions>
+          <S.Overlay onClick={toggleShareMenu} />
+          <S.ShareMenuWrapper>
+            <S.ShareOptions>
               <button>카카오톡 공유</button>
               <button onClick={handleCopyUrl}>URL 공유</button>
-            </ShareOptions>
-          </ShareMenuWrapper>
+            </S.ShareOptions>
+          </S.ShareMenuWrapper>
         </>
       )}
     </>

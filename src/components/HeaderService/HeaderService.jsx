@@ -14,12 +14,14 @@ function HeaderService() {
     <H.HeaderBox>
       <H.HeaderContainer>
         <To name={recipient.name} />
+
         <H.RightSection>
           <ProfileImages
             recentMessages={recipient.recentMessages}
             messageCount={recipient.messageCount}
           />
           <H.Line />
+
           <H.Section>
             <Reaction topReactions={recipient.topReactions} />
             <H.MiniSection>

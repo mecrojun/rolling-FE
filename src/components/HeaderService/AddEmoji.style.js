@@ -3,30 +3,30 @@ import styled from "styled-components";
 export const Button = styled.button`
   width: 88px;
   height: 36px;
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.white};
+  padding: 6px 16px;
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 6px;
-  padding: 6px 16px;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
 `;
 
 export const Section = styled.div`
-  width: 56px;
   display: flex;
-  height: 24px;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 4px;
+
+  width: 56px;
+  height: 24px;
   white-space: nowrap;
 `;
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.gray[900]};
-  font-size: ${({ theme }) => theme.fonts["16r"].fontSize};
-  font-weight: ${({ theme }) => theme.fonts["16r"].fontWeight};
-  line-height: ${({ theme }) => theme.fonts["16r"].lineHeight};
-  text-align: center;
+  ${({ theme }) => ({ ...theme.fonts["16r"] })};
+  font-weight: 500;
+
   white-space: nowrap;
 `;
 
@@ -35,10 +35,10 @@ export const EmojiPickerWrapper = styled.div`
   top: 120%;
   right: 100px;
   z-index: 999;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #cccccc;
+
+  border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 10px;
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Overlay = styled.div`

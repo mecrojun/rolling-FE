@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ToName = styled.span`
-  font-size: ${({ theme }) => theme.fonts["28b"].fontSize};
-  font-weight: ${({ theme }) => theme.fonts["28b"].fontWeight};
-  color: ${({ theme }) => theme.colors.gray[800]};
-  line-height: 42px;
-  white-space: nowrap;
   margin-left: 16px;
+
+  color: ${({ theme }) => theme.colors.gray[800]};
+  ${({ theme }) => ({ ...theme.fonts["28b"] })};
+
+  white-space: nowrap;
 `;

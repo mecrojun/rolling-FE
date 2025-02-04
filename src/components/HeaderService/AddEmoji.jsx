@@ -1,5 +1,5 @@
-import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
+import { useState } from "react";
 import { AddIcon } from "../Icons";
 import * as A from "./AddEmoji.style";
 

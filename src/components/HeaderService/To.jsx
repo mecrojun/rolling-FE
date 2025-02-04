@@ -1,7 +1,7 @@
-import { ToName } from "./To.style";
+import * as T from "./To.style";
 
 function To({ name }) {
-  return <ToName>To. {name}</ToName>;
+  return <T.ToName>To. {name}</T.ToName>;
 }
 
 export default To;
