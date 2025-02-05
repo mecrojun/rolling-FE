@@ -17,6 +17,8 @@ export const StyledHeader = styled.header`
   top: 0;
   left: 50%;
   z-index: 10;
+  justify-content: space-between;
+  align-items: center;
 
   width: 100%;
   max-width: 1200px;
@@ -27,8 +29,6 @@ export const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.white};
 
   transform: translateX(-50%);
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const StyledLink = styled(Link)`

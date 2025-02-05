@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const LogoContainer = styled.div`
   display: flex;
+  align-items: center;
+  gap: 8px;
 
   height: 42px;
   margin-left: 24px;
 
   overflow: hidden;
-  align-items: center;
-  gap: 8px;
 `;
 
 export const LogoImage = styled.img`

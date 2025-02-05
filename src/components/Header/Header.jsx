@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import Logo from "./Logo";
 import * as H from "./Header.style";
@@ -9,7 +8,7 @@ function Header() {
     <H.HeaderBox>
       <H.StyledHeader>
         <H.StyledLink to="/">
-          <Logo />
+          <Logo to="/" />
         </H.StyledLink>
 
         <H.StyledLink to="/Post">
