@@ -8,7 +8,7 @@ function Header() {
     <H.HeaderBox>
       <H.StyledHeader>
         <H.StyledLink to="/">
-          <Logo to="/" />
+          <Logo />
         </H.StyledLink>
 
         <H.StyledLink to="/Post">
