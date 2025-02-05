@@ -2,13 +2,14 @@ import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
-import PrimaryButton from "./components/Buttons/PrimaryButton";
-import SecondaryButton from "./components/Buttons/SecondaryButton";
-import ArrowButton from "./components/Buttons/ArrowButton";
 import CreateButton from "./components/Buttons/CreateButton";
 import DeleteButton from "./components/Buttons/DeleteButton";
 import ToggleButton from "./components/Buttons/ToggleButton";
 import OutlinedButton from "./components/Buttons/OutlinedButton";
+import ArrowButton from "./components/Buttons/ArrowButton";
+import PrimaryButton from "./components/Buttons/PrimaryButton";
+import SecondaryButton from "./components/Buttons/SecondaryButton";
+
 
 function App() {
   const [isToggled, setIsToggled] = useState(false);
