@@ -1,16 +1,4 @@
-import {
-  Container,
-  Header,
-  Content,
-  Button,
-  ProfileWrapper,
-  ProfileImage,
-  Badge,
-  TitleWrapper,
-  Title,
-  Name,
-  DateContainer,
-} from "./Modal.style";
+import * as M from "./Modal.style";
 
 function Modal({ message, handleClose }) {
   const {
@@ -35,22 +23,22 @@ function Modal({ message, handleClose }) {
   };
 
   return (
-    <Container>
-      <Header>
-        <ProfileWrapper>
-          <ProfileImage $image={profileImageURL} />
-          <TitleWrapper>
-            <Title>
-              From. <Name>{sender}</Name>
-            </Title>
-            <Badge $relationship={relationship}>{relationship}</Badge>
-          </TitleWrapper>
-        </ProfileWrapper>
-        <DateContainer>{formatDate(createdAt)}</DateContainer>
-      </Header>
-      <Content font={font}>{content}</Content>
-      <Button onClick={handleClose}>확인</Button>
-    </Container>
+    <M.Container>
+      <M.Header>
+        <M.ProfileWrapper>
+          <M.ProfileImage $image={profileImageURL} />
+          <M.TitleWrapper>
+            <M.Title>
+              From. <M.Name>{sender}</M.Name>
+            </M.Title>
+            <M.Badge $relationship={relationship}>{relationship}</M.Badge>
+          </M.TitleWrapper>
+        </M.ProfileWrapper>
+        <M.DateContainer>{formatDate(createdAt)}</M.DateContainer>
+      </M.Header>
+      <M.Content font={font}>{content}</M.Content>
+      <M.Button onClick={handleClose}>확인</M.Button>
+    </M.Container>
   );
 }
 
