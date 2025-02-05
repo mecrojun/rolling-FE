@@ -34,9 +34,9 @@ function Modal({ message, handleClose }) {
             <M.Badge $relationship={relationship}>{relationship}</M.Badge>
           </M.TitleWrapper>
         </M.ProfileWrapper>
-        <M.DateContainer>{formatDate(createdAt)}</M.DateContainer>
+        <M.Date>{formatDate(createdAt)}</M.Date>
       </M.Header>
-      <M.Content font={font}>{content}</M.Content>
+      <M.Content $font={font}>{content}</M.Content>
       <M.Button onClick={handleClose}>확인</M.Button>
     </M.Container>
   );
