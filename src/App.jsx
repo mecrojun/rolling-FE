@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
@@ -10,6 +11,12 @@ import ToggleButton from "./components/Buttons/ToggleButton";
 import OutlinedButton from "./components/Buttons/OutlinedButton";
 
 function App() {
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = () => {
+      setIsToggled(!isToggled);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -17,7 +24,7 @@ function App() {
       <SecondaryButton width="122px" height="40px" $disable={false}>취소</SecondaryButton>
       <CreateButton $disable={false}/>
       <DeleteButton $disable={false}/>
-      <ToggleButton width="122px" height="40px"/>
+      <ToggleButton width="122px" height="40px" handleToggle={handleToggle} $isToggled={isToggled}/>
       <OutlinedButton width="192px" height="40px" $emoji={true} $disable={false}>Enable</OutlinedButton>
       <ArrowButton direction="left" />
       <ArrowButton direction="right" />
