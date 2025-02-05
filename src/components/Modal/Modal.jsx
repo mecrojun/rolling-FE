@@ -1,4 +1,5 @@
 import * as M from "./Modal.style";
+import { formatDate } from "../../utils/dateUtils";
 
 function Modal({ message, handleClose }) {
   const {
@@ -11,16 +12,6 @@ function Modal({ message, handleClose }) {
     font,
     createdAt,
   } = message;
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    return `${year}.${month}.${day}`;
-  };
 
   return (
     <M.Container>
