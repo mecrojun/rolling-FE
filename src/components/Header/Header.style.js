@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const HeaderBox = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  width: 100%;
+  height: 65px;
+
+  background-color: ${({ theme }) => theme.colors.white};
+`;
 export const StyledHeader = styled.header`
   display: flex;
   position: fixed;

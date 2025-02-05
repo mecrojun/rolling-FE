@@ -1,7 +1,7 @@
-import * as S from "./HeaderButton.style";
+import * as H from "./HeaderButton.style";
 
 function HeaderButton() {
-  return <S.StyledButton>롤링 페이퍼 만들기</S.StyledButton>;
+  return <H.StyledButton>롤링 페이퍼 만들기</.StyledButton>;
 }
 
 export default HeaderButton;
