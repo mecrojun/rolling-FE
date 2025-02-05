@@ -45,7 +45,7 @@ const OutlinedButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: ${(props) => buttonGap(props.height, props.emoji)}
+    gap: ${(props) => buttonGap(props.height, props.$emoji)}
     width: ${(props) => props.width || '192px'};
     height: ${(props) => props.height || '56px'};
     padding: 14px 16px;
@@ -53,8 +53,8 @@ const OutlinedButtonWrapper = styled.button`
     border-radius: 12px;    
     background-color: #FFFFFF;
     color: #181818;
-    ${(props) => outLinedButtonFontStyle(props.height, props.emoji, props.theme)}    
-    ${(props) => props.disable ?
+    ${(props) => outLinedButtonFontStyle(props.height, props.$emoji, props.theme)}    
+    ${(props) => props.$disable ?
         `background-color: #CCCCCC;
         color: #FFFFFF;` :
         `background-color: #FFFFFF;
@@ -87,11 +87,11 @@ const returnEmoji = (emoji, height, disable) => {
 
 const OutlinedButtonText = styled.div``;
 
-function OutlinedButton({ width, height, emoji, disable, children }) {
+function OutlinedButton({ width, height, $emoji, $disable, children }) {
 
     return (
-        <OutlinedButtonWrapper width={width} height={height} emoji={emoji} disable={disable}>
-            {returnEmoji(emoji, height, disable)}
+        <OutlinedButtonWrapper width={width} height={height} $emoji={$emoji} $disable={$disable}>
+            {returnEmoji($emoji, height, $disable)}
             <OutlinedButtonText>{children}</OutlinedButtonText>
         </OutlinedButtonWrapper>
     );

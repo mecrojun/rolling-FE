@@ -13,12 +13,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <PrimaryButton width="208px" height="56px" disable={false}>확인</PrimaryButton>
-      <SecondaryButton width="122px" height="40px" disable={false}>취소</SecondaryButton>
-      <CreateButton disable={false}/>
-      <DeleteButton disable={false}/>
+      <PrimaryButton width="208px" height="56px" $disable={false}>확인</PrimaryButton>
+      <SecondaryButton width="122px" height="40px" $disable={false}>취소</SecondaryButton>
+      <CreateButton $disable={false}/>
+      <DeleteButton $disable={false}/>
       <ToggleButton width="122px" height="40px"/>
-      <OutlinedButton width="192px" height="40px" emoji={true} disable={false}>Enable</OutlinedButton>
+      <OutlinedButton width="192px" height="40px" $emoji={true} $disable={false}>Enable</OutlinedButton>
       <ArrowButton direction="left" />
       <ArrowButton direction="right" />
     </ThemeProvider>

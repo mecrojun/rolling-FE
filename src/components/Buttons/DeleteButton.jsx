@@ -11,7 +11,7 @@ const DeleteButtonWrapper = styled.button`
     padding: 6px;  
     border: 1px solid #CCCCCC;
     border-radius: 6px;
-    ${(props) => props.disable ?
+    ${(props) => props.$disable ?
       `background-color: #CCCCCC;` :
       `background-color: #FFFFFF;
     
@@ -32,10 +32,10 @@ const returnDeletedIcon = (disable) => {
   return <DeletedIcon color={color} />
 }
 
-function DeleteButton({ disable }) {
+function DeleteButton({ $disable }) {
     return (
-      <DeleteButtonWrapper disable={disable}>
-        {returnDeletedIcon(disable)}
+      <DeleteButtonWrapper $disable={$disable}>
+        {returnDeletedIcon($disable)}
       </DeleteButtonWrapper>
     );
   }

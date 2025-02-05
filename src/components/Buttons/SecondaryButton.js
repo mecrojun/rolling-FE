@@ -7,7 +7,7 @@ const SecondaryButton = styled.button`
   border: 1px solid #9935FF;
   border-radius: 6px;  
   ${(props) => props.theme.fonts['16r']}
-  ${(props) => props.disable ?
+  ${(props) => props.$disable ?
       `background-color: #CCCCCC;
        color: #FFFFFF;
        border: 1px solid #CCCCCC;` :

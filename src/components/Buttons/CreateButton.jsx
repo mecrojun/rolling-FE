@@ -10,7 +10,7 @@ const ButtonWrapper = styled.button`
     height: 56px;
     border: 0;
     border-radius: 100px;
-    ${(props) => props.disable ?
+    ${(props) => props.$disable ?
         `background-color: #CCCCCC;` :
         `background-color: #555555;
     
@@ -30,13 +30,13 @@ const ButtonWrapper = styled.button`
     }
 `;
 
-const returnPlusIcon = (disable) => {    
+const returnPlusIcon = () => {    
     return <PlusIcon color={theme.colors.white}/>;
 }
 
-function CreateButton({ disable }) {
+function CreateButton({ $disable }) {
     return (
-        <ButtonWrapper disable={disable}>
+        <ButtonWrapper $disable={$disable}>
             {returnPlusIcon()}
         </ButtonWrapper>
     );

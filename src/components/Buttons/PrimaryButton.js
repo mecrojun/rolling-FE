@@ -18,7 +18,7 @@ const PrimaryButton = styled.button`
   border-radius: 12px;
   color: #FFFFFF;
   ${(props) => pri_buttonFontStyle(props.height, props.theme)}
-  ${(props) => props.disable ?
+  ${(props) => props.$disable ?
     `background-color: #CCCCCC;` :
     `background-color: #9935FF;
 

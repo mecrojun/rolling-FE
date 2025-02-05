@@ -8,7 +8,7 @@ const ColorButton = styled.button`
     font-size: 16px;
     line-height: 26px;
 
-    ${(props) => props.toggle ?
+    ${(props) => props.$toggle ?
         `padding: 8px 16px;
         background-color: #F6F6F6;
         border: 0;
@@ -33,7 +33,7 @@ const ImgButton = styled.button`
     line-height: 26px;
     background-color: #CCCCCC;
 
-    ${(props) => props.toggle ?
+    ${(props) => props.$toggle ?
         `padding: 7px 16px;
         background-color: #FFFFFF;
         border:2px solid #9935FF;
@@ -64,8 +64,8 @@ function ToggleButton({ width, height }) {
 
     return (
       <ToggleButtonWrapper>
-        <ColorButton width={width} height={height} onClick={toggleHandle} toggle={isToggled} >컬러</ColorButton>
-        <ImgButton width={width} height={height} onClick={toggleHandle} toggle={isToggled} >이미지</ImgButton>
+        <ColorButton width={width} height={height} onClick={toggleHandle} $toggle={isToggled} >컬러</ColorButton>
+        <ImgButton width={width} height={height} onClick={toggleHandle} $toggle={isToggled} >이미지</ImgButton>
       </ToggleButtonWrapper>
     );
   }
