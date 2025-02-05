@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AddIcon } from "../Icons";
 import { theme } from "../../styles/theme";
 
-const outLinedButtonFontStyle = (height, emoji, theme) => {
+const setOutLinedButtonFontStyle = (height, emoji, theme) => {
     const fontStyles = {
         "56px": theme.fonts["18b"],
         "40px": { ...theme.fonts["16r"], ...(emoji && { fontWeight: 500, lineHeight: "24px" }) },
@@ -13,7 +13,7 @@ const outLinedButtonFontStyle = (height, emoji, theme) => {
     return fontStyles[height];
 }
 
-const buttonGap = (height, emoji) => {
+const setButtonGap = (height, emoji) => {
     if (!emoji) return "0;";
 
     switch (height) {
@@ -27,7 +27,7 @@ const OutlinedButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: ${(props) => buttonGap(props.height, props.$emoji)}
+    gap: ${(props) => setButtonGap(props.height, props.$emoji)}
     width: ${(props) => props.width || '192px'};
     height: ${(props) => props.height || '56px'};
     padding: 14px 16px;
@@ -35,7 +35,7 @@ const OutlinedButtonWrapper = styled.button`
     border-radius: 12px;    
     background-color: #FFFFFF;
     color: #181818;
-    ${(props) => outLinedButtonFontStyle(props.height, props.$emoji, props.theme)}    
+    ${(props) => setOutLinedButtonFontStyle(props.height, props.$emoji, props.theme)}    
     ${(props) => props.$disable ?
         `background-color: #CCCCCC;
         color: #FFFFFF;` :
