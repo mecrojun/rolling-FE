@@ -11,10 +11,6 @@ export const LogoContainer = styled.div`
   overflow: hidden;
 `;
 
-export const LogoImage = styled.img`
-  height: auto;
-`;
-
 export const LogoText = styled.p`
   color: ${({ theme }) => theme.colors.black};
 

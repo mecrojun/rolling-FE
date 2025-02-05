@@ -1,10 +1,10 @@
 import * as L from "./Logo.style";
+import { LogoIcon } from "../Icons";
 
 function Logo() {
   return (
     <L.LogoContainer>
-      {/* 이미지 불러오기가 안돼서 임시로 public에 저장 */}
-      <L.LogoImage src="/logo.svg" />
+      <LogoIcon size={27} />
       <L.LogoText>Rolling</L.LogoText>
     </L.LogoContainer>
   );
