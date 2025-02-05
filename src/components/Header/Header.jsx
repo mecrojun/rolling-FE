@@ -8,11 +8,11 @@ function Header() {
   return (
     <H.HeaderBox>
       <H.StyledHeader>
-        <H.StyledLink as={Link} to="/">
+        <H.StyledLink to="/">
           <Logo />
         </H.StyledLink>
 
-        <H.StyledLink as={Link} to="/Post">
+        <H.StyledLink to="/Post">
           <HeaderButton />
         </H.StyledLink>
       </H.StyledHeader>

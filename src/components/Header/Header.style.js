@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderBox = styled.div`
@@ -30,6 +31,6 @@ export const StyledHeader = styled.header`
   align-items: center;
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
