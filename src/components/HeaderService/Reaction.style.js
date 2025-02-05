@@ -9,6 +9,7 @@ export const ReactionBoxContainer = styled.div`
 export const ReactionBox = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
   gap: 2px;
 
   height: 36px;
@@ -20,6 +21,8 @@ export const ReactionBox = styled.div`
 
   ${({ theme }) => ({ ...theme.fonts["16r"] })};
   line-height: ${({ theme }) => theme.fonts["14r"].lineHeight};
+
+  white-space: nowrap;
 `;
 
 export const ArrowButton = styled.button`
@@ -39,8 +42,8 @@ export const ArrowButton = styled.button`
 
 export const EmojiMoreWrapper = styled.div`
   position: fixed;
-  top: 60px;
-  right: 230px;
+  top: 125px;
+  right: 420px;
   z-index: 999;
 
   padding: 12px;
