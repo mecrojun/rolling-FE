@@ -3,42 +3,24 @@ import { AddIcon } from "../Icons";
 import { theme } from "../../styles/theme";
 
 const outLinedButtonFontStyle = (height, emoji, theme) => {
-    let fontStyle;
-    
-    if(height == "40px") {
-        fontStyle = theme.fonts['16r'];
+    const fontStyles = {
+        "56px": theme.fonts["18b"],
+        "40px": { ...theme.fonts["16r"], ...(emoji && { fontWeight: 500, lineHeight: "24px" }) },
+        "36px": { ...theme.fonts["16r"], fontWeight: 500, lineHeight: "24px" },
+        "28px": theme.fonts["14r"],
+    };
 
-        if(emoji) {
-            fontStyle['fontWeight'] = 500;
-            fontStyle['lineHeight'] = "24px";
-        }
-    }
-    else if(height == "36px") {
-        fontStyle = theme.fonts['16r'];
-        fontStyle['fontWeight'] = 500;
-        fontStyle['lineHeight'] = "24px";
-    }
-    else if(height == "28px") {
-        fontStyle = theme.fonts['14r'];
-    }
-    else {
-        fontStyle = theme.fonts['18b'];
-    }
-
-    return fontStyle;
+    return fontStyles[height];
 }
 
 const buttonGap = (height, emoji) => {
-    if(emoji) {
-        if(height == "56px")
-            return `0;`;
-        if (height == "40px")
-            return `10px;`;
-        else
-            return `4px;`;
+    if (!emoji) return "0;";
+
+    switch (height) {
+        case "56px": return "0;";
+        case "40px": return "10px;";
+        default: return "4px;";
     }
-    else
-        return `0;`;
 }
 
 const OutlinedButtonWrapper = styled.button`
@@ -72,17 +54,12 @@ const OutlinedButtonWrapper = styled.button`
 `;
 
 const returnEmoji = (emoji, height, disable) => {
-    if(emoji){
-        const size = ((height == "28px") ? "20px" : "24px");
-        const color = (disable ? theme.colors.white : theme.colors.black);
+    if (!emoji || height === "56px") return;
 
-        if(height == "56px")
-            return;
-        else
-            return <AddIcon size={size} color={color} />;
-    }
-    else
-        return;
+    const size = (height === "28px") ? "20px" : "24px";
+    const color = disable ? theme.colors.white : theme.colors.black;
+
+    return <AddIcon size={size} color={color} />;
 }
 
 const OutlinedButtonText = styled.div``;
