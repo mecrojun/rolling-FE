@@ -27,6 +27,7 @@ export const ReactionBox = styled.div`
 
 export const ArrowButton = styled.button`
   display: flex;
+  position: relctive;
   align-items: center;
   justify-content: center;
 
@@ -41,9 +42,9 @@ export const ArrowButton = styled.button`
 `;
 
 export const EmojiMoreWrapper = styled.div`
-  position: fixed;
-  top: 125px;
-  right: 420px;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-60px);
   z-index: 999;
 
   padding: 12px;
