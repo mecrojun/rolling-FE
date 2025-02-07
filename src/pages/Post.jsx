@@ -12,12 +12,14 @@ function Post() {
   const { recipientId } = useParams();
   const [messages, setMessages] = useState([]);
   const [backgroundColor, setBackgroundColor] = useState("white");
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
-          `https://rolling-api.vercel.app/1-7/recipients/9817/`
+          `https://rolling-api.vercel.app/1-7/recipients/9817/
+        `
         );
 
         if (response.data.backgroundColor) {
@@ -40,23 +42,28 @@ function Post() {
       }
     };
 
-    fetchRecipientData();
-    fetchMessages();
+    const fetchData = async () => {
+      await Promise.all([fetchRecipientData(), fetchMessages()]);
+      setIsReady(true);
+    };
+
+    fetchData();
   }, [recipientId]);
+
+  if (!isReady) return null;
 
   return (
     <Box bgColor={backgroundColor}>
       <HeaderLogoOnly />
       <HeaderService />
       <MessageCardBox>
-        <PlusBox>
-          <CreateButton>+</CreateButton>
+        <PlusBox to="/">
+          <CreateButton />
         </PlusBox>
         {messages.map((message, index) => (
           <MessageCard key={index} {...message} />
         ))}
       </MessageCardBox>
-      )
     </Box>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Box = styled.div`
@@ -19,7 +20,7 @@ export const MessageCardBox = styled.div`
   padding-bottom: 50px;
 `;
 
-export const PlusBox = styled.div`
+export const PlusBox = styled(Link)`
   width: 384px;
   height: 280px;
   border-radius: 16px;
