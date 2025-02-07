@@ -35,8 +35,8 @@ function Post() {
             />
           </P.StyledToggleButton>
 
-          {/* Colorchip 컴포넌트 수정 - 아이콘, 이미지 */}
-          <Colorchip />
+          {/* Colorchip 컴포넌트 수정 - 이미지 */}
+          <Colorchip isImage={isToggled} />
         </P.Section>
         <PrimaryButton width="100%" height="56px">
           생성하기

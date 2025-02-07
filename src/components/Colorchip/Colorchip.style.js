@@ -12,7 +12,12 @@ export const ColorChipItem = styled.div`
   height: 168px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  background-color: ${({ theme, color }) => theme.colors[color][200]};
+  background-color: ${({ theme, item, isImage }) =>
+    isImage ? "transparent" : theme.colors[item][200]};
+  background-image: ${({ item, isImage }) =>
+    isImage ? `url(${item})` : "none"};
+  background-size: cover;
+  background-position: center;
   cursor: pointer;
 
   &:hover {
@@ -25,7 +30,7 @@ export const ColorChipItem = styled.div`
 
 // 아이콘 컴포넌트로 대체 예정
 export const Selection = styled.div`
-  display: ${({ isChecked }) => (isChecked ? "block" : "none")};
+  display: ${({ $isChecked }) => ($isChecked ? "block" : "none")};
   position: absolute;
   top: 50%;
   left: 50%;
