@@ -6,8 +6,6 @@ export const DeleteButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    right: 24px;
     width: 36px;
     height: 36px;
     padding: 6px;  
