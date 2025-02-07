@@ -17,8 +17,8 @@ function Post() {
     <P.Wrapper>
       <HeaderLogoOnly />
       <P.Wrapper className="section-wrap">
-        <P.Section className="section to">
-          <h3>To.</h3>
+        <P.Section className="section name">
+          <P.SectionTitle>To.</P.SectionTitle>
           <InputField placeholder="받는 사람 이름을 입력해 주세요" />
         </P.Section>
         <P.Section className="section select-background">
