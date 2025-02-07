@@ -1,5 +1,5 @@
 import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
-import Colorchip from "../components/Colorchip";
+import Colorchip from "../components/Colorchip/Colorchip";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ToggleButton from "../components/Buttons/ToggleButton";
 
@@ -9,9 +9,8 @@ function Post() {
       <HeaderLogoOnly />
       <div>
         <div>
-          {/* 섹션 타이틀 태그 정하기 (/list 민지님) */}
-          <h2>To.</h2>
-          {/* <InputField /> */}
+          <h3>To.</h3>
+          <InputField />
         </div>
         <div>
           <h2>배경화면 선택</h2>
