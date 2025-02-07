@@ -11,6 +11,7 @@ import * as H from "./HeaderService.style";
 function HeaderService() {
   const { recipientId } = useParams();
   const [recipient, setRecipient] = useState(null);
+  const [reaction, setReaction] = useState([]);
 
   useEffect(() => {
     const fetchRecipientData = async () => {
@@ -20,11 +21,30 @@ function HeaderService() {
         );
         setRecipient(response.data);
       } catch (error) {
-        console.error(" 대상 정보 조회 오류:", error);
+        console.error(" 대상 정보 조회 오류", error);
       }
     };
 
-    fetchRecipientData();
+    const fetchReactionData = async () => {
+      try {
+        const response = await axios.get(
+          `https://rolling-api.vercel.app/1-7/recipients/9817/reactions/`
+        );
+        setReaction(response.data.results || []);
+      } catch (error) {
+        console.error("대상 리액션 정보 조회 오류", error);
+      }
+    };
+
+    const fetchData = async () => {
+      try {
+        await Promise.all([fetchRecipientData(), fetchReactionData()]);
+      } catch (error) {
+        console.error(" 데이터 로드 오류", error);
+      }
+    };
+
+    fetchData();
   }, [recipientId]);
 
   if (!recipient) return null;
@@ -41,7 +61,7 @@ function HeaderService() {
           <H.Line />
 
           <H.Section>
-            <Reaction topReactions={recipient.topReactions} />
+            <Reaction reactions={reaction} />
             <H.MiniSection>
               <AddEmoji />
               <H.Line />
