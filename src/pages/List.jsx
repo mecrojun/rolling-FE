@@ -1,6 +1,8 @@
-import Header from "../components/Header/Header";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { data } from "react-router-dom";
+import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
+import HeaderService from "../components/HeaderService/HeaderService";
 import CardList from "../components/CardList";
 import { ListTitleText } from "../styles/ListPageStyle";
 
@@ -118,6 +120,18 @@ const dummyCard = [
   },
 ];
 
+const GetPopularCards = (cards) => {
+  return [...cards]
+    .sort((a, b) => b.reactionCount - a.reactionCount)
+    .slice(0, 4);
+};
+
+const GetRecentCards = (cards) => {
+  return [...cards]
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 4);
+};
+
 function List() {
   const [cards, setCards] = useState([dummyCard]);
   const [isloading, setIsLoading] = useState(true);
@@ -147,17 +161,23 @@ function List() {
     fetchCards();
   }, []);
 
+  const PopularCards = GetPopularCards(cards);
+  const RecentCards = GetRecentCards(cards);
+
   if (isloading) return <p>Loading...</p>;
 
   return (
     <div style={{ paddingTop: "100px" }}>
-      <Header />
-      <div>
-        <ListTitleText>인기 롤링 페이퍼</ListTitleText>
-      </div>
-      <CardList cards={cards} />
+      <HeaderLogoOnly />
+      <HeaderService />
+      <ListTitleText>인기 롤링 페이퍼</ListTitleText>
+      <CardList cards={PopularCards} />
+      <ListTitleText>최근에 만든 롤링 페이퍼</ListTitleText>
+      <CardList cards={RecentCards} />
     </div>
   );
 }
+
+// 최근 작성된 4개의 카드를 불러와서 최신순 정렬하는 함수
 
 export default List;
