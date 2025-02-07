@@ -8,7 +8,7 @@ import {
   MessageContainer,
   MessageFont,
   MessageDateFont,
-} from "../styles/MessageCardStyle";
+} from "./MessageCardStyle";
 
 function MessageCard({
   recipientId,

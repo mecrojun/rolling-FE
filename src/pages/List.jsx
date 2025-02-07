@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { data } from "react-router-dom";
-import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
-import HeaderService from "../components/HeaderService/HeaderService";
-import CardList from "../components/CardList";
-import { ListTitleText } from "../styles/ListPageStyle";
+import Header from "../components/Header/Header";
+import ListCard from "../components/Card/ListCard";
+import { ListTitleText } from "./ListPageStyle";
 
 const dummyCard = [
   {
@@ -12,6 +11,7 @@ const dummyCard = [
     name: "Sowon",
     backgroundColor: "purple",
     backgroundImageURL: null,
+    createdAt: "2025-01-20T06:26:54.582326",
     messageCount: 30,
     reactionCount: 39,
     topReactions: [
@@ -22,115 +22,122 @@ const dummyCard = [
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 2,
+    name: "Jisoo",
     backgroundColor: "blue",
     backgroundImageURL: null,
+    createdAt: "2025-01-18T06:26:54.582349",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 25,
     topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
+      { emoji: "👍", count: 10 },
+      { emoji: "🔥", count: 10 },
+      { emoji: "🥰", count: 5 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 3,
+    name: "Dawon",
     backgroundColor: "beige",
     backgroundImageURL: null,
+    createdAt: "2025-01-27T06:26:54.582354",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 35,
     topReactions: [
-      { emoji: "👍", count: 20 },
+      { emoji: "👍", count: 16 },
       { emoji: "🔥", count: 12 },
       { emoji: "🥰", count: 7 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 4,
+    name: "Jihoon",
     backgroundColor: "green",
     backgroundImageURL: null,
+    createdAt: "2025-01-22T06:26:54.582357",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 30,
     topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
+      { emoji: "👍", count: 15 },
+      { emoji: "🔥", count: 10 },
+      { emoji: "🥰", count: 5 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 5,
+    name: "Kim",
     backgroundColor: "purple",
     backgroundImageURL: null,
+    createdAt: "2025-01-22T06:26:54.582370",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 20,
     topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
+      { emoji: "👍", count: 10 },
+      { emoji: "🔥", count: 5 },
+      { emoji: "🥰", count: 5 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 6,
+    name: "Somi",
     backgroundColor: "blue",
     backgroundImageURL: null,
+    createdAt: "2025-02-07T06:26:54.582360",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 32,
     topReactions: [
-      { emoji: "👍", count: 20 },
+      { emoji: "👍", count: 13 },
       { emoji: "🔥", count: 12 },
       { emoji: "🥰", count: 7 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 7,
+    name: "Jiwon",
     backgroundColor: "beige",
     backgroundImageURL: null,
+    createdAt: "2025-01-08T06:26:54.582363",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 25,
     topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
+      { emoji: "👍", count: 10 },
+      { emoji: "🔥", count: 10 },
+      { emoji: "🥰", count: 5 },
     ],
   },
 
   {
-    id: 1,
-    name: "Sowon",
+    id: 8,
+    name: "Suji",
     backgroundColor: "green",
     backgroundImageURL: null,
+    createdAt: "2025-01-11T06:26:54.582366",
     messageCount: 30,
-    reactionCount: 39,
+    reactionCount: 17,
     topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
+      { emoji: "👍", count: 5 },
+      { emoji: "🔥", count: 5 },
       { emoji: "🥰", count: 7 },
     ],
   },
 ];
 
-const GetPopularCards = (cards) => {
+function getPopularCards(cards) {
   return [...cards]
     .sort((a, b) => b.reactionCount - a.reactionCount)
     .slice(0, 4);
-};
+}
 
-const GetRecentCards = (cards) => {
+function getRecentCards(cards) {
   return [...cards]
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 4);
-};
+}
 
 function List() {
   const [cards, setCards] = useState([dummyCard]);
@@ -161,23 +168,20 @@ function List() {
     fetchCards();
   }, []);
 
-  const PopularCards = GetPopularCards(cards);
-  const RecentCards = GetRecentCards(cards);
+  const PopularCards = getPopularCards(cards);
+  const RecentCards = getRecentCards(cards);
 
   if (isloading) return <p>Loading...</p>;
 
   return (
-    <div style={{ paddingTop: "100px" }}>
-      <HeaderLogoOnly />
-      <HeaderService />
+    <div>
+      <Header />
       <ListTitleText>인기 롤링 페이퍼</ListTitleText>
-      <CardList cards={PopularCards} />
+      <ListCard cards={PopularCards} />
       <ListTitleText>최근에 만든 롤링 페이퍼</ListTitleText>
-      <CardList cards={RecentCards} />
+      <ListCard cards={RecentCards} />
     </div>
   );
 }
-
-// 최근 작성된 4개의 카드를 불러와서 최신순 정렬하는 함수
 
 export default List;
