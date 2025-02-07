@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { data } from "react-router-dom";
 import Header from "../components/Header/Header";
 import ListCard from "../components/Card/ListCard";
 import { ListTitleText } from "./ListPageStyle";
+import MessageCard from "../components/Card/MessageCard";
 
 const dummyCard = [
   {
@@ -127,6 +127,17 @@ const dummyCard = [
   },
 ];
 
+const dummyMessage = [
+  {
+    profileImageURL: "/images/user1.jpg",
+    sender: "김동훈",
+    relationship: "",
+    content:
+      "코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!",
+    createdAt: "2023.07.08",
+  },
+];
+
 function getPopularCards(cards) {
   return [...cards]
     .sort((a, b) => b.reactionCount - a.reactionCount)
@@ -180,6 +191,11 @@ function List() {
       <ListCard cards={PopularCards} />
       <ListTitleText>최근에 만든 롤링 페이퍼</ListTitleText>
       <ListCard cards={RecentCards} />
+      <div>
+        {dummyMessage.map((message, index) => (
+          <MessageCard key={index} {...message} showDeleteButton={true} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import {
   ReactionContainer,
   ReactionIcons,
   CardListContainer,
-} from "./CardListStyle.js";
+} from "./ListCardStyle.js";
 import { EmojiBadge } from "../Badge.jsx";
 
 function ProfileList({ recentMessages = [], messageCount = 0 }) {

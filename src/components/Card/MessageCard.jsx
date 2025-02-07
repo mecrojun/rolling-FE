@@ -8,7 +8,9 @@ import {
   MessageContainer,
   MessageFont,
   MessageDateFont,
+  DeleteContainer,
 } from "./MessageCardStyle";
+import DeleteButton from "../Buttons/DeleteButton";
 
 function MessageCard({
   recipientId,
@@ -18,6 +20,8 @@ function MessageCard({
   content,
   font,
   createdAt,
+  showDeleteButton = false,
+  onDelete,
 }) {
   return (
     <MessageCardContainer>
@@ -29,6 +33,14 @@ function MessageCard({
           </SenderFont>
           <RelationshipBadge>{relationship}</RelationshipBadge>
         </div>
+        <DeleteContainer>
+          {showDeleteButton && (
+            <DeleteButton
+              $disable={false}
+              onClick={() => onDelete(recipientId)}
+            />
+          )}
+        </DeleteContainer>
       </SenderContainer>
       <MessageContainer>
         <MessageFont>{content}</MessageFont>
