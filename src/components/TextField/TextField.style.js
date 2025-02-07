@@ -53,9 +53,7 @@ const textfieldStateStyles = css`
 const ErrorMessage = styled.span`
   display: block;
   color: ${({ theme }) => theme.colors.error};
-  font-size: ${({ theme }) => theme.fonts["12r"].fontSize};
-  font-weight: ${({ theme }) => theme.fonts["12r"].fontWeight};
-  line-height: ${({ theme }) => theme.fonts["12r"].lineHeight};
+  ${({ theme }) => theme.fonts["12r"]};
 `;
 
 // InputField
