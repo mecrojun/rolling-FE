@@ -25,10 +25,13 @@ export const ColorChipItem = styled.div`
 
 // 아이콘 컴포넌트로 대체 예정
 export const Selection = styled.div`
+  display: ${({ isChecked }) => (isChecked ? "block" : "none")};
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 24px;
-  display: ${({ isChecked }) => (isChecked ? "block" : "none")};
+  width: 44px;
+  height: 44px;
+  border-radius: 44px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
