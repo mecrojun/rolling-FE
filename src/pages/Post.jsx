@@ -4,8 +4,15 @@ import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ToggleButton from "../components/Buttons/ToggleButton";
 import { InputField } from "../components/TextField/TextField";
 import * as P from "./Post.style";
+import { useState } from "react";
 
 function Post() {
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
+
   return (
     <P.Wrapper>
       <HeaderLogoOnly />
@@ -20,7 +27,12 @@ function Post() {
             <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
           </P.Wrapper>
           <P.StyledToggleButton>
-            <ToggleButton width="122px" height="40px" />
+            <ToggleButton
+              width="122px"
+              height="40px"
+              handleToggle={handleToggle}
+              $isToggled={isToggled}
+            />
           </P.StyledToggleButton>
 
           {/* Colorchip 컴포넌트 수정 - 아이콘, 이미지 */}
