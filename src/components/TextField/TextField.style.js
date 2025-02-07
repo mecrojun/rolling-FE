@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 // Common TextField Styles
-const commonTextfieldStyles = css`
+export const commonTextfieldStyles = css`
   width: ${({ width }) => width};
   height: 50px;
   margin: 0;
@@ -24,7 +24,7 @@ const commonTextfieldStyles = css`
     `}
 `;
 
-const textfieldStateStyles = css`
+export const textfieldStateStyles = css`
   &:focus {
     outline: none;
     border: 2px solid ${({ theme }) => theme.colors.gray[500]};
@@ -50,20 +50,20 @@ const textfieldStateStyles = css`
   }
 `;
 
-const ErrorMessage = styled.span`
+export const ErrorMessage = styled.span`
   display: block;
   color: ${({ theme }) => theme.colors.error};
   ${({ theme }) => theme.fonts["12r"]};
 `;
 
 // InputField
-const Input = styled.input`
+export const Input = styled.input`
   ${commonTextfieldStyles}
   ${textfieldStateStyles}
 `;
 
 // Dropdown
-const SelectBox = styled.div`
+export const SelectBox = styled.div`
   ${commonTextfieldStyles}
   position: relative;
   padding: 0;
@@ -81,7 +81,7 @@ const SelectBox = styled.div`
   }
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   ${commonTextfieldStyles}
   ${textfieldStateStyles}
   display: block;
@@ -100,7 +100,7 @@ const Label = styled.label`
   }
 `;
 
-const Options = styled.ul`
+export const Options = styled.ul`
   max-height: ${(props) => (props.$show ? "none" : "0")};
   margin-top: 8px;
   padding: 0;
@@ -112,7 +112,7 @@ const Options = styled.ul`
   list-style: none;
 `;
 
-const Option = styled.li`
+export const Option = styled.li`
   padding: 12px 16px;
   &:first-child {
     margin-top: 10px;
@@ -126,5 +126,3 @@ const Option = styled.li`
     background-color: ${({ theme }) => theme.colors.gray[100]};
   }
 `;
-
-export { Input, ErrorMessage, SelectBox, Label, Options, Option };

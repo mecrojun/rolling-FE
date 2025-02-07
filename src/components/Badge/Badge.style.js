@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
   ${({ theme }) => theme.flexLayout()}
   width: 41px;
   height: 20px;
@@ -9,11 +9,11 @@ const Container = styled.div`
   border-radius: 4px;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   ${({ theme }) => theme.fonts["14r"]};
 `;
 
-const EmojiBadgeContainer = styled.div`
+export const EmojiBadgeContainer = styled.div`
   ${({ theme }) => theme.flexLayout()}
   gap: 4px;
   width: 66px;
@@ -24,12 +24,10 @@ const EmojiBadgeContainer = styled.div`
   ${({ theme }) => theme.fonts["16r"]};
 `;
 
-const Emoji = styled.div`
+export const Emoji = styled.div`
   font-size: 15px;
 `;
 
-const Likes = styled.span`
+export const Likes = styled.span`
   color: ${({ theme }) => theme.colors.white};
 `;
-
-export { Container, Label, EmojiBadgeContainer, Emoji, Likes };
