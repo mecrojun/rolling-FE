@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ColorchipContainer = styled.div`
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 16px;
 `;
 
 export const ColorChipItem = styled.div`

@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => theme.flexLayout()}
   width: 41px;
   height: 20px;
   background-color: ${({ theme, bgColor }) => theme.colors[bgColor][100]};
@@ -16,9 +14,7 @@ const Label = styled.label`
 `;
 
 const EmojiBadgeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${({ theme }) => theme.flexLayout()}
   gap: 4px;
   width: 66px;
   height: 36px;
