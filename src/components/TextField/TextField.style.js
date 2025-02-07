@@ -69,22 +69,13 @@ export const SelectBox = styled.div`
   padding: 0;
   border: none;
   cursor: pointer;
-
-  /* 임시 아이콘 */
-  &::before {
-    content: "⌵";
-    position: absolute;
-    top: 5px;
-    bottom: 0;
-    right: 18px;
-    font-size: 20px;
-  }
 `;
 
 export const Label = styled.label`
   ${commonTextfieldStyles}
   ${textfieldStateStyles}
-  display: block;
+    ${({ theme }) => theme.flexLayout(undefined, "flex-start")}
+    gap: 246px;
   cursor: pointer;
   border: ${(props) =>
     props.$show
@@ -107,6 +98,7 @@ export const Options = styled.ul`
   border: ${(props) =>
     props.$show ? `1px solid ${props.theme.colors.gray[300]}` : "none"};
   border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   list-style: none;
