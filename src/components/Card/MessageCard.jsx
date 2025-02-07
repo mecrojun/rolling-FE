@@ -11,6 +11,7 @@ import {
   DeleteContainer,
 } from "./MessageCardStyle";
 import DeleteButton from "../Buttons/DeleteButton";
+import { RelBadge } from "../Badge.jsx";
 
 function MessageCard({
   recipientId,
@@ -31,7 +32,7 @@ function MessageCard({
           <SenderFont>
             From. <SenderBoldText>{sender}</SenderBoldText>
           </SenderFont>
-          <RelationshipBadge>{relationship}</RelationshipBadge>
+          <RelBadge>{relationship}</RelBadge>
         </div>
         <DeleteContainer>
           {showDeleteButton && (
