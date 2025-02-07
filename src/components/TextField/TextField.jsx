@@ -55,7 +55,7 @@ function Dropdown({ width = "100%" }) {
   );
 }
 
-function InputField({ width = "100%" }) {
+function InputField({ width = "100%", placeholder = "placeholder" }) {
   const [error, setError] = useState(false);
   const [value, setValue] = useState("");
 
@@ -72,7 +72,7 @@ function InputField({ width = "100%" }) {
     <>
       <T.Input
         width={width}
-        placeholder="Placeholder"
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
         onBlur={handleBlur}
