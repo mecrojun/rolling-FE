@@ -17,13 +17,15 @@ function Post() {
     <P.Wrapper>
       <HeaderLogoOnly />
       <P.Wrapper className="section-wrap">
-        <P.Section className="section name">
+        <P.Section className="name">
           <P.SectionTitle>To.</P.SectionTitle>
           <InputField placeholder="받는 사람 이름을 입력해 주세요" />
         </P.Section>
-        <P.Section className="section select-background">
+        <P.Section className="select-background">
           <P.Wrapper className="txt-box">
-            <P.SectionTitle>배경화면을 선택해 주세요.</P.SectionTitle>
+            <P.SectionTitle className="bg-select-title">
+              배경화면을 선택해 주세요.
+            </P.SectionTitle>
             <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
           </P.Wrapper>
           <P.StyledToggleButton>

@@ -52,6 +52,9 @@ export const Section = styled.section`
 export const SectionTitle = styled.h3`
   margin-bottom: 12px;
   ${({ theme }) => theme.fonts["24b"]}
+  &.bg-select-title {
+    margin-bottom: 4px;
+  }
 `;
 
 export const StyledToggleButton = styled.div`
