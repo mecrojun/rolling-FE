@@ -6,6 +6,7 @@ import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
 import MessageCard from "../components/MessageCard";
 import { MessageCardBox, Box, PlusBox } from "./Post.style";
 import { messageData } from "./MessageData";
+import CreateButton from "../components/Buttons/CreateButton";
 
 function Post() {
   const { recipientId } = useParams();
@@ -49,7 +50,7 @@ function Post() {
       <HeaderService />
       <MessageCardBox>
         <PlusBox>
-          <button>+</button>
+          <CreateButton>+</CreateButton>
         </PlusBox>
         {messages.map((message, index) => (
           <MessageCard key={index} {...message} />
