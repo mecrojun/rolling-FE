@@ -23,9 +23,10 @@ function MessageCard({
   createdAt,
   showDeleteButton = false,
   onDelete,
+  onClick,
 }) {
   return (
-    <MessageCardContainer>
+    <MessageCardContainer onClick={onClick}>
       <SenderContainer>
         <MessageProfileIcon $profileImageURL={profileImageURL} />
         <div>
@@ -36,10 +37,7 @@ function MessageCard({
         </div>
         <DeleteContainer>
           {showDeleteButton && (
-            <DeleteButton
-              $disable={false}
-              onClick={() => onDelete(recipientId)}
-            />
+            <DeleteButton $disable={false} onClick={() => onDelete(id)} />
           )}
         </DeleteContainer>
       </SenderContainer>

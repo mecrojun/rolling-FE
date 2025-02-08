@@ -118,6 +118,9 @@ export const CardListContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 166px 380px auto;
+  overflow-x: auto;
+  max-width: 1200px;
+  margin: 0 auto;
   gap: 20px;
+  }
 `;

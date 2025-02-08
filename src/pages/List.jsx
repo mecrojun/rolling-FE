@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header/Header";
 import ListCard from "../components/Card/ListCard";
-import { ListTitleText } from "./ListPageStyle";
-import MessageCard from "../components/Card/MessageCard";
+import * as L from "./ListPageStyle";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 
 const dummyCard = [
   {
@@ -127,17 +128,6 @@ const dummyCard = [
   },
 ];
 
-const dummyMessage = [
-  {
-    profileImageURL: "/images/user1.jpg",
-    sender: "김동훈",
-    relationship: "",
-    content:
-      "코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!",
-    createdAt: "2023.07.08",
-  },
-];
-
 function getPopularCards(cards) {
   return [...cards]
     .sort((a, b) => b.reactionCount - a.reactionCount)
@@ -148,6 +138,10 @@ function getRecentCards(cards) {
   return [...cards]
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 4);
+}
+
+function handleCreatePost() {
+  Navigate("/Post");
 }
 
 function List() {
@@ -187,15 +181,15 @@ function List() {
   return (
     <div>
       <Header />
-      <ListTitleText>인기 롤링 페이퍼</ListTitleText>
+      <L.ListTitleText>인기 롤링 페이퍼</L.ListTitleText>
       <ListCard cards={PopularCards} />
-      <ListTitleText>최근에 만든 롤링 페이퍼</ListTitleText>
+      <L.ListTitleText>최근에 만든 롤링 페이퍼</L.ListTitleText>
       <ListCard cards={RecentCards} />
-      <div>
-        {dummyMessage.map((message, index) => (
-          <MessageCard key={index} {...message} showDeleteButton={true} />
-        ))}
-      </div>
+      <L.PostButtonWrapper>
+        <PrimaryButton onClick={handleCreatePost}>
+          나도 만들어보기
+        </PrimaryButton>
+      </L.PostButtonWrapper>
     </div>
   );
 }
