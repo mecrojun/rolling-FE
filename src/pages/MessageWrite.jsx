@@ -5,13 +5,24 @@ import { Profile } from "../components/Profile/Profile";
 import TextEditor from "../components/TextField/TextEditor";
 import * as P from "./PostAndMessage.style";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MessageWrite() {
   const [content, setContent] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
   // 버튼 비활성화 조건
   const isButtonDisabled = !(name.trim() && content.trim()); // 비어있으면 true
+
+  const handleSubmit = () => {
+    // isButtonDisabled가 false일 때
+    // (= 버튼이 활성화됐을 때)
+    if (!isButtonDisabled) {
+      const id = Math.random().toString(36).substr(2, 9);
+      navigate(`/post/${id}`);
+    }
+  };
 
   return (
     <P.Wrapper>
@@ -58,7 +69,11 @@ function MessageWrite() {
           <P.SectionTitle>폰트 선택</P.SectionTitle>
           <Dropdown width="320px" />
         </P.Section>
-        <PrimaryButton width="100%" $disable={isButtonDisabled}>
+        <PrimaryButton
+          width="100%"
+          $disable={isButtonDisabled}
+          onClick={handleSubmit}
+        >
           생성하기
         </PrimaryButton>
       </P.Wrapper>
