@@ -1,17 +1,5 @@
-import {
-  CardContainer,
-  CardContent,
-  CardTitle,
-  ProfileContainer,
-  ProfileIcon,
-  MoreMessagesCount,
-  MoreMessageText,
-  CardCountText,
-  CountBoldText,
-  ReactionContainer,
-  ReactionIcons,
-  CardListContainer,
-} from "./ListCardStyle.js";
+import { useNavigate } from "react-router-dom";
+import * as LC from "./ListCardStyle.js";
 import { EmojiBadge } from "../Badge.jsx";
 
 function ProfileList({ recentMessages = [], messageCount = 0 }) {
@@ -20,20 +8,20 @@ function ProfileList({ recentMessages = [], messageCount = 0 }) {
   const hiddenMessageCount = messageCount - recentMessages.length;
 
   return (
-    <ProfileContainer>
+    <LC.ProfileContainer>
       {VisibleProfiles.map((message, index) => (
-        <ProfileIcon
+        <LC.ProfileIcon
           key={index}
           $profileImageURL={message.profileImageURL}
           $index={index}
         />
       ))}
       {hiddenMessageCount > 0 && (
-        <MoreMessagesCount $index={maxVisibleProfiles}>
-          <MoreMessageText>+{hiddenMessageCount}</MoreMessageText>
-        </MoreMessagesCount>
+        <LC.MoreMessagesCount $index={maxVisibleProfiles}>
+          <LC.MoreMessageText>+{hiddenMessageCount}</LC.MoreMessageText>
+        </LC.MoreMessagesCount>
       )}
-    </ProfileContainer>
+    </LC.ProfileContainer>
   );
 }
 
@@ -47,26 +35,26 @@ function Card({
   reactionCount,
 }) {
   return (
-    <CardContainer
+    <LC.CardContainer
       $backgroundColor={backgroundColor}
       $backgroundImageURL={backgroundImageURL}
     >
-      <CardContent>
-        <CardTitle>To. {name}</CardTitle>
+      <LC.CardContent>
+        <LC.CardTitle>To. {name}</LC.CardTitle>
         <ProfileList
           recentMessages={recentMessages}
           messageCount={messageCount}
         />
-        <CardCountText>
-          <CountBoldText>{messageCount}</CountBoldText>명이 작성했어요!
-        </CardCountText>
-        <ReactionContainer>
-          <ReactionIcons>
+        <LC.CardCountText>
+          <LC.CountBoldText>{messageCount}</LC.CountBoldText>명이 작성했어요!
+        </LC.CardCountText>
+        <LC.ReactionContainer>
+          <LC.ReactionIcons>
             <EmojiBadge />
-          </ReactionIcons>
-        </ReactionContainer>
-      </CardContent>
-    </CardContainer>
+          </LC.ReactionIcons>
+        </LC.ReactionContainer>
+      </LC.CardContent>
+    </LC.CardContainer>
   );
 }
 
@@ -76,7 +64,7 @@ function ListCard({ cards }) {
   }
 
   return (
-    <CardListContainer>
+    <LC.CardListContainer>
       {cards.map((card, id) => (
         <Card
           key={id}
@@ -88,7 +76,7 @@ function ListCard({ cards }) {
           backgroundImageURL={card.backgroundImageURL}
         />
       ))}
-    </CardListContainer>
+    </LC.CardListContainer>
   );
 }
 
