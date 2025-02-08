@@ -12,7 +12,7 @@ import {
   ReactionIcons,
   CardListContainer,
 } from "./ListCardStyle.js";
-import { EmojiBadge } from "../Badge.jsx";
+import { EmojiBadge } from "../Badge/Badge.jsx";
 
 function ProfileList({ recentMessages = [], messageCount = 0 }) {
   const maxVisibleProfiles = 3;
