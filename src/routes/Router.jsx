@@ -7,8 +7,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        {/* <Route path="/post/:id" element={<PostId />} */}
-        <Route path="/post" element={<PostId />} />
+        <Route path="/post/:id" element={<PostId />} />
       </Routes>
     </BrowserRouter>
   );
