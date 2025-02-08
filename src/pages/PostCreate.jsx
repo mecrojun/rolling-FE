@@ -5,13 +5,30 @@ import ToggleButton from "../components/Buttons/ToggleButton";
 import { InputField } from "../components/TextField/TextField";
 import * as P from "./PostAndMessage.style";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PostCreate() {
   const [isToggled, setIsToggled] = useState(false);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  // 버튼 비활성화 조건
+  const isButtonDisabled = !name.trim(); // 비어있으면 true
+
+  const handleSubmit = () => {
+    // isButtonDisabled가 false일 때
+    // (= 버튼이 활성화됐을 때때)
+    if (!isButtonDisabled) {
+      const id = Math.random().toString(36).substr(2, 9);
+      navigate(`/post/${id}`);
+    }
+  };
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
+
+  console.log(name);
 
   return (
     <P.Wrapper>
@@ -19,7 +36,11 @@ function PostCreate() {
       <P.Wrapper className="section-wrap">
         <P.Section className="name">
           <P.SectionTitle>To.</P.SectionTitle>
-          <InputField placeholder="받는 사람 이름을 입력해 주세요" />
+          <InputField
+            placeholder="받는 사람 이름을 입력해 주세요"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </P.Section>
         <P.Section className="select-background">
           <P.Wrapper className="txt-box">
@@ -40,7 +61,12 @@ function PostCreate() {
           {/* Colorchip 컴포넌트 수정 - 이미지 */}
           <Colorchip isImage={isToggled} />
         </P.Section>
-        <PrimaryButton width="100%" height="56px">
+        <PrimaryButton
+          width="100%"
+          height="56px"
+          $disable={isButtonDisabled}
+          onClick={handleSubmit}
+        >
           생성하기
         </PrimaryButton>
       </P.Wrapper>
