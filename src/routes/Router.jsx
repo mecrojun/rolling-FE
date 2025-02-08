@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Post from "../pages/Post";
+import List from "../pages/list";
 import Main from "../pages/main";
 import PostMessage from "../pages/PostMessage";
 
@@ -9,7 +10,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/post" element={<Post />} />
-        <Route path="/post/{id}/message" element={<PostMessage />} />
+        <Route path="/list" element={<List />} />
       </Routes>
     </BrowserRouter>
   );
