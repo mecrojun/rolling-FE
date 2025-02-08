@@ -12,7 +12,14 @@ function MessageWrite() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  const optionData = [
+  const optionDataRel = [
+    { key: 1, value: "1번" },
+    { key: 2, value: "2번" },
+    { key: 3, value: "3번" },
+    { key: 4, value: "4번" },
+  ];
+
+  const optionDataFonts = [
     { key: 1, value: "1번" },
     { key: 2, value: "2번" },
     { key: 3, value: "3번" },
@@ -63,7 +70,7 @@ function MessageWrite() {
         </P.Section>
         <P.Section className="section">
           <P.SectionTitle>상대와의 관계</P.SectionTitle>
-          <Dropdown width="320px" optionData={optionData} />
+          <Dropdown width="320px" optionData={optionDataRel} />
         </P.Section>
         <P.Section className="">
           <P.SectionTitle>내용을 입력해 주세요</P.SectionTitle>
@@ -71,7 +78,7 @@ function MessageWrite() {
         </P.Section>
         <P.Section className="select-font">
           <P.SectionTitle>폰트 선택</P.SectionTitle>
-          <Dropdown width="320px" />
+          <Dropdown width="320px" optionData={optionDataFonts} />
         </P.Section>
         <PrimaryButton
           width="100%"
