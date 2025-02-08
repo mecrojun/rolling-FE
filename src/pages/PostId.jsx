@@ -26,7 +26,7 @@ function PostId() {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
-          // ../13-5/recipients/${recipientId}/
+          //git  ../13-5/recipients/${recipientId}/
           `https://rolling-api.vercel.app/1-7/recipients/${id}/`
         );
         if (response.data.backgroundColor) {
@@ -40,7 +40,7 @@ function PostId() {
     const fetchInitialMessages = async () => {
       try {
         const response = await axios.get(
-          // ../13-5/recipients/${recipientId}/messages/
+          //git  ../13-5/recipients/${recipientId}/messages/
           `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
@@ -80,7 +80,7 @@ function PostId() {
 
     try {
       const response = await axios.get(
-        // ../13-5/recipients/${recipientId}/messages/
+        //git  ../13-5/recipients/${recipientId}/messages/
         `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
