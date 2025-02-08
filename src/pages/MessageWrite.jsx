@@ -12,6 +12,13 @@ function MessageWrite() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
+  const optionData = [
+    { key: 1, value: "1번" },
+    { key: 2, value: "2번" },
+    { key: 3, value: "3번" },
+    { key: 4, value: "4번" },
+  ];
+
   const isButtonDisabled = !(name.trim() && content.trim());
 
   const handleSubmit = () => {
@@ -56,7 +63,7 @@ function MessageWrite() {
         </P.Section>
         <P.Section className="section">
           <P.SectionTitle>상대와의 관계</P.SectionTitle>
-          <Dropdown width="320px" />
+          <Dropdown width="320px" optionData={optionData} />
         </P.Section>
         <P.Section className="">
           <P.SectionTitle>내용을 입력해 주세요</P.SectionTitle>
