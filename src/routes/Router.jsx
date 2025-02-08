@@ -1,13 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PostId from "../pages/PostId";
-import Post from "../pages/Post";
-import List from "../pages/list";
 import Main from "../pages/main";
+import PostId from "../pages/PostId";
 import PostCreate from "../pages/PostCreate";
 import MessageWrite from "../pages/MessageWrite";
-import List from "../pages/list";
 import Edit from "../pages/Edit/Edit";
-
+import List from "../pages/list";
 
 function Router() {
   return (
@@ -16,8 +13,7 @@ function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/post/:id" element={<PostId />} />
         <Route path="/post" element={<PostCreate />} />
-        <Route path="/Post/{id}/Message" element={<MessageWrite />} />
-        <Route path="/post" element={<Post />} />
+        <Route path="/Post/:id/Message" element={<MessageWrite />} />
         <Route path="/post/:id/edit" element={<Edit />} />
         <Route path="/list" element={<List />} />
       </Routes>
