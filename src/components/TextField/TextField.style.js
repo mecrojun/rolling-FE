@@ -102,6 +102,8 @@ export const Options = styled.ul`
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   list-style: none;
+  z-index: 10;
+  position: relative;
 `;
 
 export const Option = styled.li`
