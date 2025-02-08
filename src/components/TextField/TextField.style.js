@@ -5,7 +5,7 @@ export const commonTextfieldStyles = css`
   width: ${({ width }) => width};
   height: 50px;
   margin: 0;
-  padding: 12px 0 12px 16px;
+  padding: 12px 16px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray[300]};
   border-radius: 8px;
@@ -73,8 +73,7 @@ export const SelectBox = styled.div`
 export const Label = styled.label`
   ${commonTextfieldStyles}
   ${textfieldStateStyles}
-    ${({ theme }) => theme.flexLayout(undefined, "flex-start")}
-    gap: 246px;
+    ${({ theme }) => theme.flexLayout(undefined, "space-between")}
   cursor: pointer;
   border: ${(props) =>
     props.$show
