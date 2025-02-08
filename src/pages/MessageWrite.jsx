@@ -8,6 +8,10 @@ import { useState } from "react";
 
 function MessageWrite() {
   const [content, setContent] = useState("");
+  const [name, setName] = useState("");
+
+  // 버튼 비활성화 조건
+  const isButtonDisabled = !(name.trim() && content.trim()); // 비어있으면 true
 
   return (
     <P.Wrapper>
@@ -15,7 +19,11 @@ function MessageWrite() {
       <P.Wrapper className="section-wrap">
         <P.Section className="name">
           <P.SectionTitle>From.</P.SectionTitle>
-          <InputField placeholder="이름을 입력해 주세요" />
+          <InputField
+            placeholder="이름을 입력해 주세요"
+            value={name}
+            onChange={(value) => setName(value)}
+          />
         </P.Section>
         <P.Section className="profile">
           <P.SectionTitle>프로필 이미지</P.SectionTitle>
@@ -50,7 +58,9 @@ function MessageWrite() {
           <P.SectionTitle>폰트 선택</P.SectionTitle>
           <Dropdown width="320px" />
         </P.Section>
-        <PrimaryButton width="100%">생성하기</PrimaryButton>
+        <PrimaryButton width="100%" $disable={isButtonDisabled}>
+          생성하기
+        </PrimaryButton>
       </P.Wrapper>
     </P.Wrapper>
   );

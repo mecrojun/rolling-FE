@@ -17,7 +17,7 @@ function PostCreate() {
 
   const handleSubmit = () => {
     // isButtonDisabled가 false일 때
-    // (= 버튼이 활성화됐을 때때)
+    // (= 버튼이 활성화됐을 때)
     if (!isButtonDisabled) {
       const id = Math.random().toString(36).substr(2, 9);
       navigate(`/post/${id}`);
