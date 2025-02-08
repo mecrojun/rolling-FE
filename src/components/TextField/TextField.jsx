@@ -70,7 +70,7 @@ function InputField({
   const [error, setError] = useState(false);
 
   const handleChange = (e) => {
-    onChange(e.target.value); // 부모로 전달된 onChange 호출
+    onChange(e.target.value);
     setError(e.target.value === "");
   };
 
@@ -83,7 +83,7 @@ function InputField({
       <T.Input
         width={width}
         placeholder={placeholder}
-        value={value} // 부모로부터 전달된 value 사용
+        value={value}
         onChange={handleChange}
         onBlur={handleBlur}
         $error={error}

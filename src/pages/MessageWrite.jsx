@@ -12,12 +12,9 @@ function MessageWrite() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  // 버튼 비활성화 조건
-  const isButtonDisabled = !(name.trim() && content.trim()); // 비어있으면 true
+  const isButtonDisabled = !(name.trim() && content.trim());
 
   const handleSubmit = () => {
-    // isButtonDisabled가 false일 때
-    // (= 버튼이 활성화됐을 때)
     if (!isButtonDisabled) {
       const id = Math.random().toString(36).substr(2, 9);
       navigate(`/post/${id}`);

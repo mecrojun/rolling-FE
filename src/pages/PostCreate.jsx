@@ -12,12 +12,9 @@ function PostCreate() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  // 버튼 비활성화 조건
-  const isButtonDisabled = !name.trim(); // 비어있으면 true
+  const isButtonDisabled = !name.trim();
 
   const handleSubmit = () => {
-    // isButtonDisabled가 false일 때
-    // (= 버튼이 활성화됐을 때)
     if (!isButtonDisabled) {
       const id = Math.random().toString(36).substr(2, 9);
       navigate(`/post/${id}`);
@@ -39,7 +36,7 @@ function PostCreate() {
           <InputField
             placeholder="받는 사람 이름을 입력해 주세요"
             value={name}
-            onChange={(value) => setName(value)} // 부모 상태 업데이트
+            onChange={(value) => setName(value)}
           />
         </P.Section>
         <P.Section className="select-background">
