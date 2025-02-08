@@ -61,12 +61,16 @@ function Dropdown({ width = "100%" }) {
   );
 }
 
-function InputField({ width = "100%", placeholder = "placeholder" }) {
+function InputField({
+  width = "100%",
+  placeholder = "placeholder",
+  value,
+  onChange,
+}) {
   const [error, setError] = useState(false);
-  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    onChange(e.target.value); // 부모로 전달된 onChange 호출
     setError(e.target.value === "");
   };
 
@@ -79,7 +83,7 @@ function InputField({ width = "100%", placeholder = "placeholder" }) {
       <T.Input
         width={width}
         placeholder={placeholder}
-        value={value}
+        value={value} // 부모로부터 전달된 value 사용
         onChange={handleChange}
         onBlur={handleBlur}
         $error={error}

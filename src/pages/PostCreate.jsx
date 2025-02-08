@@ -39,7 +39,7 @@ function PostCreate() {
           <InputField
             placeholder="받는 사람 이름을 입력해 주세요"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(value) => setName(value)} // 부모 상태 업데이트
           />
         </P.Section>
         <P.Section className="select-background">
