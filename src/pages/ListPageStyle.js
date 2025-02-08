@@ -25,6 +25,13 @@ const CardSlider = styled.div`
   gap: 10px;
 `;
 
+const CardContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+`;
+
 const ArrowButtonWrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -32,12 +39,18 @@ const ArrowButtonWrapper = styled.div`
   z-index: 10;
 
   &.left {
-    left: 10px;
+    left: -20px;
   }
 
   &.right {
-    right: 10px;
+    right: -20px;
   }
 `;
 
-export { ListTitleText, PostButtonWrapper, ArrowButtonWrapper, CardSlider };
+export {
+  ListTitleText,
+  PostButtonWrapper,
+  ArrowButtonWrapper,
+  CardSlider,
+  CardContainer,
+};

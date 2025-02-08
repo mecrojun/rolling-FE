@@ -216,50 +216,53 @@ function List() {
       <Header />
       <L.ListTitleText>인기 롤링 페이퍼🔥</L.ListTitleText>
       <L.CardSlider>
-        {PopularCards.length > cardsPerPage && popularIndex > 0 && (
-          <L.ArrowButtonWrapper className="left">
-            <ArrowButton
-              direction="left"
-              onClick={() => handlePrev("popular")}
-            />
-          </L.ArrowButtonWrapper>
-        )}
-        <ListCard
-          cards={visiblePopularCards}
-          style={{ transform: `translateX(-${popularIndex * (275 + 20)}px)` }}
-        />
-        {PopularCards.length > cardsPerPage &&
-          popularIndex + cardsPerPage < PopularCards.length && (
-            <L.ArrowButtonWrapper className="right">
+        <L.CardContainer>
+          {PopularCards.length > cardsPerPage && popularIndex > 0 && (
+            <L.ArrowButtonWrapper className="left">
               <ArrowButton
-                direction="right"
-                onClick={() => handleNext("popular")}
+                direction="left"
+                onClick={() => handlePrev("popular")}
               />
             </L.ArrowButtonWrapper>
           )}
+
+          <ListCard cards={visiblePopularCards} />
+
+          {PopularCards.length > cardsPerPage &&
+            popularIndex + cardsPerPage < PopularCards.length && (
+              <L.ArrowButtonWrapper className="right">
+                <ArrowButton
+                  direction="right"
+                  onClick={() => handleNext("popular")}
+                />
+              </L.ArrowButtonWrapper>
+            )}
+        </L.CardContainer>
       </L.CardSlider>
+
       <L.ListTitleText>최근에 만든 롤링 페이퍼⭐</L.ListTitleText>
       <L.CardSlider>
-        {recentIndex > 0 && (
-          <L.ArrowButtonWrapper className="left">
-            <ArrowButton
-              direction="left"
-              onClick={() => handlePrev("recent")}
-            />
-          </L.ArrowButtonWrapper>
-        )}
-        <ListCard
-          cards={visibleRecentCards}
-          style={{ transform: `translateX(-${popularIndex * (275 + 20)}px)` }}
-        />
-        {recentIndex + cardsPerPage < RecentCards.length && (
-          <L.ArrowButtonWrapper className="right">
-            <ArrowButton
-              direction="right"
-              onClick={() => handleNext("recent")}
-            />
-          </L.ArrowButtonWrapper>
-        )}
+        <L.CardContainer>
+          {recentIndex > 0 && (
+            <L.ArrowButtonWrapper className="left">
+              <ArrowButton
+                direction="left"
+                onClick={() => handlePrev("recent")}
+              />
+            </L.ArrowButtonWrapper>
+          )}
+
+          <ListCard cards={visibleRecentCards} />
+
+          {recentIndex + cardsPerPage < RecentCards.length && (
+            <L.ArrowButtonWrapper className="right">
+              <ArrowButton
+                direction="right"
+                onClick={() => handleNext("recent")}
+              />
+            </L.ArrowButtonWrapper>
+          )}
+        </L.CardContainer>
       </L.CardSlider>
       <L.PostButtonWrapper>
         <PrimaryButton onClick={handleCreatePost}>
