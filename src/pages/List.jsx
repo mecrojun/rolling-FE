@@ -7,128 +7,6 @@ import ListCard from "../components/Card/ListCard";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ArrowButton from "../components/Buttons/ArrowButton";
 
-const dummyCard = [
-  {
-    id: 1,
-    name: "Sowon",
-    backgroundColor: "purple",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 35,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2025-02-02T15:46:45.077667",
-  },
-
-  {
-    id: 2,
-    name: "Jisoo",
-    backgroundColor: "beige",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 39,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-08-30T15:46:45.077667",
-  },
-
-  {
-    id: 3,
-    name: "Nayeon",
-    backgroundColor: "green",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 30,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-09-22T15:46:45.077667",
-  },
-
-  {
-    id: 4,
-    name: "Jihoon",
-    backgroundColor: "blue",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 25,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-04-17T15:46:45.077667",
-  },
-
-  {
-    id: 5,
-    name: "Kim",
-    backgroundColor: "blue",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 37,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2025-02-08T15:46:45.077667",
-  },
-
-  {
-    id: 6,
-    name: "Somi",
-    backgroundColor: "beige",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 32,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-09-25T15:46:45.077667",
-  },
-
-  {
-    id: 7,
-    name: "Yeongseo",
-    backgroundColor: "blue",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 17,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-02-09T15:46:45.077667",
-  },
-
-  {
-    id: 8,
-    name: "Yeonsu",
-    backgroundColor: "green",
-    backgroundImageURL: null,
-    messageCount: 30,
-    reactionCount: 38,
-    topReactions: [
-      { emoji: "👍", count: 20 },
-      { emoji: "🔥", count: 12 },
-      { emoji: "🥰", count: 7 },
-    ],
-    createdAt: "2024-09-06T15:46:45.077667",
-  },
-];
-
 function getPopularCards(cards) {
   return [...cards].sort((a, b) => b.reactionCount - a.reactionCount);
 }
@@ -146,7 +24,7 @@ function List() {
   }
 
   const [isloading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState(dummyCard);
+  const [cards, setCards] = useState([]);
   const [popularIndex, setPopularIndex] = useState(0);
   const [recentIndex, setRecentIndex] = useState(0);
   const cardsPerPage = 4;
@@ -155,18 +33,11 @@ function List() {
     const fetchCards = async () => {
       try {
         const response = await axios.get(
-          "https://rolling-api.vercel.app/15-5/recipients/"
+          "https://rolling-api.vercel.app/1-7/recipients/"
         );
-        console.log("API 응답 데이터:", response.data);
-        // API 응답 데이터가 비어있을 시 더미 데이터를 사용
-        if (!response.data.results || response.data.results.length === 0) {
-          setCards(dummyCard);
-        } else {
-          setCards(response.data.results);
-        }
+        setCards(response.data.results || []);
       } catch (error) {
         console.error("API 요청 실패:", error);
-        setCards(dummyCard);
       } finally {
         setIsLoading(false);
       }
