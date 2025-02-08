@@ -6,10 +6,10 @@ import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
 import MessageCard from "../components/MessageCard";
 import Modal from "../components/Modal/Modal";
 import { messageData } from "./MessageData";
-import { MessageCardBox, Box, PlusBox } from "./Post.style";
+import { MessageCardBox, Box, PlusBox } from "./PostId.style";
 import CreateButton from "../components/Buttons/CreateButton";
 
-function Post() {
+function PostId() {
   const { recipientId } = useParams();
   const [messages, setMessages] = useState([]);
   const [backgroundColor, setBackgroundColor] = useState("white");
@@ -19,13 +19,15 @@ function Post() {
   const [totalCount, setTotalCount] = useState(null);
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
+  // const { id } = useParams();
+  const id = "9817";
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
-          //실제로는 ../13-5/recipients/${recipientId}/
-          `https://rolling-api.vercel.app/1-7/recipients/9817/`
+          // ../13-5/recipients/${recipientId}/
+          `https://rolling-api.vercel.app/1-7/recipients/${id}/`
         );
         if (response.data.backgroundColor) {
           setBackgroundColor(response.data.backgroundColor);
@@ -38,8 +40,8 @@ function Post() {
     const fetchInitialMessages = async () => {
       try {
         const response = await axios.get(
-          //실제로는 ../13-5/recipients/${recipientId}/messages/
-          `https://rolling-api.vercel.app/1-7/recipients/9817/messages/`,
+          // ../13-5/recipients/${recipientId}/messages/
+          `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
 
@@ -78,8 +80,8 @@ function Post() {
 
     try {
       const response = await axios.get(
-        //실제로는 ../13-5/recipients/${recipientId}/messages/
-        `https://rolling-api.vercel.app/1-7/recipients/9817/messages/`,
+        // ../13-5/recipients/${recipientId}/messages/
+        `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
 
@@ -139,6 +141,7 @@ function Post() {
       <HeaderLogoOnly />
       <HeaderService />
       <MessageCardBox messageCount={messages.length}>
+        {/* <PlusBox to="/post/{id}/message" */}
         <PlusBox to="/">
           <CreateButton />
         </PlusBox>
@@ -158,4 +161,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default PostId;
