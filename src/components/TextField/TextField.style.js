@@ -65,7 +65,6 @@ export const Input = styled.input`
 // Dropdown
 export const SelectBox = styled.div`
   ${commonTextfieldStyles}
-  position: relative;
   padding: 0;
   border: none;
   cursor: pointer;
