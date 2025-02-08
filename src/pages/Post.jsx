@@ -24,6 +24,7 @@ function Post() {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
+          //실제로는 ../13-5/recipients/${recipientId}/
           `https://rolling-api.vercel.app/1-7/recipients/9817/`
         );
         if (response.data.backgroundColor) {
@@ -37,6 +38,7 @@ function Post() {
     const fetchInitialMessages = async () => {
       try {
         const response = await axios.get(
+          //실제로는 ../13-5/recipients/${recipientId}/messages/
           `https://rolling-api.vercel.app/1-7/recipients/9817/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
@@ -76,6 +78,7 @@ function Post() {
 
     try {
       const response = await axios.get(
+        //실제로는 ../13-5/recipients/${recipientId}/messages/
         `https://rolling-api.vercel.app/1-7/recipients/9817/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
