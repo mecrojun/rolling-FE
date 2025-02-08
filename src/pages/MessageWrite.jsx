@@ -21,9 +21,9 @@ function MessageWrite() {
 
   const optionDataFonts = [
     { key: 1, value: "Noto Sans" },
-    { key: 2, value: "2번" },
-    { key: 3, value: "3번" },
-    { key: 4, value: "4번" },
+    { key: 2, value: "Pretendard" },
+    { key: 3, value: "Roboto" },
+    { key: 4, value: "Lato" },
   ];
 
   const profiles = Array(10).fill(null);
