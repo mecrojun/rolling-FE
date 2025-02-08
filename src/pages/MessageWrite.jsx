@@ -19,6 +19,8 @@ function MessageWrite() {
     { key: 4, value: "4번" },
   ];
 
+  const profiles = Array(10).fill(null);
+
   const isButtonDisabled = !(name.trim() && content.trim());
 
   const handleSubmit = () => {
@@ -47,16 +49,9 @@ function MessageWrite() {
             <P.Wrapper className="profile-select-wrap">
               <p>프로필 이미지를 선택해주세요!</p>
               <P.Wrapper className="profile-list-wrap">
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
-                <P.ProfileList />
+                {profiles.map((_, index) => (
+                  <P.ProfileList key={index} />
+                ))}
               </P.Wrapper>
             </P.Wrapper>
           </P.Wrapper>
