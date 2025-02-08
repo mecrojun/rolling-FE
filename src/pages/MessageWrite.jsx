@@ -3,7 +3,7 @@ import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
 import { Dropdown, InputField } from "../components/TextField/TextField";
 import { Profile } from "../components/Profile/Profile";
 import TextEditor from "../components/TextField/TextEditor";
-import * as P from "./Create.style";
+import * as P from "./PostAndMessage.style";
 import { useState } from "react";
 
 function MessageWrite() {
