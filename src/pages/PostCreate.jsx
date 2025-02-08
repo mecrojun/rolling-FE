@@ -3,10 +3,10 @@ import Colorchip from "../components/Colorchip/Colorchip";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ToggleButton from "../components/Buttons/ToggleButton";
 import { InputField } from "../components/TextField/TextField";
-import * as P from "./Post.style";
+import * as P from "./Create.style";
 import { useState } from "react";
 
-function Post() {
+function PostCreate() {
   const [isToggled, setIsToggled] = useState(false);
 
   const handleToggle = () => {
@@ -48,4 +48,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default PostCreate;

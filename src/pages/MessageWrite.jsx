@@ -3,10 +3,10 @@ import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
 import { Dropdown, InputField } from "../components/TextField/TextField";
 import { Profile } from "../components/Profile/Profile";
 import TextEditor from "../components/TextField/TextEditor";
-import * as P from "./Post.style";
+import * as P from "./Create.style";
 import { useState } from "react";
 
-function PostMessage() {
+function MessageWrite() {
   const [content, setContent] = useState("");
 
   return (
@@ -56,4 +56,4 @@ function PostMessage() {
   );
 }
 
-export default PostMessage;
+export default MessageWrite;
