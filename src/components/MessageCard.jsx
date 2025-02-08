@@ -18,9 +18,10 @@ function MessageCard({
   content,
   font,
   createdAt,
+  onClick,
 }) {
   return (
-    <MessageCardContainer>
+    <MessageCardContainer onClick={onClick}>
       <SenderContainer>
         <MessageProfileIcon $profileImageURL={profileImageURL} />
         <div>
