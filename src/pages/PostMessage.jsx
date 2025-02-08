@@ -2,12 +2,12 @@ import PrimaryButton from "../components/Buttons/PrimaryButton";
 import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
 import { Dropdown, InputField } from "../components/TextField/TextField";
 import { Profile } from "../components/Profile/Profile";
-// import TextEditor from "../components/TextField/TextEditor";
+import TextEditor from "../components/TextField/TextEditor";
 import * as P from "./Post.style";
-// import { useState } from "react";
+import { useState } from "react";
 
 function PostMessage() {
-  //   const [content, setContent] = useState("");
+  const [content, setContent] = useState("");
 
   return (
     <P.Wrapper>
@@ -44,7 +44,7 @@ function PostMessage() {
         </P.Section>
         <P.Section className="">
           <P.SectionTitle>내용을 입력해 주세요</P.SectionTitle>
-          {/* <TextEditor content={content} setContent={setContent} /> */}
+          <TextEditor content={content} setContent={setContent} />
         </P.Section>
         <P.Section className="select-font">
           <P.SectionTitle>폰트 선택</P.SectionTitle>
