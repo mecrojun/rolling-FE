@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as L from "./ListPageStyle";
 import Header from "../components/Header/Header";
@@ -7,25 +7,146 @@ import ListCard from "../components/Card/ListCard";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ArrowButton from "../components/Buttons/ArrowButton";
 
+const dummyCard = [
+  {
+    id: 1,
+    name: "Sowon",
+    backgroundColor: "purple",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 35,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2025-02-02T15:46:45.077667",
+  },
+
+  {
+    id: 2,
+    name: "Jisoo",
+    backgroundColor: "beige",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 39,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-08-30T15:46:45.077667",
+  },
+
+  {
+    id: 3,
+    name: "Nayeon",
+    backgroundColor: "green",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 30,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-09-22T15:46:45.077667",
+  },
+
+  {
+    id: 4,
+    name: "Jihoon",
+    backgroundColor: "blue",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 25,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-04-17T15:46:45.077667",
+  },
+
+  {
+    id: 5,
+    name: "Kim",
+    backgroundColor: "blue",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 37,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2025-02-08T15:46:45.077667",
+  },
+
+  {
+    id: 6,
+    name: "Somi",
+    backgroundColor: "beige",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 32,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-09-25T15:46:45.077667",
+  },
+
+  {
+    id: 7,
+    name: "Yeongseo",
+    backgroundColor: "blue",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 17,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-02-09T15:46:45.077667",
+  },
+
+  {
+    id: 8,
+    name: "Yeonsu",
+    backgroundColor: "green",
+    backgroundImageURL: null,
+    messageCount: 30,
+    reactionCount: 38,
+    topReactions: [
+      { emoji: "👍", count: 20 },
+      { emoji: "🔥", count: 12 },
+      { emoji: "🥰", count: 7 },
+    ],
+    createdAt: "2024-09-06T15:46:45.077667",
+  },
+];
+
 function getPopularCards(cards) {
-  return [...cards]
-    .sort((a, b) => b.reactionCount - a.reactionCount)
-    .slice(0, 4);
+  return [...cards].sort((a, b) => b.reactionCount - a.reactionCount);
 }
 
 function getRecentCards(cards) {
-  return [...cards]
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    .slice(0, 4);
-}
-
-function handleCreatePost() {
-  Navigate("/Post");
+  return [...cards].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
 }
 
 function List() {
+  const navigate = useNavigate();
+  function handleCreatePost() {
+    navigate("/Post");
+  }
+
   const [isloading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(dummyCard);
   const [popularIndex, setPopularIndex] = useState(0);
   const [recentIndex, setRecentIndex] = useState(0);
   const cardsPerPage = 4;
@@ -34,11 +155,18 @@ function List() {
     const fetchCards = async () => {
       try {
         const response = await axios.get(
-          "https://rolling-api.vercel.app/1-7/recipients/"
+          "https://rolling-api.vercel.app/15-5/recipients/"
         );
-        setCards(response.data.results || []);
+        console.log("API 응답 데이터:", response.data);
+        // API 응답 데이터가 비어있을 시 더미 데이터를 사용
+        if (!response.data.results || response.data.results.length === 0) {
+          setCards(dummyCard);
+        } else {
+          setCards(response.data.results);
+        }
       } catch (error) {
         console.error("API 요청 실패:", error);
+        setCards(dummyCard);
       } finally {
         setIsLoading(false);
       }
@@ -88,25 +216,49 @@ function List() {
       <Header />
       <L.ListTitleText>인기 롤링 페이퍼🔥</L.ListTitleText>
       <L.CardSlider>
-        {popularIndex > 0 && (
-          <ArrowButton direction="left" onClick={() => handlePrev("popular")} />
+        {PopularCards.length > cardsPerPage && popularIndex > 0 && (
+          <L.ArrowButtonWrapper className="left">
+            <ArrowButton
+              direction="left"
+              onClick={() => handlePrev("popular")}
+            />
+          </L.ArrowButtonWrapper>
         )}
-        <ListCard cards={visiblePopularCards} />
-        {popularIndex + cardsPerPage < PopularCards.length && (
-          <ArrowButton
-            direction="right"
-            onClick={() => handleNext("popular")}
-          />
-        )}
+        <ListCard
+          cards={visiblePopularCards}
+          style={{ transform: `translateX(-${popularIndex * (275 + 20)}px)` }}
+        />
+        {PopularCards.length > cardsPerPage &&
+          popularIndex + cardsPerPage < PopularCards.length && (
+            <L.ArrowButtonWrapper className="right">
+              <ArrowButton
+                direction="right"
+                onClick={() => handleNext("popular")}
+              />
+            </L.ArrowButtonWrapper>
+          )}
       </L.CardSlider>
       <L.ListTitleText>최근에 만든 롤링 페이퍼⭐</L.ListTitleText>
       <L.CardSlider>
         {recentIndex > 0 && (
-          <ArrowButton direction="left" onClick={() => handlePrev("recent")} />
+          <L.ArrowButtonWrapper className="left">
+            <ArrowButton
+              direction="left"
+              onClick={() => handlePrev("recent")}
+            />
+          </L.ArrowButtonWrapper>
         )}
-        <ListCard cards={visibleRecentCards} />
+        <ListCard
+          cards={visibleRecentCards}
+          style={{ transform: `translateX(-${popularIndex * (275 + 20)}px)` }}
+        />
         {recentIndex + cardsPerPage < RecentCards.length && (
-          <ArrowButton direction="right" onClick={() => handleNext("recent")} />
+          <L.ArrowButtonWrapper className="right">
+            <ArrowButton
+              direction="right"
+              onClick={() => handleNext("recent")}
+            />
+          </L.ArrowButtonWrapper>
         )}
       </L.CardSlider>
       <L.PostButtonWrapper>

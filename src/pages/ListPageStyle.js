@@ -15,12 +15,29 @@ const PostButtonWrapper = styled.div`
 `;
 
 const CardSlider = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
   gap: 10px;
-  position: relative;
-  overflow: visible;
 `;
 
-export { ListTitleText, PostButtonWrapper, CardSlider };
+const ArrowButtonWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  &.left {
+    left: 10px;
+  }
+
+  &.right {
+    right: 10px;
+  }
+`;
+
+export { ListTitleText, PostButtonWrapper, ArrowButtonWrapper, CardSlider };

@@ -26,6 +26,7 @@ function ProfileList({ recentMessages = [], messageCount = 0 }) {
 }
 
 function Card({
+  id,
   backgroundColor,
   backgroundImageURL,
   name,
@@ -34,10 +35,17 @@ function Card({
   recentMessages,
   reactionCount,
 }) {
+  const Navigate = useNavigate();
+  const handleCardClick = () => {
+    Navigate(`/post/${id}`);
+  };
+
   return (
     <LC.CardContainer
       $backgroundColor={backgroundColor}
       $backgroundImageURL={backgroundImageURL}
+      onCick={handleCardClick}
+      style={{ cursor: "pointer" }}
     >
       <LC.CardContent>
         <LC.CardTitle>To. {name}</LC.CardTitle>
@@ -65,9 +73,10 @@ function ListCard({ cards }) {
 
   return (
     <LC.CardListContainer>
-      {cards.map((card, id) => (
+      {cards.map((card) => (
         <Card
-          key={id}
+          key={card.id}
+          id={card.id}
           name={card.name}
           profileImageURL={card.profileImageURL}
           messageCount={card.messageCount}
