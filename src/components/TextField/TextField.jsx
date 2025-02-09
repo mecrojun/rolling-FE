@@ -3,19 +3,11 @@ import * as T from "./TextField.style";
 import { ArrowDownIcon } from "../Icons";
 import { useTheme } from "styled-components";
 
-// 데이터 예시
-const optionData = [
-  { key: 1, value: "1번" },
-  { key: 2, value: "2번" },
-  { key: 3, value: "3번" },
-  { key: 4, value: "4번" },
-];
-
-function Dropdown({ width = "100%" }) {
+function Dropdown({ width = "100%", optionData = [] }) {
   const theme = useTheme();
   const selectRef = useRef(null);
   const [isShowOptions, setIsShowOptions] = useState(false);
-  const [currentValue, setCurrentValue] = useState(optionData[0].value);
+  const [currentValue, setCurrentValue] = useState(optionData[0]?.value ?? ""); // label에 data 첫번째 값 value 표시 (빈 배열인 경우 빈 문자열 반환)
 
   const handleChangeSelectValue = (e) => {
     setCurrentValue(e.target.getAttribute("value"));
@@ -61,12 +53,16 @@ function Dropdown({ width = "100%" }) {
   );
 }
 
-function InputField({ width = "100%", placeholder = "placeholder" }) {
+function InputField({
+  width = "100%",
+  placeholder = "placeholder",
+  value,
+  onChange,
+}) {
   const [error, setError] = useState(false);
-  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    onChange(e.target.value);
     setError(e.target.value === "");
   };
 
