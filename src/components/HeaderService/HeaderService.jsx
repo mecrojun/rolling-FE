@@ -24,7 +24,7 @@ function HeaderService() {
         );
         setRecipient(response.data);
       } catch (error) {
-        console.error(" 대상 정보 조회 오류", error);
+        console.error(" 대상 정보 조회 오류:", error);
       }
     };
 
@@ -36,7 +36,7 @@ function HeaderService() {
         );
         setReaction(response.data.results || []);
       } catch (error) {
-        console.error("대상 리액션 정보 조회 오류", error);
+        console.error("대상 리액션 정보 조회 오류:", error);
       }
     };
 
