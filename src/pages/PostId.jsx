@@ -10,7 +10,7 @@ import { MessageCardBox, Box, PlusBox } from "./PostId.style";
 import CreateButton from "../components/Buttons/CreateButton";
 
 function PostId() {
-  const { recipientId } = useParams();
+  // const { recipientId } = useParams();
   const [recipient, setRecipient] = useState(null);
   const [messages, setMessages] = useState([]);
   const [backgroundImageURL, setbackgroundImageURL] = useState(null);
@@ -22,15 +22,15 @@ function PostId() {
   const [totalCount, setTotalCount] = useState(null);
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
-  // const { id } = useParams();
-  const id = "9817";
+  const { id } = useParams();
+  // const id = "9817";
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
           //git  ../13-5/recipients/${recipientId}/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/`
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/`
         );
         setRecipient(response.data);
         setbackgroundImageURL(response.data.backgroundImageURL);
@@ -44,7 +44,7 @@ function PostId() {
       try {
         const response = await axios.get(
           //git  ../13-5/recipients/${recipientId}/messages/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
 
@@ -63,7 +63,7 @@ function PostId() {
       try {
         const response = await axios.get(
           //git  ../13-5/recipients/${recipientId}/reactions/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/reactions/`
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
         );
         setReaction(response.data.results || []);
       } catch (error) {
@@ -81,7 +81,7 @@ function PostId() {
     };
 
     fetchData();
-  }, [recipientId]);
+  }, [id]);
 
   const fetchMoreMessages = async () => {
     if (!hasMore || totalCount === null) {
@@ -100,7 +100,7 @@ function PostId() {
     try {
       const response = await axios.get(
         //git  ../13-5/recipients/${recipientId}/messages/
-        `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
 
