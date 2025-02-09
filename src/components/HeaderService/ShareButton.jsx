@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { ShareIcon } from "../Icons";
 import * as S from "./ShareButton.style";
+import { useContext } from "react";
+import { ToastContext } from "../../context/ToastContext";
 
 function ShareButton() {
+  const { addToast } = useContext(ToastContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleShareMenu = () => {
@@ -12,8 +15,7 @@ function ShareButton() {
   const handleCopyUrl = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
-      //Toast로 대체 예정
-      alert("복사 성공");
+      addToast("URL이 복사 되었습니다.");
       toggleShareMenu();
     } catch (err) {
       console.error("URL 복사 실패", err);

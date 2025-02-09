@@ -3,8 +3,6 @@ import { Content, H2, Label, Line, MoveListButton, P, Wrapper } from "./Main.sty
 import { useNavigate } from "react-router-dom";
 
 function Main() {
-    const navigate = useNavigate();
-
     const handlePrimaryButton = () => {
       navigate('/list');
     }
@@ -36,14 +34,33 @@ function Main() {
                 <P>롤링 페이퍼에 이모지를 추가할 수 있어요.</P>
               </Wrapper>
             </Wrapper>
-            <Wrapper className="img-box">
-              <Content className="img-02" />
+          </Wrapper>
+          <Content className="img sample01"></Content>
+        </Content>
+        <Content className="section reverse-section">
+          <Wrapper className="txt-box-02">
+            <Label>Point. 02</Label>
+            <Wrapper className="txt-area">
+              <H2 className="h2-txt02">
+                서로에게 이모지로 감정을
+                <br />
+                표현해보세요
+              </H2>
+              <P className="p-txt02">
+                롤링 페이퍼에 이모지를 추가할 수 있어요.
+              </P>
             </Wrapper>
           </Content>
         </Wrapper>
         <Wrapper className="buttonWrapper"><MoveListButton onClick={handlePrimaryButton}>구경해보기</MoveListButton></Wrapper>
       </Wrapper>
-    );
-  }
-  
-  export default Main;
+      <Wrapper className="buttonWrapper">
+        <PrimaryButton width="280px" onClick={test}>
+          구경해보기
+        </PrimaryButton>
+      </Wrapper>
+    </Wrapper>
+  );
+}
+
+export default Main;
