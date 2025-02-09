@@ -22,6 +22,7 @@ export const EmojiBadgeContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.54);
   border-radius: 32px;
   ${({ theme }) => theme.fonts["16r"]};
+  cursor: pointer;
 `;
 
 export const Emoji = styled.div`
