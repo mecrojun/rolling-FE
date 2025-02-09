@@ -44,7 +44,7 @@ function Card({
     <LC.CardContainer
       $backgroundColor={backgroundColor}
       $backgroundImageURL={backgroundImageURL}
-      onCick={handleCardClick}
+      onClick={handleCardClick}
       style={{ cursor: "pointer" }}
     >
       <LC.CardContent>
