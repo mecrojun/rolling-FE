@@ -43,6 +43,7 @@ const CardTitle = styled.h3`
   letter-spacing: -1%;
 `;
 
+
 const ProfileContainer = styled.div`
   display: flex;
   position: relative;
@@ -50,6 +51,7 @@ const ProfileContainer = styled.div`
   height: 28px;
   margin-bottom: 15px;
 `;
+
 
 const ProfileIcon = styled.div`
   position: absolute;
@@ -63,6 +65,7 @@ const ProfileIcon = styled.div`
   border-radius: 50%;
   border: 1.5px solid white;
 `;
+
 
 const MoreMessagesCount = styled.div`
   display: flex;
@@ -91,6 +94,7 @@ const CardCountText = styled.p`
       : "#3A3A3A"};
   letter-spacing: -1%;
 `;
+
 const CountBoldText = styled.span`
   ${(props) => props.theme.fonts["16b"]}
 `;
@@ -113,6 +117,7 @@ const ReactionIcons = styled.div`
   padding-top: 17px;
   gap: 8px;
 `;
+
 
 const CardListContainer = styled.div`
   display: flex;
