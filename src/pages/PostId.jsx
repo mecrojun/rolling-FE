@@ -147,12 +147,27 @@ function PostId() {
     setSelectedMessage(null);
   };
 
+  const updateReactions = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
+      );
+      setReaction(response.data.results || []);
+    } catch (error) {
+      console.error("리액션 업데이트 실패:", error);
+    }
+  };
+
   if (!isReady) return null;
 
   return (
     <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
       <HeaderLogoOnly />
-      <HeaderService recipient={recipient} reaction={reaction} />
+      <HeaderService
+        recipient={recipient}
+        reaction={reaction}
+        updateReactions={updateReactions}
+      />
       <MessageCardBox messageCount={messages.length}>
         <PlusBox to="/Post/{id}/Message">
           <CreateButton />

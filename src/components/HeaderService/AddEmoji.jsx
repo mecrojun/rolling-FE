@@ -5,7 +5,7 @@ import * as A from "./AddEmoji.style";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function AddEmoji() {
+function AddEmoji({ updateReactions }) {
   const { id } = useParams();
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);
   const [mySelectedEmojis, setMySelectedEmojis] = useState([]);
@@ -18,7 +18,6 @@ function AddEmoji() {
     const selectedEmoji = emojiObject.emoji;
     const isAlreadySelected = mySelectedEmojis.includes(selectedEmoji);
     const actionType = isAlreadySelected ? "decrease" : "increase";
-
     const requestData = {
       emoji: selectedEmoji,
       type: actionType,
@@ -36,6 +35,7 @@ function AddEmoji() {
           : [...prev, selectedEmoji]
       );
 
+      updateReactions();
       console.log(`${selectedEmoji} ${actionType} 요청 성공`);
     } catch (error) {
       console.error(` ${actionType} 요청 실패:`, error);
