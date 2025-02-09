@@ -12,12 +12,15 @@ function HeaderService() {
   const { recipientId } = useParams();
   const [recipient, setRecipient] = useState(null);
   const [reaction, setReaction] = useState([]);
+  // const { id } = useParams();
+  const id = "9817";
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
-          `https://rolling-api.vercel.app/1-7/recipients/9817/`
+          //git  ../13-5/recipients/${recipientId}/
+          `https://rolling-api.vercel.app/1-7/recipients/${id}/`
         );
         setRecipient(response.data);
       } catch (error) {
@@ -28,7 +31,8 @@ function HeaderService() {
     const fetchReactionData = async () => {
       try {
         const response = await axios.get(
-          `https://rolling-api.vercel.app/1-7/recipients/9817/reactions/`
+          //git  ../13-5/recipients/${recipientId}/reactions/
+          `https://rolling-api.vercel.app/1-7/recipients/${id}/reactions/`
         );
         setReaction(response.data.results || []);
       } catch (error) {
@@ -37,11 +41,7 @@ function HeaderService() {
     };
 
     const fetchData = async () => {
-      try {
-        await Promise.all([fetchRecipientData(), fetchReactionData()]);
-      } catch (error) {
-        console.error(" 데이터 로드 오류", error);
-      }
+      await Promise.all([fetchRecipientData(), fetchReactionData()]);
     };
 
     fetchData();
