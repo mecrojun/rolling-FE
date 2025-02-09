@@ -13,7 +13,11 @@ export const ProfileImageBox = styled.div`
 export const ProfileImage = styled.img`
   width: 28px;
   height: 28px;
+
   margin-right: -12px;
+  &:only-child {
+    margin-right: 0;
+  }
 
   border-radius: 50%;
   border: 1.4px solid ${({ theme }) => theme.colors.white};
