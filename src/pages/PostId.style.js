@@ -4,7 +4,13 @@ import styled from "styled-components";
 export const Box = styled.div`
   width: 100%;
   min-height: 120vh;
-  background-color: ${(props) => props.bgColor || "#ffffff"};
+  background-color: ${(props) =>
+    !props.bgImage ? props.bgColor || "#ffffff" : "transparent"};
+  background-image: ${(props) =>
+    props.bgImage ? `url(${props.bgImage})` : "none"};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0 auto;
   min-width: 1200px;
   justify-content: "center";
