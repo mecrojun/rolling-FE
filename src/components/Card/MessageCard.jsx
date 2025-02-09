@@ -11,10 +11,11 @@ import {
   DeleteContainer,
 } from "./MessageCardStyle";
 import DeleteButton from "../Buttons/DeleteButton";
-import { RelBadge } from "../Badge/Badge.jsx";
+import { RelBadge } from "../Badge/Badge";
 
 function MessageCard({
   recipientId,
+  id,
   profileImageURL,
   sender,
   relationship,
