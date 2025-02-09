@@ -85,6 +85,7 @@ function List() {
   return (
     <div>
       <Header />
+      <L.Divider />
       <L.ListTitleText>인기 롤링 페이퍼🔥</L.ListTitleText>
       <L.CardSlider>
         <L.CardContainer>

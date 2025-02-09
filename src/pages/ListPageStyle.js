@@ -47,10 +47,18 @@ const ArrowButtonWrapper = styled.div`
   }
 `;
 
+const Divider = styled.div`
+  position: sticky;
+  top: 65px;
+  width: 100%;
+  border-top: 1px solid #ededed;
+`;
+
 export {
   ListTitleText,
   PostButtonWrapper,
   ArrowButtonWrapper,
   CardSlider,
   CardContainer,
+  Divider,
 };
