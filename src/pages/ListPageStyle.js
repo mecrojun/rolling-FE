@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ListTitleText = styled.h3`
-  ${(props) => props.theme.fonts["24b"]}
+  ${(props) => props.theme.fonts["24b"]};
   margin: 50px 0 15px 380px;
   color: #000000;
   letter-spacing: -1%;

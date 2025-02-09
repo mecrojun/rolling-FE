@@ -1,6 +1,7 @@
 import Header from "../components/Header/Header";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import { Content, H2, Label, Line, P, Wrapper } from "./Main.style";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
   const test = () => {
