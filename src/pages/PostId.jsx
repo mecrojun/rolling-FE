@@ -10,7 +10,6 @@ import { MessageCardBox, Box, PlusBox } from "./PostId.style";
 import CreateButton from "../components/Buttons/CreateButton";
 
 function PostId() {
-  // const { recipientId } = useParams();
   const [recipient, setRecipient] = useState(null);
   const [messages, setMessages] = useState([]);
   const [backgroundImageURL, setbackgroundImageURL] = useState(null);
@@ -23,13 +22,11 @@ function PostId() {
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
   const { id } = useParams();
-  // const id = "9817";
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
-          //git  ../13-5/recipients/${recipientId}/
           `https://rolling-api.vercel.app/13-5/recipients/${id}/`
         );
         setRecipient(response.data);
@@ -43,7 +40,6 @@ function PostId() {
     const fetchInitialMessages = async () => {
       try {
         const response = await axios.get(
-          //git  ../13-5/recipients/${recipientId}/messages/
           `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
@@ -62,7 +58,6 @@ function PostId() {
     const fetchReactionData = async () => {
       try {
         const response = await axios.get(
-          //git  ../13-5/recipients/${recipientId}/reactions/
           `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
         );
         setReaction(response.data.results || []);
@@ -99,7 +94,6 @@ function PostId() {
 
     try {
       const response = await axios.get(
-        //git  ../13-5/recipients/${recipientId}/messages/
         `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
