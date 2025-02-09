@@ -10,30 +10,33 @@ import { MessageCardBox, Box, PlusBox } from "./PostId.style";
 import CreateButton from "../components/Buttons/CreateButton";
 
 function PostId() {
-  const { recipientId } = useParams();
+  // const { recipientId } = useParams();
+  const [recipient, setRecipient] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [backgroundImageURL, setbackgroundImageURL] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("white");
+  const [reaction, setReaction] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
   const [isReady, setIsReady] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [totalCount, setTotalCount] = useState(null);
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
-  // const { id } = useParams();
-  const id = "9817";
+  const { id } = useParams();
+  // const id = "9817";
 
   useEffect(() => {
     const fetchRecipientData = async () => {
       try {
         const response = await axios.get(
           //git  ../13-5/recipients/${recipientId}/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/`
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/`
         );
-        if (response.data.backgroundColor) {
-          setBackgroundColor(response.data.backgroundColor);
-        }
+        setRecipient(response.data);
+        setbackgroundImageURL(response.data.backgroundImageURL);
+        setBackgroundColor(response.data.backgroundColor);
       } catch (error) {
-        console.error("배경색 조회 오류:", error);
+        console.error("대상 정보 조회 오류:", error);
       }
     };
 
@@ -41,7 +44,7 @@ function PostId() {
       try {
         const response = await axios.get(
           //git  ../13-5/recipients/${recipientId}/messages/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
           { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
         );
 
@@ -56,13 +59,29 @@ function PostId() {
       }
     };
 
+    const fetchReactionData = async () => {
+      try {
+        const response = await axios.get(
+          //git  ../13-5/recipients/${recipientId}/reactions/
+          `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
+        );
+        setReaction(response.data.results || []);
+      } catch (error) {
+        console.error("대상 리액션 정보 조회 오류:", error);
+      }
+    };
+
     const fetchData = async () => {
-      await Promise.all([fetchRecipientData(), fetchInitialMessages()]);
+      await Promise.all([
+        fetchRecipientData(),
+        fetchInitialMessages(),
+        fetchReactionData(),
+      ]);
       setIsReady(true);
     };
 
     fetchData();
-  }, [recipientId]);
+  }, [id]);
 
   const fetchMoreMessages = async () => {
     if (!hasMore || totalCount === null) {
@@ -81,7 +100,7 @@ function PostId() {
     try {
       const response = await axios.get(
         //git  ../13-5/recipients/${recipientId}/messages/
-        `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
 
@@ -137,12 +156,11 @@ function PostId() {
   if (!isReady) return null;
 
   return (
-    <Box bgColor={backgroundColor}>
+    <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
       <HeaderLogoOnly />
-      <HeaderService />
+      <HeaderService recipient={recipient} reaction={reaction} />
       <MessageCardBox messageCount={messages.length}>
-        {/* <PlusBox to="/post/{id}/message" */}
-        <PlusBox to="/">
+        <PlusBox to="/Post/{id}/Message">
           <CreateButton />
         </PlusBox>
         {messages.map((message, index) => (
