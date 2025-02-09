@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PrimaryButtonWrapper from "../components/Buttons/PrimaryButton.style";
 
 export const Wrapper = styled.div`
     width: ${(props) => props.width || '100%'};
@@ -51,6 +52,33 @@ export const Wrapper = styled.div`
     &.buttonWrapper {
         margin-top: 24px;
     }
+
+    @media (max-width: 768px) {
+        &.section-wrap {
+            margin-top: 49px;
+            padding: 0 24px;
+        }
+
+        &.txt-box-01, &.txt-box-02 {
+            width: 100%;
+        }
+
+        &.buttonWrapper {
+            margin-top: 48px;
+            padding: 24px;
+        }
+
+        &.txt-box-01, &.txt-box-02 {
+            margin-left: 0;
+            border-left: 40px solid ${({ theme }) => theme.colors.surface};
+        }
+
+        &.img-box {
+            width: 100%;
+            height: height: 100%;
+            padding: 16px 28px;
+        }
+    }
 `;
 
 export const Content = styled.div`
@@ -60,7 +88,7 @@ export const Content = styled.div`
         width: 1200px;
         height: 324px;
         border-radius: 16px;
-        background-color: #F6F8FF;
+        background-color: ${({ theme }) => theme.colors.surface};
         padding-top: 60px;
     }
 
@@ -80,6 +108,21 @@ export const Content = styled.div`
         height: 204px;
         background-image: url('/src/assets/mainImg02.png');
         background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        &.section {
+            ${({ theme }) => theme.flexLayout("column")};
+            gap: 36px;
+            width: 100%;
+            height: 440px;
+            padding: 40px 0;
+        }
+
+        &.img-01 {
+            width: 100%;
+            height: 100%;
+        }
     }
 `;
 
@@ -103,9 +146,23 @@ export const Label = styled.div`
 export const H2 = styled.h2`
     ${({ theme }) => theme.fonts['24b']}
     color: ${({ theme }) => theme.colors.gray[900]};
+
+    @media (max-width: 768px) {
+        br {
+            display: none;
+        }
+    }
 `;
 
 export const P = styled.p`
     ${({ theme }) => theme.fonts['18r']}
     color: ${({ theme }) => theme.colors.gray[500]};
+`;
+
+export const MoveListButton = styled(PrimaryButtonWrapper)`
+    width: 280px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
