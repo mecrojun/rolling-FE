@@ -4,17 +4,14 @@ import ShareButton from "./ShareButton";
 import ProfileImages from "./ProfileImages";
 import AddEmoji from "./AddEmoji";
 import * as H from "./HeaderService.style";
-import { useState } from "react";
-import { mockRecipient } from "./MockData";
 
-function HeaderService() {
-  const [recipient, setRecipient] = useState(mockRecipient);
+function HeaderService({ recipient, reaction }) {
+  if (!recipient) return null;
 
   return (
     <H.HeaderBox>
       <H.HeaderContainer>
         <To name={recipient.name} />
-
         <H.RightSection>
           <ProfileImages
             recentMessages={recipient.recentMessages}
@@ -23,7 +20,7 @@ function HeaderService() {
           <H.Line />
 
           <H.Section>
-            <Reaction topReactions={recipient.topReactions} />
+            <Reaction reactions={reaction} />
             <H.MiniSection>
               <AddEmoji />
               <H.Line />
