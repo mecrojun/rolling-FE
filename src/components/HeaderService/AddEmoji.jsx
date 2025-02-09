@@ -1,7 +1,7 @@
 import EmojiPicker from "emoji-picker-react";
 import { useState } from "react";
 import { AddIcon } from "../Icons";
-import * as A from "./AddEmoji.style";
+import * as G from "./GlobalStyle";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -44,19 +44,19 @@ function AddEmoji({ updateReactions }) {
 
   return (
     <>
-      <A.Button onClick={toggleEmojiMenu}>
-        <A.Section>
+      <G.Button onClick={toggleEmojiMenu}>
+        <G.Section>
           <AddIcon />
-          <A.Text>추가</A.Text>
-        </A.Section>
-      </A.Button>
+          <G.Text>추가</G.Text>
+        </G.Section>
+      </G.Button>
 
       {isEmojiOpen && (
         <>
-          <A.Overlay onClick={toggleEmojiMenu} />
-          <A.EmojiPickerWrapper>
+          <G.Overlay onClick={toggleEmojiMenu} />
+          <G.EmojiPickerWrapper>
             <EmojiPicker onEmojiClick={handleEmojiClick} />
-          </A.EmojiPickerWrapper>
+          </G.EmojiPickerWrapper>
         </>
       )}
     </>
