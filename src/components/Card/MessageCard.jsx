@@ -4,7 +4,6 @@ import {
   MessageProfileIcon,
   SenderFont,
   SenderBoldText,
-  RelationshipBadge,
   MessageContainer,
   MessageFont,
   MessageDateFont,

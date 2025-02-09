@@ -33,7 +33,7 @@ function List() {
     const fetchCards = async () => {
       try {
         const response = await axios.get(
-          "https://rolling-api.vercel.app/1-7/recipients/"
+          "https://rolling-api.vercel.app/13-5/recipients/"
         );
         setCards(response.data.results || []);
       } catch (error) {
@@ -86,6 +86,7 @@ function List() {
     <div>
       <Header />
       <L.Divider />
+
       <L.ListTitleText>인기 롤링 페이퍼🔥</L.ListTitleText>
       <L.CardSlider>
         <L.CardContainer>
@@ -137,7 +138,7 @@ function List() {
         </L.CardContainer>
       </L.CardSlider>
       <L.PostButtonWrapper>
-        <PrimaryButton onClick={handleCreatePost}>
+        <PrimaryButton width="280px" height="56px" onClick={handleCreatePost}>
           나도 만들어보기
         </PrimaryButton>
       </L.PostButtonWrapper>
