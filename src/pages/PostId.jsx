@@ -161,30 +161,32 @@ function PostId() {
   if (!isReady) return null;
 
   return (
-    <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
+    <>
       <HeaderLogoOnly />
       <HeaderService
         recipient={recipient}
         reaction={reaction}
         updateReactions={updateReactions}
       />
-      <MessageCardBox messageCount={messages.length}>
-        <PlusBox to="/Post/{id}/Message">
-          <CreateButton />
-        </PlusBox>
-        {messages.map((message, index) => (
-          <MessageCard
-            key={index}
-            {...message}
-            onClick={() => handleOpenModal(message)}
-          />
-        ))}
-      </MessageCardBox>
+      <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
+        <MessageCardBox messageCount={messages.length}>
+          <PlusBox to="/Post/{id}/Message">
+            <CreateButton />
+          </PlusBox>
+          {messages.map((message, index) => (
+            <MessageCard
+              key={index}
+              {...message}
+              onClick={() => handleOpenModal(message)}
+            />
+          ))}
+        </MessageCardBox>
 
-      {selectedMessage && (
-        <Modal message={selectedMessage} handleClose={handleCloseModal} />
-      )}
-    </Box>
+        {selectedMessage && (
+          <Modal message={selectedMessage} handleClose={handleCloseModal} />
+        )}
+      </Box>
+    </>
   );
 }
 
