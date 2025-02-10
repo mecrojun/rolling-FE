@@ -9,11 +9,8 @@ function ShareButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const kakaoKey = "0145c096abfc50c87de525e3e14c660d";
-    console.log("카카오 앱 키:", kakaoKey);
-
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(kakaoKey);
+      window.Kakao.init(import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY);
     }
   }, []);
 
