@@ -19,6 +19,7 @@ function PostId() {
   const [isReady, setIsReady] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [totalCount, setTotalCount] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
   const { id } = useParams();
@@ -79,9 +80,8 @@ function PostId() {
   }, [id]);
 
   const fetchMoreMessages = async () => {
-    if (!hasMore || totalCount === null) {
-      return;
-    }
+    if (isFetching || !hasMore || totalCount === null) return;
+    setIsFetching(true);
 
     const offset = messages.length;
     const remainingItems = Math.max(0, totalCount - offset);
@@ -89,6 +89,7 @@ function PostId() {
 
     if (fetchLimit <= 0) {
       setHasMore(false);
+      setIsFetching(false);
       return;
     }
 
@@ -117,12 +118,14 @@ function PostId() {
     } catch (error) {
       console.error("추가 메시지 조회 오류:", error);
       setHasMore(false);
+    } finally {
+      setTimeout(() => setIsFetching(false), 1000);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!hasMore) return;
+      if (!hasMore || isFetching) return;
 
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
@@ -137,7 +140,7 @@ function PostId() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasMore, totalCount, messages.length]);
+  }, [hasMore, totalCount, messages.length, isFetching]);
 
   const handleOpenModal = (message) => {
     setSelectedMessage(message);
