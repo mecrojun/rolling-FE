@@ -24,58 +24,58 @@ function PostId() {
   const PAGE_SIZE_MORE = 6;
   const { id } = useParams();
 
+  const fetchReactionData = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
+      );
+      setReaction(response.data.results || []);
+    } catch (error) {
+      console.error("대상 리액션 정보 조회 오류:", error);
+    }
+  };
+
+  const fetchRecipientData = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/`
+      );
+      setRecipient(response.data);
+      setbackgroundImageURL(response.data.backgroundImageURL);
+      setBackgroundColor(response.data.backgroundColor);
+    } catch (error) {
+      console.error("대상 정보 조회 오류:", error);
+    }
+  };
+
+  const fetchInitialMessages = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
+        { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
+      );
+
+      setMessages(response.data.results);
+
+      if (typeof response.data.count === "number") {
+        setTotalCount(response.data.count);
+      }
+    } catch (error) {
+      console.error("초기 메시지 조회 오류:", error);
+      setMessages(messageData);
+    }
+  };
+
+  const fetchData = async () => {
+    await Promise.all([
+      fetchRecipientData(),
+      fetchInitialMessages(),
+      fetchReactionData(),
+    ]);
+    setIsReady(true);
+  };
+
   useEffect(() => {
-    const fetchRecipientData = async () => {
-      try {
-        const response = await axios.get(
-          `https://rolling-api.vercel.app/13-5/recipients/${id}/`
-        );
-        setRecipient(response.data);
-        setbackgroundImageURL(response.data.backgroundImageURL);
-        setBackgroundColor(response.data.backgroundColor);
-      } catch (error) {
-        console.error("대상 정보 조회 오류:", error);
-      }
-    };
-
-    const fetchInitialMessages = async () => {
-      try {
-        const response = await axios.get(
-          `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
-          { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
-        );
-
-        setMessages(response.data.results);
-
-        if (typeof response.data.count === "number") {
-          setTotalCount(response.data.count);
-        }
-      } catch (error) {
-        console.error("초기 메시지 조회 오류:", error);
-        setMessages(messageData);
-      }
-    };
-
-    const fetchReactionData = async () => {
-      try {
-        const response = await axios.get(
-          `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
-        );
-        setReaction(response.data.results || []);
-      } catch (error) {
-        console.error("대상 리액션 정보 조회 오류:", error);
-      }
-    };
-
-    const fetchData = async () => {
-      await Promise.all([
-        fetchRecipientData(),
-        fetchInitialMessages(),
-        fetchReactionData(),
-      ]);
-      setIsReady(true);
-    };
-
     fetchData();
   }, [id]);
 
@@ -138,6 +138,7 @@ function PostId() {
         fetchMoreMessages();
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hasMore, totalCount, messages.length, isFetching]);
@@ -150,17 +151,6 @@ function PostId() {
     setSelectedMessage(null);
   };
 
-  const updateReactions = async () => {
-    try {
-      const response = await axios.get(
-        `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
-      );
-      setReaction(response.data.results || []);
-    } catch (error) {
-      console.error("리액션 업데이트 실패:", error);
-    }
-  };
-
   if (!isReady) return null;
 
   return (
@@ -169,7 +159,7 @@ function PostId() {
       <HeaderService
         recipient={recipient}
         reaction={reaction}
-        updateReactions={updateReactions}
+        updateReactions={fetchReactionData}
       />
       <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
         <MessageCardBox messageCount={messages.length}>
