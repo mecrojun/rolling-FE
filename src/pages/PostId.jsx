@@ -10,64 +10,78 @@ import { MessageCardBox, Box, PlusBox } from "./PostId.style";
 import CreateButton from "../components/Buttons/CreateButton";
 
 function PostId() {
-  const { recipientId } = useParams();
+  const [recipient, setRecipient] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [backgroundImageURL, setbackgroundImageURL] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("white");
+  const [reaction, setReaction] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
   const [isReady, setIsReady] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [totalCount, setTotalCount] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const PAGE_SIZE_INITIAL = 5;
   const PAGE_SIZE_MORE = 6;
-  // const { id } = useParams();
-  const id = "9817";
+  const { id } = useParams();
+
+  const fetchReactionData = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/reactions/`
+      );
+      setReaction(response.data.results || []);
+    } catch (error) {
+      console.error("대상 리액션 정보 조회 오류:", error);
+    }
+  };
+
+  const fetchRecipientData = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/`
+      );
+      setRecipient(response.data);
+      setbackgroundImageURL(response.data.backgroundImageURL);
+      setBackgroundColor(response.data.backgroundColor);
+    } catch (error) {
+      console.error("대상 정보 조회 오류:", error);
+    }
+  };
+
+  const fetchInitialMessages = async () => {
+    try {
+      const response = await axios.get(
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
+        { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
+      );
+
+      setMessages(response.data.results);
+
+      if (typeof response.data.count === "number") {
+        setTotalCount(response.data.count);
+      }
+    } catch (error) {
+      console.error("초기 메시지 조회 오류:", error);
+      setMessages(messageData);
+    }
+  };
+
+  const fetchData = async () => {
+    await Promise.all([
+      fetchRecipientData(),
+      fetchInitialMessages(),
+      fetchReactionData(),
+    ]);
+    setIsReady(true);
+  };
 
   useEffect(() => {
-    const fetchRecipientData = async () => {
-      try {
-        const response = await axios.get(
-          //git  ../13-5/recipients/${recipientId}/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/`
-        );
-        if (response.data.backgroundColor) {
-          setBackgroundColor(response.data.backgroundColor);
-        }
-      } catch (error) {
-        console.error("배경색 조회 오류:", error);
-      }
-    };
-
-    const fetchInitialMessages = async () => {
-      try {
-        const response = await axios.get(
-          //git  ../13-5/recipients/${recipientId}/messages/
-          `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
-          { params: { limit: PAGE_SIZE_INITIAL, offset: 0 } }
-        );
-
-        setMessages(response.data.results);
-
-        if (typeof response.data.count === "number") {
-          setTotalCount(response.data.count);
-        }
-      } catch (error) {
-        console.error("초기 메시지 조회 오류:", error);
-        setMessages(messageData);
-      }
-    };
-
-    const fetchData = async () => {
-      await Promise.all([fetchRecipientData(), fetchInitialMessages()]);
-      setIsReady(true);
-    };
-
     fetchData();
-  }, [recipientId]);
+  }, [id]);
 
   const fetchMoreMessages = async () => {
-    if (!hasMore || totalCount === null) {
-      return;
-    }
+    if (isFetching || !hasMore || totalCount === null) return;
+    setIsFetching(true);
 
     const offset = messages.length;
     const remainingItems = Math.max(0, totalCount - offset);
@@ -75,13 +89,13 @@ function PostId() {
 
     if (fetchLimit <= 0) {
       setHasMore(false);
+      setIsFetching(false);
       return;
     }
 
     try {
       const response = await axios.get(
-        //git  ../13-5/recipients/${recipientId}/messages/
-        `https://rolling-api.vercel.app/1-7/recipients/${id}/messages/`,
+        `https://rolling-api.vercel.app/13-5/recipients/${id}/messages/`,
         { params: { limit: fetchLimit, offset } }
       );
 
@@ -104,12 +118,14 @@ function PostId() {
     } catch (error) {
       console.error("추가 메시지 조회 오류:", error);
       setHasMore(false);
+    } finally {
+      setTimeout(() => setIsFetching(false), 1000);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!hasMore) return;
+      if (!hasMore || isFetching) return;
 
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
@@ -122,9 +138,10 @@ function PostId() {
         fetchMoreMessages();
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasMore, totalCount, messages.length]);
+  }, [hasMore, totalCount, messages.length, isFetching]);
 
   const handleOpenModal = (message) => {
     setSelectedMessage(message);
@@ -137,27 +154,32 @@ function PostId() {
   if (!isReady) return null;
 
   return (
-    <Box bgColor={backgroundColor}>
+    <>
       <HeaderLogoOnly />
-      <HeaderService />
-      <MessageCardBox messageCount={messages.length}>
-        {/* <PlusBox to="/post/{id}/message" */}
-        <PlusBox to="/">
-          <CreateButton />
-        </PlusBox>
-        {messages.map((message, index) => (
-          <MessageCard
-            key={index}
-            {...message}
-            onClick={() => handleOpenModal(message)}
-          />
-        ))}
-      </MessageCardBox>
+      <HeaderService
+        recipient={recipient}
+        reaction={reaction}
+        updateReactions={fetchReactionData}
+      />
+      <Box bgColor={backgroundColor} bgImage={backgroundImageURL}>
+        <MessageCardBox messageCount={messages.length}>
+          <PlusBox to="/Post/{id}/Message">
+            <CreateButton />
+          </PlusBox>
+          {messages.map((message, index) => (
+            <MessageCard
+              key={index}
+              {...message}
+              onClick={() => handleOpenModal(message)}
+            />
+          ))}
+        </MessageCardBox>
 
-      {selectedMessage && (
-        <Modal message={selectedMessage} handleClose={handleCloseModal} />
-      )}
-    </Box>
+        {selectedMessage && (
+          <Modal message={selectedMessage} handleClose={handleCloseModal} />
+        )}
+      </Box>
+    </>
   );
 }
 

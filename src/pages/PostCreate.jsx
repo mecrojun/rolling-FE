@@ -3,11 +3,23 @@ import Colorchip from "../components/Colorchip/Colorchip";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import ToggleButton from "../components/Buttons/ToggleButton";
 import { InputField } from "../components/TextField/TextField";
-import * as P from "./Create.style";
+import * as P from "./PostAndMessage.style";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PostCreate() {
   const [isToggled, setIsToggled] = useState(false);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const isButtonDisabled = !name.trim();
+
+  const handleSubmit = () => {
+    if (!isButtonDisabled) {
+      const id = Math.random().toString(36).substr(2, 9);
+      navigate(`/post/${id}`);
+    }
+  };
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
@@ -19,7 +31,11 @@ function PostCreate() {
       <P.Wrapper className="section-wrap">
         <P.Section className="name">
           <P.SectionTitle>To.</P.SectionTitle>
-          <InputField placeholder="받는 사람 이름을 입력해 주세요" />
+          <InputField
+            placeholder="받는 사람 이름을 입력해 주세요"
+            value={name}
+            onChange={(value) => setName(value)}
+          />
         </P.Section>
         <P.Section className="select-background">
           <P.Wrapper className="txt-box">
@@ -40,7 +56,12 @@ function PostCreate() {
           {/* Colorchip 컴포넌트 수정 - 이미지 */}
           <Colorchip isImage={isToggled} />
         </P.Section>
-        <PrimaryButton width="100%" height="56px">
+        <PrimaryButton
+          width="100%"
+          height="56px"
+          $disable={isButtonDisabled}
+          onClick={handleSubmit}
+        >
           생성하기
         </PrimaryButton>
       </P.Wrapper>

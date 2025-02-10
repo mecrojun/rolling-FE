@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ArrowDownIcon } from "../Icons";
-import * as R from "./Reaction.style";
+import * as G from "./GlobalStyle";
+import { EmojiBadge } from "../Badge/Badge";
 
-function Reaction({ topReactions }) {
+function Reaction({ reactions }) {
   const [isEmojiOpen, setIsEmojiOpen] = useState(false);
 
   const toggleEmojiMenu = () => {
@@ -11,27 +12,29 @@ function Reaction({ topReactions }) {
 
   const renderReactions = (reactions) => {
     return reactions.map((reaction) => (
-      <R.ReactionBox key={reaction.id}>
-        {reaction.emoji} {reaction.count}
-      </R.ReactionBox>
+      <EmojiBadge
+        key={reaction.id}
+        emoji={reaction.emoji}
+        count={reaction.count}
+      />
     ));
   };
 
   return (
     <>
-      <R.ReactionBoxContainer>
-        {renderReactions(topReactions.slice(0, 3))}
-        <R.ArrowButton onClick={toggleEmojiMenu}>
+      <G.ReactionBoxContainer>
+        {renderReactions(reactions.slice(0, 3))}
+        <G.ArrowButton onClick={toggleEmojiMenu}>
           <ArrowDownIcon />
-        </R.ArrowButton>
-      </R.ReactionBoxContainer>
+        </G.ArrowButton>
+      </G.ReactionBoxContainer>
 
       {isEmojiOpen && (
         <>
-          <R.Overlay onClick={toggleEmojiMenu} />
-          <R.EmojiMoreWrapper>
-            <R.EmojiList>{renderReactions(topReactions)}</R.EmojiList>
-          </R.EmojiMoreWrapper>
+          <G.Overlay onClick={toggleEmojiMenu} />
+          <G.EmojiMoreWrapper>
+            <G.EmojiList>{renderReactions(reactions)}</G.EmojiList>
+          </G.EmojiMoreWrapper>
         </>
       )}
     </>

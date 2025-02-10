@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { ShareIcon } from "../Icons";
-import * as S from "./ShareButton.style";
+import * as G from "./GlobalStyle";
+import { useContext } from "react";
+import { ToastContext } from "../../context/ToastContext";
 
 function ShareButton() {
+  const { addToast } = useContext(ToastContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleShareMenu = () => {
@@ -12,8 +15,7 @@ function ShareButton() {
   const handleCopyUrl = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
-      //Toast로 대체 예정
-      alert("복사 성공");
+      addToast("URL이 복사 되었습니다.");
       toggleShareMenu();
     } catch (err) {
       console.error("URL 복사 실패", err);
@@ -22,19 +24,19 @@ function ShareButton() {
 
   return (
     <>
-      <S.Button onClick={toggleShareMenu}>
+      <G.ShareButton onClick={toggleShareMenu}>
         <ShareIcon />
-      </S.Button>
+      </G.ShareButton>
 
       {isOpen && (
         <>
-          <S.Overlay onClick={toggleShareMenu} />
-          <S.ShareMenuWrapper>
-            <S.ShareOptions>
+          <G.Overlay onClick={toggleShareMenu} />
+          <G.ShareMenuWrapper>
+            <G.ShareOptions>
               <button>카카오톡 공유</button>
               <button onClick={handleCopyUrl}>URL 공유</button>
-            </S.ShareOptions>
-          </S.ShareMenuWrapper>
+            </G.ShareOptions>
+          </G.ShareMenuWrapper>
         </>
       )}
     </>

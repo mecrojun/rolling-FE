@@ -1,10 +1,20 @@
 import styled from "styled-components";
 
+export const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000080;
+  border-radius: 10px;
+  z-index: 20;
+`;
+
 export const Container = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -52,9 +62,6 @@ export const Name = styled.span`
   ${({ theme }) => theme.fonts["20b"]};
 `;
 
-// TODO: Badge 컴포넌트 구현되면 수정하기
-export const Badge = styled.div``;
-
 export const ProfileImage = styled.div`
   width: 56px;
   height: 56px;
@@ -73,24 +80,52 @@ export const Content = styled.div`
   width: 100%;
   height: 256px;
   margin-top: 16px;
-  font-family: ${({ $font }) => $font};
-  ${({ theme }) => {
-    const { fontFamily, ...rest } = theme.fonts["18r"];
-    return { ...rest };
-  }}
   color: ${({ theme }) => theme.colors.gray[500]};
   overflow-y: scroll;
-`;
 
-// TODO: Button 컴포넌트 구현되면 수정하기
-export const Button = styled.button`
-  width: 120px;
-  height: 40px;
-  margin-top: 24px;
-  padding: 7px 16px;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.purple[600]};
-  border: 0px;
-  border-radius: 6px;
-  cursor: pointer;
+  p {
+    font-family: ${({ $font }) => $font};
+    ${({ theme }) => {
+      const { fontFamily, ...rest } = theme.fonts["18r"];
+      return { ...rest };
+    }}
+  }
+
+  h1 {
+    font-family: ${({ $font }) => $font};
+    ${({ theme }) => {
+      const { fontFamily, ...rest } = theme.fonts["22b"];
+      return { ...rest };
+    }}
+  }
+
+  h2 {
+    font-family: ${({ $font }) => $font};
+    ${({ theme }) => {
+      const { fontFamily, ...rest } = theme.fonts["20b"];
+      return { ...rest };
+    }}
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 36px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 36px;
+  }
+
+  .ql-align-center {
+    text-align: center;
+  }
+
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-justify {
+    text-align: justify;
+  }
 `;
