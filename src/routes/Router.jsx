@@ -3,7 +3,7 @@ import Main from "../pages/Main";
 import PostEdit from "../pages/PostEdit/PostEdit";
 import PostCreate from "../pages/PostCreate";
 import PostId from "../pages/PostId";
-import List from "../pages/list";
+import List from "../pages/List";
 import MessageWrite from "../pages/MessageWrite";
 
 function Router() {
@@ -15,7 +15,7 @@ function Router() {
         <Route path="/post/:id" element={<PostId />} />
         <Route path="/post" element={<PostCreate />} />
         <Route path="/Post/:id/Message" element={<MessageWrite />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/List" element={<List />} />
       </Routes>
     </BrowserRouter>
   );
