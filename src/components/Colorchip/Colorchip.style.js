@@ -19,6 +19,7 @@ export const ColorChipItem = styled.div`
     isImage ? `url(${item})` : "none"};
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
 
   &:hover {
@@ -29,7 +30,6 @@ export const ColorChipItem = styled.div`
   }
 `;
 
-// 아이콘 컴포넌트로 대체 예정
 export const Selection = styled.div`
   display: ${({ $isChecked }) => ($isChecked ? "block" : "none")};
   position: absolute;
