@@ -1,12 +1,12 @@
 import Header from "../../components/Header/Header";
-import HeaderService from "../../components/HeaderService/HeaderService";
-import MessageCard from "../../components/MessageCard";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
+import HeaderService from "../components/HeaderService/HeaderService";
+import MessageCard from "../components/Card/MessageCard";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 import * as E from "./Edit.style";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteRecipient } from "../../api/Recipients";
+import { deleteRecipient } from "../api/Recipients";
 import { useEffect, useState } from "react";
-import { getMessages } from "../../api/Messages";
+import { getMessages } from "../api/Messages";
 
 const mockData = [
   {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as LC from "./ListCardStyle.js";
-import { EmojiBadge } from "../Badge.jsx";
+import { EmojiBadge } from "../Badge/Badge";
 
 function ProfileList({ recentMessages = [], messageCount = 0 }) {
   const maxVisibleProfiles = 3;
