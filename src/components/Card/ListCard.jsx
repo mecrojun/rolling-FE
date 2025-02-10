@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as LC from "./ListCardStyle.js";
-import { EmojiBadge } from "../Badge/Badge.jsx";
+import { EmojiBadge } from "../Badge/Badge";
 
 function ProfileList({ recentMessages = [], messageCount = 0 }) {
   const maxVisibleProfiles = 3;
@@ -34,6 +34,7 @@ function Card({
   messageCount,
   recentMessages,
   reactionCount,
+  topReactions,
 }) {
   const Navigate = useNavigate();
   const handleCardClick = () => {
@@ -56,9 +57,16 @@ function Card({
         <LC.CardCountText>
           <LC.CountBoldText>{messageCount}</LC.CountBoldText>명이 작성했어요!
         </LC.CardCountText>
+
         <LC.ReactionContainer>
           <LC.ReactionIcons>
-            <EmojiBadge />
+            {topReactions.map((reactions) => (
+              <EmojiBadge
+                key={reactions.id}
+                emoji={reactions.emoji}
+                count={reactions.count}
+              />
+            ))}
           </LC.ReactionIcons>
         </LC.ReactionContainer>
       </LC.CardContent>
@@ -83,6 +91,7 @@ function ListCard({ cards }) {
           reactionCount={card.reactionCount}
           backgroundColor={card.backgroundColor}
           backgroundImageURL={card.backgroundImageURL}
+          topReactions={card.topReactions}
         />
       ))}
     </LC.CardListContainer>
