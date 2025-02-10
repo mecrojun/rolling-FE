@@ -5,7 +5,7 @@ import ProfileImages from "./ProfileImages";
 import AddEmoji from "./AddEmoji";
 import * as H from "./HeaderService.style";
 
-function HeaderService({ recipient, reaction, updateReactions }) {
+function HeaderService({ recipient, reaction, updateReactions = () => {} }) {
   if (!recipient) return null;
 
   return (
