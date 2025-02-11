@@ -14,8 +14,8 @@ function Router() {
         <Route path="/post/:id/edit" element={<PostEdit />} />
         <Route path="/post/:id" element={<PostId />} />
         <Route path="/post" element={<PostCreate />} />
-        <Route path="/post/:id/message" element={<MessageWrite />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/Post/:id/Message" element={<MessageWrite />} />
+        <Route path="/List" element={<List />} />
       </Routes>
     </BrowserRouter>
   );

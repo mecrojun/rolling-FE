@@ -3,9 +3,34 @@ import styled from "styled-components";
 const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: fit-content;
+  align-items: center;
+  width: 100%
+    padding: 0 24px;
   margin: 50px auto;
+  position: relative;
+`;
+
+const CardSlider = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
   position: relative;
 `;
 
@@ -14,6 +39,13 @@ const ListTitleText = styled.h3`
   margin-bottom: 15px;
   color: #000000;
   letter-spacing: -1%;
+  align-self: flex-start;
+  margin-left: calc((100% - 1205px) / 2);
+  padding-left: 24px;
+
+   @media (max-width: 1200px) {
+    margin-left: 0;           
+    padding-left: 25px;
 `;
 
 const PostButtonWrapper = styled.div`
@@ -21,23 +53,6 @@ const PostButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 60px;
-`;
-
-const CardSlider = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  gap: 20px;
-`;
-
-const CardContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  transition: transform 0.3s ease-in-out;
-  position: relative;
 `;
 
 const ArrowButtonWrapper = styled.div`
