@@ -30,9 +30,20 @@ export const MessageCardBox = styled.div`
   margin: 0 auto;
   padding-bottom: 50px;
 
-  @media (max-width: 1248px) {
-    width: calc(100% - 48px);
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  @media (max-width: 1250px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 800px;
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
   }
 `;
 
