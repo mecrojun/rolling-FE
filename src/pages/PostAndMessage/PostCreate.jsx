@@ -1,8 +1,8 @@
-import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
-import Colorchip from "../components/Colorchip/Colorchip";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
-import ToggleButton from "../components/Buttons/ToggleButton";
-import { InputField } from "../components/TextField/TextField";
+import HeaderLogoOnly from "../../components/Header/HeaderLogoOnly";
+import Colorchip from "../../components/Colorchip/Colorchip";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
+import ToggleButton from "../../components/Buttons/ToggleButton";
+import { InputField } from "../../components/TextField/TextField";
 import * as P from "./PostAndMessage.style";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

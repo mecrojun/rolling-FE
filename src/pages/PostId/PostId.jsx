@@ -1,11 +1,10 @@
-import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
-import HeaderService from "../components/HeaderService/HeaderService";
-import MessageCard from "../components/Card/MessageCard";
-import Modal from "../components/Modal/Modal";
-import CreateButton from "../components/Buttons/CreateButton";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
+import HeaderLogoOnly from "../../components/Header/HeaderLogoOnly";
+import HeaderService from "../../components/HeaderService/HeaderService";
+import MessageCard from "../../components/Card/MessageCard";
+import Modal from "../../components/Modal/Modal";
+import CreateButton from "../../components/Buttons/CreateButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import axios from "axios";
-import { messageData } from "./MessageData";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -73,7 +72,7 @@ function PostId() {
       }
     } catch (error) {
       console.error("초기 메시지 조회 오류:", error);
-      setMessages(messageData);
+      setMessages([]);
     }
   };
 
@@ -183,7 +182,7 @@ function PostId() {
           </PrimaryButton>
         </PrimaryButtonWrapper>
         <MessageCardBox messageCount={messages.length}>
-          <PlusBox to={`/Post/${id}/Message`}>
+          <PlusBox to={`/post/${id}/message`}>
             <CreateButton />
           </PlusBox>
           {messages.map((message, index) => (
