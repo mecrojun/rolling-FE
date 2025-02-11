@@ -60,8 +60,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-display: swap;
     src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2'),
-}
-
+  }
 
   // 나눔명조
   @font-face {
@@ -70,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-display: swap;
     src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumMyeongjo/NanumMyeongjo.woff2') format('woff2'),
-}
+  }
   
   // 나눔손글씨 손편지체
   @font-face {
@@ -79,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-display: swap;
     src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSonPyeonJiCe/NanumSonPyeonJiCe.woff2') format('woff2'),
-}
+  }
 `;
 
 export default GlobalStyle;

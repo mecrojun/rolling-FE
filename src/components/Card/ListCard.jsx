@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import * as LC from "./ListCardStyle.js";
+import * as LC from "./ListCard.style.js";
 import { EmojiBadge } from "../Badge/Badge";
 
 const getLuminance = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b;

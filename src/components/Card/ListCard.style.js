@@ -10,13 +10,13 @@ const CardContainer = styled.div`
     props.$backgroundImageURL
       ? `url(${props.$backgroundImageURL}) no-repeat center/cover`
       : props.$backgroundColor === "purple"
-        ? `#ecd9ff url("/assets/card-list/pattern_purple.png") no-repeat right bottom/auto`
+        ? `#ecd9ff url("/card-list/pattern_purple.png") no-repeat right bottom/auto`
         : props.$backgroundColor === "blue"
-          ? `#b1e4ff url("/assets/card-list/pattern_blue.png") no-repeat right bottom/auto`
+          ? `#b1e4ff url("/card-list/pattern_blue.png") no-repeat right bottom/auto`
           : props.$backgroundColor === "beige"
-            ? `#ffe2ad url("/assets/card-list/pattern_beige.png") no-repeat right bottom/auto`
+            ? `#ffe2ad url("/card-list/pattern_beige.png") no-repeat right bottom/auto`
             : props.$backgroundColor === "green"
-              ? `#d0f5c3 url("/assets/card-list/pattern_green.png") no-repeat right bottom/auto`
+              ? `#d0f5c3 url("/card-list/pattern_green.png") no-repeat right bottom/auto`
               : "#ffffff"};
   background-size: ${(props) => (props.$backgroundImageURL ? "cover" : "auto")};
   background-position: ${(props) =>
