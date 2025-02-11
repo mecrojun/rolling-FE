@@ -18,9 +18,10 @@ const CardContainer = styled.div`
             : props.$backgroundColor === "green"
               ? `#d0f5c3 url("/assets/card-list/pattern_green.png") no-repeat right bottom/auto`
               : "#ffffff"};
-  background-size: cover;
+  background-size: ${(props) => (props.$backgroundImageURL ? "cover" : "auto")};
+  background-position: ${(props) =>
+    props.$backgroundImageURL ? "center" : "right bottom"};
   background-repeat: no-repeat;
-  background-position: right bottom;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.14);
