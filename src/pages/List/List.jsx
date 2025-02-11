@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import * as L from "./ListPageStyle";
-import Header from "../components/Header/Header";
-import ListCard from "../components/Card/ListCard";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
-import ArrowButton from "../components/Buttons/ArrowButton";
+import * as L from "./List.style";
+import Header from "../../components/Header/Header";
+import ListCard from "../../components/Card/ListCard";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
+import ArrowButton from "../../components/Buttons/ArrowButton";
 
 function getPopularCards(cards) {
   return [...cards].sort((a, b) => b.reactionCount - a.reactionCount);
@@ -20,7 +20,7 @@ function getRecentCards(cards) {
 function List() {
   const navigate = useNavigate();
   function handleCreatePost() {
-    navigate("/Post");
+    navigate("/post");
   }
 
   const [isloading, setIsLoading] = useState(true);

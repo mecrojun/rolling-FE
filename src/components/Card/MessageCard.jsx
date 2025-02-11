@@ -9,7 +9,7 @@ import {
   MessageFont,
   MessageDateFont,
   DeleteContainer,
-} from "./MessageCardStyle";
+} from "./MessageCard.style";
 import DeleteButton from "../Buttons/DeleteButton";
 import { RelBadge } from "../Badge/Badge";
 import { formatDate } from "../../utils/dateUtils";

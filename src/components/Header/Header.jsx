@@ -11,7 +11,7 @@ function Header() {
           <Logo />
         </H.StyledLink>
 
-        <H.StyledLink to="/Post">
+        <H.StyledLink to="/post">
           <HeaderButton />
         </H.StyledLink>
       </H.StyledHeader>

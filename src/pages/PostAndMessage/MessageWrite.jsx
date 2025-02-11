@@ -1,8 +1,8 @@
-import PrimaryButton from "../components/Buttons/PrimaryButton";
-import HeaderLogoOnly from "../components/Header/HeaderLogoOnly";
-import { Dropdown, InputField } from "../components/TextField/TextField";
-import { Profile } from "../components/Profile/Profile";
-import TextEditor from "../components/TextField/TextEditor";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
+import HeaderLogoOnly from "../../components/Header/HeaderLogoOnly";
+import { Dropdown, InputField } from "../../components/TextField/TextField";
+import { Profile } from "../../components/Profile/Profile";
+import TextEditor from "../../components/TextField/TextEditor";
 import * as P from "./PostAndMessage.style";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
