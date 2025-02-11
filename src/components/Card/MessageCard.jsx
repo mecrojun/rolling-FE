@@ -40,7 +40,7 @@ function MessageCard({
       <SenderContainer>
         <MessageProfileIcon $profileImageURL={profileImageURL} />
         <div>
-          <SenderFont>
+          <SenderFont isDeleteButtonVisible={showDeleteButton}>
             From. <SenderBoldText>{sender}</SenderBoldText>
           </SenderFont>
           <RelBadge value={rel[relationship]} />
