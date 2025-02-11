@@ -119,6 +119,18 @@ const CardListContainer = styled.div`
   gap: 20px;
   transition: transform 0.3s ease-in-out;
   will-change: transform;
+
+  @media (max-width: 1024px) {
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 16px;
+  }
+
+  @media (max-width: 767px) {
+    justify-content: flex-start;
+    padding: 0 16px;
+    gap: 12px;
+  }
 `;
 
 export {
