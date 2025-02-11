@@ -89,7 +89,6 @@ function List() {
 
       <L.ListWrapper>
         <L.ListTitleText>인기 롤링 페이퍼🔥</L.ListTitleText>
-
         <L.CardSlider>
           <L.CardContainer>
             {PopularCards.length > cardsPerPage && popularIndex > 0 && (

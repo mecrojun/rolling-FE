@@ -75,15 +75,16 @@ export const MessageContainer = styled.div`
 // User Cumstom Fonts
 const fontMap = {
   "Noto Sans": "'Noto Sans', sans-serif",
-  "Pretendard": "'Pretendard', sans-serif",
-  "나눔명조": "'Nanum Myeongjo', serif",
+  Pretendard: "'Pretendard', sans-serif",
+  나눔명조: "'Nanum Myeongjo', serif",
   "나눔손글씨 손편지체": "'NanumSonPyeonJiCe', sans-serif",
 };
+
 export const MessageFont = styled.div`
   color: ${({ theme }) => theme.colors.gray[600]};
   letter-spacing: -1%;
-  
-  p {
+
+  * {
     font-family: ${({ $font }) => fontMap[$font] || "Noto Sans, sans-serif"};
     ${({ theme }) => {
       const { fontFamily, ...rest } = theme.fonts["18r"];

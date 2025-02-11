@@ -84,6 +84,7 @@ const fontMap = {
   나눔명조: "'Nanum Myeongjo', serif",
   "나눔손글씨 손편지체": "'NanumSonPyeonJiCe', sans-serif",
 };
+
 export const Content = styled.div`
   width: 100%;
   height: 256px;
@@ -91,7 +92,7 @@ export const Content = styled.div`
   color: ${({ theme }) => theme.colors.gray[500]};
   overflow-y: scroll;
 
-  p {
+  * {
     font-family: ${({ $font }) => fontMap[$font] || "Noto Sans, sans-serif"};
     ${({ theme }) => {
       const { fontFamily, ...rest } = theme.fonts["18r"];
