@@ -18,7 +18,7 @@ const CardContainer = styled.div`
             : props.$backgroundColor === "green"
               ? `#d0f5c3 url("/assets/card-list/pattern_green.png") no-repeat right bottom/auto`
               : "#ffffff"};
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right bottom;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -42,16 +42,14 @@ const CardTitle = styled.h3`
 
 const ProfileContainer = styled.div`
   display: flex;
-  position: relative;
   align-items: center;
   height: 28px;
   margin-bottom: 15px;
 `;
 
 const ProfileIcon = styled.div`
-  position: absolute;
-  left: ${(props) => props.$index * 20}px;
-  z-index: ${(props) => 10 - props.$index};
+  margin-left: ${(props) => (props.$index === 0 ? "0px" : "-10px")};
+  z-index: ${(props) => props.$index};
   width: 28px;
   height: 28px;
   background-image: url(${(props) => props.$profileImageURL});
@@ -65,12 +63,13 @@ const MoreMessagesCount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  left: ${(props) => props.$index * 20}px;
-  z-index: ${(props) => 10 - props.$index};
+  margin-left: -10px;
+  z-index: 10;
   width: 33px;
   height: 28px;
   padding: 5px 6px;
   background-color: #ffffff;
+  border: 1.5px solid #ffffff;
   border-radius: 30px;
 `;
 

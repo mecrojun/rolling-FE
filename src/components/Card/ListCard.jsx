@@ -83,10 +83,16 @@ function Card({
     >
       <LC.CardContent>
         <LC.CardTitle $isDark={isDark}>To. {name}</LC.CardTitle>
-        <ProfileList
-          recentMessages={recentMessages}
-          messageCount={messageCount}
-        />
+
+        <LC.ProfileContainer>
+          <ProfileList
+            recentMessages={recentMessages}
+            messageCount={messageCount}
+          >
+            <LC.ProfileIcon $profileImageURL={profileImageURL} />
+          </ProfileList>
+        </LC.ProfileContainer>
+
         <LC.CardCountText $isDark={isDark}>
           <LC.CountBoldText>{messageCount}</LC.CountBoldText>명이 작성했어요!
         </LC.CardCountText>
@@ -125,6 +131,7 @@ function ListCard({ cards }) {
           backgroundColor={card.backgroundColor}
           backgroundImageURL={card.backgroundImageURL}
           topReactions={card.topReactions}
+          recentMessages={card.recentMessages}
         />
       ))}
     </LC.CardListContainer>
