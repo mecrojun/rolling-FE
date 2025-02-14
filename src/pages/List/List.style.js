@@ -4,13 +4,14 @@ const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%
-    padding: 0 24px;
+  width: 100%;
+  padding: 0 24px;
   margin: 50px auto;
   position: relative;
 `;
 
 const CardSlider = styled.div`
+  width: 1160px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -28,6 +29,7 @@ const CardSlider = styled.div`
 `;
 
 const CardContainer = styled.div`
+  width: 1160px;
   display: flex;
   gap: 20px;
   transition: transform 0.3s ease-in-out;
@@ -52,7 +54,7 @@ const PostButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
+  margin: 60px 0 80px;
 `;
 
 const ArrowButtonWrapper = styled.div`
